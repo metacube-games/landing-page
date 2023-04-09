@@ -9,14 +9,20 @@ import { styled } from "@mui/system";
 import Image from "next/image";
 import Scene3d from "./scene3d";
 import { Model } from "./Cube";
-import { Divider } from "@mui/material";
+import { Divider, Grid } from "@mui/material";
 
 const CustomDivider = styled(Divider)({
   width: "80%",
   height: "2px",
   margin: "20px auto",
-  borderRadius: "1px",
+  borderRadius: "50px",
+  maxWidth: "1200px",
   // line gradient to green to  green-blue, from left to right, gradually
+  // background: "linear-gradient(90deg, #12bc45 0%, #12bc45 50%, #12bc45 100%)",
+  // make the line gradient to green to  green-blue, from left to right, gradually
+  // make border smaller than the center line
+  // border: "1px solid #12bc45",
+  // make border smaller than the center line
   background: "linear-gradient(90deg, #12bc45 0%, #12bc45 50%, #12bc45 100%)",
 });
 
@@ -61,6 +67,13 @@ const Socials = styled(Box)(({ theme }) => ({
   display: "flex",
   justifyContent: "center",
   gap: theme.spacing(2),
+  alignItems: "center",
+  alignContent: "center",
+  align: "center",
+  justifyItems: "center",
+  justifySelf: "center",
+  alignSelf: "center",
+  width: "100%",
 }));
 
 const FeaturesDescription = (props: {
@@ -76,7 +89,7 @@ const FeaturesDescription = (props: {
       alignItems: "center",
       alignContent: "center",
       align: "center",
-      width: "200px",
+      width: "250px",
       backgroundColor: "rgb(50,55,50)",
       borderRadius: "10px",
       padding: "10px",
@@ -85,6 +98,8 @@ const FeaturesDescription = (props: {
   >
     <Scene3d asset={props.model} />
     <Typography
+      gutterBottom
+      variant="h6"
       sx={{
         fontWeight: "bold",
         color: "#12bc45",
@@ -92,17 +107,37 @@ const FeaturesDescription = (props: {
     >
       {props.title}
     </Typography>
-    <Typography>{props.description}</Typography>
+    <Typography
+      // should do exactly 3 lines, not less not more
+      sx={{ height: "80px", overflow: "hidden" }}
+    >
+      {props.description}
+    </Typography>
   </Box>
 );
 const LandingPage: React.FC = () => {
+  //  check if user is top of the page
+  const [isTop, setIsTop] = React.useState(true);
+  React.useEffect(() => {
+    const onScroll = () => {
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+      setIsTop(scrollTop === 0);
+    };
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <>
       <Box>
         <StyledAppBar
-          elevation={0}
+          elevation={isTop ? 0 : 4}
           sx={{
             width: "100%",
+            backgroundColor: isTop
+              ? "rgba(0, 0, 0, 0.0) "
+              : "rgba(0, 10, 0, 0.75)",
           }}
         >
           <Toolbar
@@ -152,7 +187,10 @@ const LandingPage: React.FC = () => {
       </Box>
       {/* ... (rest of the LandingPage components) */}
 
-      <Box component="main" sx={{ marginBottom: "-30px" }}>
+      <Box
+        component="main"
+        sx={{ marginBottom: "-30px", maxWidth: "1200px", margin: "0 auto" }}
+      >
         {/* center text */}
 
         <InfoSection
@@ -161,6 +199,7 @@ const LandingPage: React.FC = () => {
             display: "flex",
             flexDirection: "column",
             marginTop: "-10px",
+            maxWidth: "1200px",
           }}
         >
           <Box sx={{ display: "flex", justifyContent: "center" }}>
@@ -185,23 +224,37 @@ const LandingPage: React.FC = () => {
       </Box>
       {/* horizontal white line divider */}
       <CustomDivider />
-      <Socials>
-        <FeaturesDescription
-          title={" Powered by Starknet"}
-          model={<Model />}
-          description={"Trade, Transfer and Own your assets at the lowest fees"}
-        />
-        <FeaturesDescription
-          title={"Massively Multiplayer"}
-          model={<Model />}
-          description={"Up to 5000 players simultaneously on the same server"}
-        />
-        <FeaturesDescription
-          title={"Free 2 Play"}
-          model={<Model />}
-          description={"Play for Free No integrated purchase"}
-        />
-      </Socials>
+
+      <Grid
+        container
+        align="center"
+        sx={{ maxWidth: "1200px", margin: "0 auto" }}
+        paddingX={{ xs: 5, md: 8, lg: 12 }}
+      >
+        <Grid item xs={12} md={4} marginY={2}>
+          <FeaturesDescription
+            title={" Powered by Starknet"}
+            model={<Model />}
+            description={
+              "Trade, Transfer and Own your assets at the lowest fees"
+            }
+          />
+        </Grid>
+        <Grid item xs={12} md={4} marginY={2}>
+          <FeaturesDescription
+            title={"Massively Multiplayer"}
+            model={<Model />}
+            description={"Up to 5000 players simultaneously on the same server"}
+          />
+        </Grid>
+        <Grid item xs={12} md={4} marginY={2}>
+          <FeaturesDescription
+            title={"Free 2 Play"}
+            model={<Model />}
+            description={"Play for Free No integrated purchase"}
+          />
+        </Grid>
+      </Grid>
     </>
   );
 };
