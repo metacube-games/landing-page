@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import LandingPage from "../components/LandingPage";
+import LandingPage from "../components/landingPage";
 import styled from "@emotion/styled";
 import { Box } from "@mui/system";
 import { createTheme, ThemeProvider } from "@mui/material";
@@ -23,22 +23,12 @@ const Container = styled(Box)(({ theme }) => ({
   `,
 }));
 
-const ContentContainer = styled(Box)(({ theme }) => ({
-  maxWidth: "1200px",
-  margin: "0 auto",
-  width: "100%",
-  display: "flex",
-  flexDirection: "column",
-}));
-
 export default function Home() {
   return (
     <ThemeProvider theme={theme}>
       <main className="flex min-h-screen flex-col items-center justify-between">
         <Container>
-          {/* <ContentContainer> */}
           <LandingPage />
-          {/* </ContentContainer> */}
         </Container>
       </main>
     </ThemeProvider>
