@@ -34,7 +34,7 @@ const Contributor = ({
       <Typography variant="h6" gutterBottom>
         {name}
       </Typography>
-      <Typography variant="body1" sx={{ color: "#12bc45" }} gutterBottom>
+      <Typography variant="body1" sx={{ color: "#1faa00" }} gutterBottom>
         {description}
       </Typography>
     </Box>
@@ -46,22 +46,22 @@ export const ContributorSection = () => {
     {
       name: "Kamyar Taher",
       imageUrl: "t12.png",
-      description: "CEO",
+      description: "CEO, Frontend Developer",
     },
     {
       name: "Bastien Faivre",
       imageUrl: "t12.png",
-      description: "CTO",
+      description: "CTO, Backend Developer",
     },
     {
       name: "Nils Delage",
       imageUrl: "t12.png",
-      description: "Blockchain Expert",
+      description: "Buisness Developer",
     },
     {
       name: "Damien Elledge",
       imageUrl: "t12.png",
-      description: "PR & Marketing Communications",
+      description: "PR, Marketing Communications",
     },
   ];
 

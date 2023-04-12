@@ -14,7 +14,7 @@ const CustomDivider = styled(Divider)({
   margin: "20px auto",
   borderRadius: "50px",
   maxWidth: "1200px",
-  background: "linear-gradient(90deg, #12bc45 0%, #12bc45 50%, #12bc45 100%)",
+  background: "linear-gradient(90deg, #1faa00 0%, #1faa00 50%, #1faa00 100%)",
 });
 
 const CustomDivider2 = styled(Divider)({
@@ -24,7 +24,7 @@ const CustomDivider2 = styled(Divider)({
   zIndex: 1,
   borderRadius: "50px",
   maxWidth: "1200px",
-  background: "linear-gradient(90deg, #12bc45 0%, #12bc45 50%, #12bc45 100%)",
+  background: "linear-gradient(90deg, #1faa00 0%, #1faa00 50%, #1faa00 100%)",
   marginBottom: "-1px",
 });
 

@@ -26,7 +26,7 @@ export const InstallWallet = () => {
             <Typography
               variant="h4"
               sx={{
-                color: "#12bc45",
+                color: "#1faa00",
               }}
               gutterBottom
             >

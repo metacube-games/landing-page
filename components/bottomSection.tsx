@@ -4,7 +4,7 @@ import { styled } from "@mui/system";
 import { Twitter, Telegram, LinkedIn } from "@mui/icons-material";
 
 const SocialIcon = styled(IconButton)({
-  color: "#12bc45",
+  color: "#1faa00",
 });
 
 const BottomSection = () => {
@@ -13,7 +13,7 @@ const BottomSection = () => {
       // @ts-ignore
       sx={{
         backgroundColor: "#010101",
-        color: "#12bc45",
+        color: "#1faa00",
         padding: "2rem 1rem",
         textAlign: "center",
       }}

@@ -23,7 +23,7 @@ const FeaturesDescription = (props: {
       variant="h6"
       sx={{
         fontWeight: "bold",
-        color: "#12bc45",
+        color: "#1faa00",
         width: "250px",
       }}
     >

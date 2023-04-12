@@ -26,20 +26,18 @@ export const DiscordEarlyAccess = () => {
         }}
       >
         <Box sx={{ display: "flex", justifyContent: "center" }}>
-          <Typography variant="h6" gutterBottom>
+          <Typography variant="h6">
             Join our discord server for
-          </Typography>
-
-          <Typography
-            variant="h6"
-            gutterBottom
-            sx={{
-              fontWeight: "bold",
-              marginLeft: "8px",
-              color: "#12bc45",
-            }}
-          >
-            early acces
+            {` `}
+            <span
+              style={{
+                // fontWeight: "bold",
+                // marginLeft: "8px",
+                color: "#1faa00",
+              }}
+            >
+              early acces
+            </span>
           </Typography>
         </Box>
         <Scene3d asset={<CubeDiscord />} />

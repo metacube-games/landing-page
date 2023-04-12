@@ -12,10 +12,10 @@
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@mui/icons-material": "^5.11.16",
-    "@mui/material": "^5.11.16",
-    "@mui/system": "^5.11.16",
+    "@mui/material": "^5.12.0",
+    "@mui/system": "^5.12.0",
     "@react-spring/three": "^9.7.2",
-    "@react-three/drei": "^9.64.0",
+    "@react-three/drei": "^9.65.3",
     "@react-three/fiber": "^8.12.0",
     "autoprefixer": "^10.4.14",
     "eslint": "8.38.0",
@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@types/node": "^18.15.11",
-    "@types/react": "^18.0.34",
+    "@types/react": "^18.0.35",
     "@types/react-dom": "18.0.11",
     "@types/react-scroll": "^1.8.6",
     "typescript": "^5.0.4"
