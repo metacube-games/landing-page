@@ -1,9 +1,14 @@
 import React from "react";
 import Image from "next/image";
-import { styled } from "@mui/system";
-import { AppBar, Button, Box, Typography, Toolbar } from "@mui/material";
+import { AppBar, Button, Toolbar } from "@mui/material";
 import { Link as ScrollLink } from "react-scroll";
+import { Box, Typography, IconButton, Link, Grid } from "@mui/material";
+import { styled } from "@mui/system";
+import { Twitter, Telegram, LinkedIn } from "@mui/icons-material";
 
+const SocialIcon = styled(IconButton)({
+  color: "#12bc45",
+});
 const StyledPlayButton = styled(Button)({
   backgroundColor: "#1faa00  !important", // Set the button background to black
   color: "#121212", // Set the button text color to white
@@ -61,6 +66,7 @@ export const NavBar = () => {
             ? "rgba(0, 0, 0, 0.0)"
             : "rgba(0, 10, 0, 0.75)",
           transition: "all 0.3s ease-in-out",
+          // maxHeight: "8px",
         }}
       >
         <Toolbar
@@ -130,6 +136,41 @@ export const NavBar = () => {
         </Toolbar>
       </StyledAppBar>
       <MainImage src="/t12.png" alt="Main banner" />
+      <Box sx={{ marginTop: "15px" }}>
+        <Grid container spacing={3} justifyContent="center">
+          <Grid item>
+            <SocialIcon
+              // @ts-ignore
+              component={Link}
+              href="https://twitter.com"
+              // make icone white
+              sx={{ color: "#ddd" }}
+            >
+              <Twitter />
+            </SocialIcon>
+          </Grid>
+          <Grid item>
+            <SocialIcon
+              // @ts-ignore
+              component={Link}
+              href="https://telegram.org"
+              sx={{ color: "#ddd" }}
+            >
+              <Telegram />
+            </SocialIcon>
+          </Grid>
+          <Grid item>
+            <SocialIcon
+              // @ts-ignore
+              component={Link}
+              href="https://www.linkedin.com"
+              sx={{ color: "#ddd" }}
+            >
+              <LinkedIn />
+            </SocialIcon>
+          </Grid>
+        </Grid>
+      </Box>
     </Box>
   );
 };

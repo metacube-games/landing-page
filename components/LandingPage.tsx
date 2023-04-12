@@ -32,13 +32,6 @@ const LandingPage: React.FC = () => {
   return (
     <>
       <NavBar />
-      {/* <DiscordEarlyAccess />
-      <CustomDivider />
-      <GameFeatures />
-      <InstallWallet />
-      <ContributorSection />
-      <CustomDivider2 /> */}
-      <BottomSection />
     </>
   );
 };
