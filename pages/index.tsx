@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import LandingPage from "../components/landingPage";
+import LandingPage from "@/components/LandingPage";
 import styled from "@emotion/styled";
 import { Box } from "@mui/system";
 import { createTheme, ThemeProvider } from "@mui/material";

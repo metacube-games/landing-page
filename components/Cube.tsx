@@ -66,7 +66,7 @@ export function CubeDiscord(props: JSX.IntrinsicElements["group"]) {
         onPointerOut={onMouseOut}
         geometry={nodes.Cube.geometry}
         material={materials.Material}
-        scale={spring.scale}
+        // scale={spring.scale}
       />
     </group>
   );

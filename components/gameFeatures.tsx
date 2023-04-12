@@ -1,5 +1,5 @@
 import React from "react";
-import { Model } from "./cube";
+import { Model } from "./Cube";
 import Scene3d from "./scene3d";
 import { Box, Typography, Grid } from "@mui/material";
 
