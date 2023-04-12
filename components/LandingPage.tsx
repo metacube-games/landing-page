@@ -32,12 +32,12 @@ const LandingPage: React.FC = () => {
   return (
     <>
       <NavBar />
-      <DiscordEarlyAccess />
+      {/* <DiscordEarlyAccess />
       <CustomDivider />
       <GameFeatures />
       <InstallWallet />
       <ContributorSection />
-      <CustomDivider2 />
+      <CustomDivider2 /> */}
       <BottomSection />
     </>
   );

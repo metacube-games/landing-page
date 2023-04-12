@@ -12,7 +12,7 @@ const BottomSection = () => {
     <Box
       // @ts-ignore
       sx={{
-        backgroundColor: "#010101",
+        backgroundColor: "#121212",
         color: "#12bc45",
         padding: "2rem 1rem",
         textAlign: "center",
@@ -52,7 +52,7 @@ const BottomSection = () => {
         </Grid>
       </Grid>
 
-      <Typography variant="h6" gutterBottom mt={2}>
+      {/* <Typography variant="h6" gutterBottom mt={2}>
         More
       </Typography>
       <Typography>
@@ -74,7 +74,7 @@ const BottomSection = () => {
         >
           Branding
         </Link>
-      </Typography>
+      </Typography> */}
     </Box>
   );
 };

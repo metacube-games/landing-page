@@ -18,8 +18,8 @@ const Container = styled(Box)(({ theme }) => ({
   minHeight: "100vh",
   justifyContent: "space-between",
   background: `
-    linear-gradient(135deg, rgba(2, 2, 2, 1) 0%, rgba(2,2,2, 0.5) 100%),
-    linear-gradient(45deg, rgba(50, 52, 50, 1) 0%, rgba(50, 52,50, 0.5) 100%)
+    linear-gradient(135deg, #121212 0%, #121212 100%),
+    linear-gradient(45deg, #121212 0%, #121212 100%)
   `,
 }));
 

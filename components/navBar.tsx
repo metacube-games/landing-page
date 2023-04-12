@@ -5,8 +5,8 @@ import { AppBar, Button, Box, Typography, Toolbar } from "@mui/material";
 import { Link as ScrollLink } from "react-scroll";
 
 const StyledPlayButton = styled(Button)({
-  backgroundColor: "#12bc45  !important", // Set the button background to black
-  color: "#010101", // Set the button text color to white
+  backgroundColor: "#1faa00  !important", // Set the button background to black
+  color: "#121212", // Set the button text color to white
   "&:hover": {
     backgroundColor: "#333", // Set the button hover background color
   },
@@ -15,7 +15,7 @@ const StyledPlayButton = styled(Button)({
 });
 
 const StyledButton = styled(Button)({
-  backgroundColor: "#010101 !important", // Set the button background to black
+  backgroundColor: "#121212 !important", // Set the button background to black
   color: "#ddd", // Set the button text color to white
   "&:hover": {
     backgroundColor: "#333", // Set the button hover background color
@@ -95,7 +95,7 @@ export const NavBar = () => {
                 color: "#dddddd",
                 textShadow: isTop
                   ? ""
-                  : `0 0 4px #12bc45, 0 0 10px #12bc45, 0 0 10px #12bc45, 0 0 20px #12bc45`,
+                  : `0 0 4px #1faa00, 0 0 10px #1faa00, 0 0 10px #1faa00, 0 0 20px #1faa00`,
                 cursor: "pointer",
                 transition: "all 0.3s ease-in-out",
               }}
@@ -107,7 +107,7 @@ export const NavBar = () => {
 
           <Box sx={{ flexGrow: 1 }}></Box>
 
-          <ScrollLink
+          {/* <ScrollLink
             to="contributorSection"
             spy={true}
             smooth={true}
@@ -117,9 +117,7 @@ export const NavBar = () => {
           >
             <StyledButton size="large">Team</StyledButton>
           </ScrollLink>
-          {/* <StyledButton size="large"> Blog</StyledButton> */}
-          {/* <StyledButton size="large">FAQ</StyledButton> */}
-          <ScrollLink
+            <ScrollLink
             to="earlyAccessSection"
             spy={true}
             smooth={true}
@@ -128,7 +126,7 @@ export const NavBar = () => {
             offset={-50}
           >
             <StyledPlayButton size="large">Early Access</StyledPlayButton>
-          </ScrollLink>
+          </ScrollLink> */}
         </Toolbar>
       </StyledAppBar>
       <MainImage src="/t12.png" alt="Main banner" />
