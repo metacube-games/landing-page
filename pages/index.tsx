@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import LandingPage from "../components/landingPage";
 import styled from "@emotion/styled";
 import { Box } from "@mui/system";
 import { createTheme, ThemeProvider } from "@mui/material";
+import LandingPage from "@/components/LandingPage";
 
 const theme = createTheme({
   typography: {

@@ -22,9 +22,11 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
   const duration = 0.7;
 
   // Store the initial positions of the vertices
+  const initPos = nodes.Cube.geometry.attributes
+    .position as THREE.BufferAttribute;
   const initialPositions = useMemo(
-    () => new Float32Array([...nodes.Cube.geometry.attributes.position.array]),
-    [nodes.Cube.geometry.attributes.position.array]
+    () => new Float32Array(initPos.array),
+    [initPos.array]
   );
 
   function onClick() {
@@ -39,8 +41,12 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
       ref.current.rotation.y += 0.01;
 
       const geometry = ref.current.geometry as THREE.BufferGeometry;
-      const positions = geometry.attributes.position.array as Float32Array;
-      const normals = geometry.attributes.normal.array as Float32Array;
+      const posTemp = nodes.Cube.geometry.attributes
+        .position as THREE.BufferAttribute;
+      const normTemp = nodes.Cube.geometry.attributes
+        .normal as THREE.BufferAttribute;
+      const positions = posTemp.array as Float32Array;
+      const normals = normTemp.array as Float32Array;
 
       if (exploded) {
         const elapsedTime = clock.getElapsedTime();
@@ -226,7 +232,7 @@ export function CubeDiscord(props: JSX.IntrinsicElements["group"]) {
         onPointerOut={onMouseOut}
         geometry={nodes.Cube.geometry}
         material={materials.Material}
-        scale={spring.scale}
+        scale={spring.scale as any}
       />
     </group>
   );

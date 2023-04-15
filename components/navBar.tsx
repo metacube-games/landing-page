@@ -10,7 +10,6 @@ const StyledPlayButton = styled(Button)({
   "&:hover": {
     backgroundColor: "#23de56 !important", // Set the button hover background color
   },
-  // transition: "all 0.3s ease-in-out",
 });
 
 const StyledButton = styled(Button)({
@@ -18,7 +17,6 @@ const StyledButton = styled(Button)({
   "&:hover": {
     backgroundColor: "rgba(30,30,30, 1) !important", // Set the button hover background color
   },
-  // transition: "all 0.3s ease-in-out",
   // borderTopRightRadius: "0px",
   // borderBottomRightRadius: "0px",
 });
@@ -51,7 +49,7 @@ export const NavBar = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
   return (
-    <Box>
+    <Box component={"div"}>
       <StyledAppBar
         elevation={isTop ? 0 : 4}
         sx={{
@@ -69,6 +67,7 @@ export const NavBar = () => {
           }}
         >
           <Box
+            component={"div"}
             sx={{
               display: "flex",
               alignItems: "center",
@@ -92,9 +91,8 @@ export const NavBar = () => {
               style={{ cursor: "pointer" }}
             >
               <path
-                className="logoM"
                 style={{
-                  filter: isTop ? "" : "drop-shadow(00px 0px 20px #1faa00)",
+                  filter: isTop ? "none" : "drop-shadow(00px 0px 20px #1faa00)",
                   transition: "all 0.3s ease-in-out",
                 }}
                 fill="#1faa00"
@@ -123,9 +121,10 @@ export const NavBar = () => {
             </Typography>
           </Box>
 
-          <Box sx={{ flexGrow: 1 }}></Box>
+          <Box component={"div"} sx={{ flexGrow: 1 }}></Box>
 
           <Box
+            component={"div"}
             sx={{
               backgroundColor: "rgba(5,5,5, 1) !important",
               borderRadius: "4px",
@@ -141,8 +140,6 @@ export const NavBar = () => {
             >
               <StyledButton
                 sx={{
-                  // transition: "all 0.3s ease-in-out",
-
                   backgroundColor: "rgba(5,5,5, 1) !important", // Set the button background to black
                 }}
                 size="large"

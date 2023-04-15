@@ -2,7 +2,7 @@ import React from "react";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Scene3d from "./scene3d";
-import { CubeDiscord, Model } from "./cube";
+import { CubeDiscord, Model } from "./Cube";
 import { styled } from "@mui/system";
 const InfoSection = styled(Box)(({ theme }) => ({
   padding: theme.spacing(4),
@@ -11,7 +11,7 @@ export const DiscordEarlyAccess = () => {
   return (
     <Box
       id="earlyAccessSection"
-      // component="main"
+      component={"div"}
       sx={{ marginBottom: "-30px", maxWidth: "1200px", margin: "0 auto" }}
     >
       {/* center text */}
@@ -25,7 +25,10 @@ export const DiscordEarlyAccess = () => {
           maxWidth: "1200px",
         }}
       >
-        <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <Box
+          component={"div"}
+          sx={{ display: "flex", justifyContent: "center" }}
+        >
           <Typography variant="h6">
             Join our discord server for
             {` `}
