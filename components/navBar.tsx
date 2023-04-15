@@ -57,7 +57,9 @@ export const NavBar = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
   return (
-    <Box>
+    <Box
+      component="div"
+    >
       <StyledAppBar
         elevation={isTop ? 0 : 4}
         sx={{
@@ -78,6 +80,7 @@ export const NavBar = () => {
           }}
         >
           <Box
+            component="div"
             sx={{
               display: "flex",
               alignItems: "center",
@@ -111,7 +114,10 @@ export const NavBar = () => {
             </Typography>
           </Box>
 
-          <Box sx={{ flexGrow: 1 }}></Box>
+          <Box
+            component="div"
+            sx={{ flexGrow: 1 }}
+          ></Box>
 
           {/* <ScrollLink
             to="contributorSection"
@@ -136,7 +142,10 @@ export const NavBar = () => {
         </Toolbar>
       </StyledAppBar>
       <MainImage src="/t12.png" alt="Main banner" />
-      <Box sx={{ marginTop: "15px" }}>
+      <Box
+        component="div"
+        sx={{ marginTop: "15px" }}
+      >
         <Grid container spacing={3} justifyContent="center">
           <Grid item>
             <SocialIcon
