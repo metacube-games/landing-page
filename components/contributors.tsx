@@ -15,6 +15,7 @@ const Contributor = ({
 }) => {
   return (
     <Box
+      component="div"
       sx={{
         textAlign: "center",
         alignItems: "center",
@@ -67,6 +68,7 @@ export const ContributorSection = () => {
 
   return (
     <Box
+      component="div"
       id="contributorSection"
       sx={{
         flexGrow: 1,

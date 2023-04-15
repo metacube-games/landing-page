@@ -10,7 +10,7 @@ const SocialIcon = styled(IconButton)({
 const BottomSection = () => {
   return (
     <Box
-      // @ts-ignore
+      component="div"
       sx={{
         backgroundColor: "#121212",
         color: "#12bc45",
@@ -23,7 +23,7 @@ const BottomSection = () => {
       <Grid container spacing={3} justifyContent="center">
         <Grid item>
           <SocialIcon
-            // @ts-ignore
+            component="div"
             component={Link}
             href="https://twitter.com"
             // make icone white
@@ -34,7 +34,7 @@ const BottomSection = () => {
         </Grid>
         <Grid item>
           <SocialIcon
-            // @ts-ignore
+            component="div"
             component={Link}
             href="https://telegram.org"
             sx={{ color: "#ddd" }}
@@ -44,7 +44,7 @@ const BottomSection = () => {
         </Grid>
         <Grid item>
           <SocialIcon
-            // @ts-ignore
+            component="div"
             component={Link}
             href="https://www.linkedin.com"
             sx={{ color: "#ddd" }}

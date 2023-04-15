@@ -9,7 +9,7 @@ const FeaturesDescription = (props: {
   description: string;
 }) => (
   <Box
-    // @ts-ignore
+    component="div"
     sx={{
       display: "flex",
       flexDirection: "column",
@@ -59,7 +59,7 @@ export const GameFeatures = () => {
 
   return (
     <Box
-      // @ts-ignore
+      component="div"
       sx={{
         padding: 2,
         maxWidth: "1200px",

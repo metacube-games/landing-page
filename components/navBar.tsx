@@ -140,7 +140,7 @@ export const NavBar = () => {
         <Grid container spacing={3} justifyContent="center">
           <Grid item>
             <SocialIcon
-              // @ts-ignore
+              component="div"
               component={Link}
               href="https://twitter.com"
               // make icone white
@@ -151,7 +151,7 @@ export const NavBar = () => {
           </Grid>
           <Grid item>
             <SocialIcon
-              // @ts-ignore
+              component="div"
               component={Link}
               href="https://telegram.org"
               sx={{ color: "#ddd" }}
@@ -161,7 +161,7 @@ export const NavBar = () => {
           </Grid>
           <Grid item>
             <SocialIcon
-              // @ts-ignore
+              component="div"
               component={Link}
               href="https://www.linkedin.com"
               sx={{ color: "#ddd" }}
