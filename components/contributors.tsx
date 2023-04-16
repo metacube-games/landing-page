@@ -46,7 +46,7 @@ export const ContributorSection = () => {
   const contributors = [
     {
       name: "Kamyar Taher",
-      imageUrl: "t12.png",
+      imageUrl: "ppKam.jpg",
       description: "CEO, Frontend Developer",
     },
     {
