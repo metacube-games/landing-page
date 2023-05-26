@@ -4,7 +4,7 @@ import { Divider } from "@mui/material";
 import { ContributorSection } from "./contributors";
 import BottomSection from "./bottomSection";
 import { GameFeatures } from "./gameFeatures";
-import { DiscordEarlyAccess } from "./discordEarlyAccess";
+// import { DiscordEarlyAccess } from "./discordEarlyAccess";
 import { NavBar } from "./navBar";
 import { InstallWallet } from "./InstallWallet";
 
@@ -32,7 +32,7 @@ const LandingPage: React.FC = () => {
   return (
     <>
       <NavBar />
-      <DiscordEarlyAccess />
+      {/* <DiscordEarlyAccess /> */}
       <CustomDivider />
       <GameFeatures />
       <InstallWallet />

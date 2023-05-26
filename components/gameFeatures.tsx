@@ -17,7 +17,7 @@ const FeaturesDescription = (props: {
       alignItems: "center",
     }}
   >
-    <Scene3d asset={props.model} />
+    {/* <Scene3d asset={props.model} /> */}
     <Typography
       gutterBottom
       variant="h6"
