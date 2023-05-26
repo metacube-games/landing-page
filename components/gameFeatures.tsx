@@ -4,7 +4,7 @@ import Scene3d from "./scene3d";
 import { Box, Typography, Grid } from "@mui/material";
 
 const FeaturesDescription = (props: {
-  model: JSX.Element;
+  // model: JSX.Element;
   title: string;
   description: string;
 }) => (
@@ -82,7 +82,7 @@ export const GameFeatures = () => {
             <Grid key={index} item xs={12} md={6} lg={3}>
               <FeaturesDescription
                 title={feature.title}
-                model={feature.model}
+                // model={feature.model}
                 description={feature.description}
               />
             </Grid>
