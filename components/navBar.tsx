@@ -1,9 +1,14 @@
 import React from "react";
 import Image from "next/image";
-import { styled } from "@mui/system";
-import { AppBar, Button, Box, Typography, Toolbar } from "@mui/material";
+import { AppBar, Button, Toolbar } from "@mui/material";
 import { Link as ScrollLink } from "react-scroll";
+import { Box, Typography, IconButton, Link, Grid } from "@mui/material";
+import { styled } from "@mui/system";
+import { Twitter, Telegram, LinkedIn } from "@mui/icons-material";
 
+const SocialIcon = styled(IconButton)({
+  color: "#12bc45",
+});
 const StyledPlayButton = styled(Button)({
   backgroundColor: "#1faa00  !important", // Set the button background to black
   color: "#010101", // Set the button text color to white
@@ -56,6 +61,7 @@ export const NavBar = () => {
           width: "100%",
           backgroundColor: isTop ? "rgba(0, 0, 0, 0.0)" : "rgba(5,5,5, 0.95)",
           transition: "all 0.3s ease-in-out",
+          // maxHeight: "8px",
         }}
       >
         <Toolbar
@@ -111,7 +117,6 @@ export const NavBar = () => {
                 textShadow: isTop
                   ? ""
                   : `0 0 4px #1faa00, 0 0 10px #1faa00, 0 0 10px #1faa00, 0 0 20px #1faa00`,
-
                 cursor: "pointer",
                 transition: "all 0.3s ease-in-out",
               }}
