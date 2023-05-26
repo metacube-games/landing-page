@@ -9,7 +9,7 @@ const FeaturesDescription = (props: {
   description: string;
 }) => (
   <Box
-    component="div"
+    component={"div"}
     sx={{
       display: "flex",
       flexDirection: "column",
@@ -17,13 +17,13 @@ const FeaturesDescription = (props: {
       alignItems: "center",
     }}
   >
-    <Scene3d asset={props.model} />
+    {/* <Scene3d asset={props.model} /> */}
     <Typography
       gutterBottom
       variant="h6"
       sx={{
         fontWeight: "bold",
-        color: "#12bc45",
+        color: "#1faa00",
         width: "250px",
       }}
     >
@@ -43,23 +43,30 @@ export const GameFeatures = () => {
     {
       title: "Powered by Starknet",
       model: <Model />,
-      description: "Trade, Transfer and Own your assets at the lowest fees",
+      description: "Lowest fees for trading, transferring, and owning assets.",
     },
     {
       title: "Massively Multiplayer",
       model: <Model />,
-      description: "Up to 5000 players simultaneously on the same server",
+      description:
+        "Up to 5,000 players on a shared server, all focused on the Metacube.",
     },
     {
       title: "Free 2 Play",
       model: <Model />,
-      description: "Play for Free, No integrated purchase",
+      description: "No integrated purchases, completely free to play.",
+    },
+    {
+      title: "One-Time Event",
+      model: <Model />,
+      description:
+        "Join the unique Metacube destruction and await the next season's mysteries.",
     },
   ];
 
   return (
     <Box
-      component="div"
+      component={"div"}
       sx={{
         padding: 2,
         maxWidth: "1200px",
@@ -72,7 +79,7 @@ export const GameFeatures = () => {
       <Grid container>
         <Grid container spacing={4} alignItems="top">
           {features.map((feature, index) => (
-            <Grid key={index} item xs={12} md={4}>
+            <Grid key={index} item xs={12} md={6} lg={3}>
               <FeaturesDescription
                 title={feature.title}
                 model={feature.model}

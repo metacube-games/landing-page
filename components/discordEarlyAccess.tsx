@@ -8,5 +8,43 @@ const InfoSection = styled(Box)(({ theme }) => ({
   padding: theme.spacing(4),
 }));
 export const DiscordEarlyAccess = () => {
-  return <> </>;
+  return (
+    <Box
+      id="earlyAccessSection"
+      component={"div"}
+      sx={{ marginBottom: "-30px", maxWidth: "1200px", margin: "0 auto" }}
+    >
+      {/* center text */}
+
+      <InfoSection
+        sx={{
+          alignItems: "center",
+          display: "flex",
+          flexDirection: "column",
+          marginTop: "-10px",
+          maxWidth: "1200px",
+        }}
+      >
+        <Box
+          component={"div"}
+          sx={{ display: "flex", justifyContent: "center" }}
+        >
+          <Typography variant="h6">
+            Join our discord server for
+            {` `}
+            <span
+              style={{
+                // fontWeight: "bold",
+                // marginLeft: "8px",
+                color: "#1faa00",
+              }}
+            >
+              early acces
+            </span>
+          </Typography>
+        </Box>
+        <Scene3d asset={<CubeDiscord />} />
+      </InfoSection>
+    </Box>
+  );
 };
