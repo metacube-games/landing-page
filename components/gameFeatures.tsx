@@ -42,23 +42,23 @@ export const GameFeatures = () => {
   const features = [
     {
       title: "Powered by Starknet",
-      model: <Model />,
+      // model: <Model />,
       description: "Lowest fees for trading, transferring, and owning assets.",
     },
     {
       title: "Massively Multiplayer",
-      model: <Model />,
+      // model: <Model />,
       description:
         "Up to 5,000 players on a shared server, all focused on the Metacube.",
     },
     {
       title: "Free 2 Play",
-      model: <Model />,
+      // model: <Model />,
       description: "No integrated purchases, completely free to play.",
     },
     {
       title: "One-Time Event",
-      model: <Model />,
+      // model: <Model />,
       description:
         "Join the unique Metacube destruction and await the next season's mysteries.",
     },
