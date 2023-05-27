@@ -2,12 +2,23 @@ import styled from "@emotion/styled";
 import { Box } from "@mui/system";
 import { createTheme, ThemeProvider } from "@mui/material";
 import LandingPage from "@/components/LandingPage";
+import { Inter } from 'next/font/google'
+
+const inter = Inter({ subsets: ['latin'] })
 
 const theme = createTheme({
   typography: {
-    fontFamily: '"Nova Square", sans-serif',
-  },
-});
+    fontFamily: inter.style.fontFamily,
+  }
+})
+
+// const theme = createTheme({
+//   typography: {
+//     fontFamily: '"Nova Square", sans-serif',
+//   },
+// });
+
+
 
 const Container = styled(Box)(({ theme }) => ({
   width: "100%",

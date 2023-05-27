@@ -7,6 +7,7 @@ import { GameFeatures } from "./gameFeatures";
 import { DiscordEarlyAccess } from "./discordEarlyAccess";
 import { NavBar } from "./navBar";
 import { InstallWallet } from "./InstallWallet";
+import Hero from "./Hero";
 
 const CustomDivider = styled(Divider)({
   width: "75%",
@@ -32,6 +33,7 @@ const LandingPage: React.FC = () => {
   return (
     <>
       <NavBar />
+      <Hero />
       <DiscordEarlyAccess />
       <CustomDivider />
       <GameFeatures />

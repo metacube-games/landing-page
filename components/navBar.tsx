@@ -162,7 +162,6 @@ export const NavBar = () => {
           </Box>
         </Toolbar>
       </StyledAppBar>
-      <MainImage src="/t12.png" alt="Main banner" />
     </Box>
   );
 };
