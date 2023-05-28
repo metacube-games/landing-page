@@ -16,6 +16,8 @@ const BottomSection = () => {
         color: "#1faa00",
         padding: "2rem 1rem",
         textAlign: "center",
+        top: "0px",
+        marginBottom: "100px",
       }}
     >
       <Grid container spacing={3} justifyContent="center">
@@ -46,7 +48,7 @@ const BottomSection = () => {
         </Grid>
       </Grid>
 
-      <Typography variant="h6" gutterBottom mt={2}>
+      {/* <Typography variant="h6" gutterBottom mt={2}>
         More
       </Typography>
       <Typography>
@@ -68,7 +70,7 @@ const BottomSection = () => {
         >
           Branding
         </Link>
-      </Typography>
+      </Typography> */}
     </Box>
   );
 };

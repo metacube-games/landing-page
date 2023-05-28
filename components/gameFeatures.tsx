@@ -1,5 +1,5 @@
 import React from "react";
-import { Model } from "./Cube";
+//import { Model } from "./Cube";
 import Scene3d from "./scene3d";
 import { Box, Typography, Grid } from "@mui/material";
 import { ModelStarknet } from "./Starknet_cube_24_color_clean";
@@ -58,6 +58,7 @@ const FeaturesDescription = (props: {
     }}
   >
     <Image src={props.image} alt="feature image" width={100} height={100} />
+    {/* <Scene3d asset={props.model} /> */}
     <Typography
       gutterBottom
       variant="h6"
