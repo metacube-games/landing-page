@@ -85,7 +85,7 @@ export const ContributorSection = () => {
       </Typography>
       <Grid container spacing={10} alignItems="top" sx={{ marginTop: 2 }}>
         {contributors.map((contributor, index) => (
-          <Grid key={index} item xs={12} sm={6} md={4}>
+          <Grid key={index} item xs={12} sm={6} md={3}>
             <Contributor {...contributor} />
           </Grid>
         ))}
