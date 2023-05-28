@@ -3,11 +3,15 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Scene3d from "./scene3d";
 import { CubeDiscord, Model } from "./Cube";
+import { ModelDiscord } from "./Discord_cube_24";
 import { styled } from "@mui/system";
+import Image from "next/image";
+
 const InfoSection = styled(Box)(({ theme }) => ({
   padding: theme.spacing(4),
 }));
 export const DiscordEarlyAccess = () => {
+
   return (
     <Box
       id="earlyAccessSection"
@@ -34,16 +38,20 @@ export const DiscordEarlyAccess = () => {
             {` `}
             <span
               style={{
-                // fontWeight: "bold",
+                fontWeight: 800,
                 // marginLeft: "8px",
-                color: "#1faa00",
+                background: 'linear-gradient(135deg, #00FF8B 30%, #00FFE3 90%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                //color: "#1faa00",
               }}
             >
-              early acces
+              Early Access
             </span>
           </Typography>
         </Box>
-        <Scene3d asset={<CubeDiscord />} />
+        {/* <Scene3d asset={<ModelDiscord />} /> */}
+        <Image src={"/discord.png"} alt="feature image" width={100} height={100} />
       </InfoSection>
     </Box>
   );
