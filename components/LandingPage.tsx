@@ -10,7 +10,7 @@ import { InstallWallet } from "./InstallWallet";
 import Hero from "./Hero";
 
 const CustomDivider = styled(Divider)({
-  width: "75%",
+  width: "100%",
   height: "2px",
   margin: "20px auto",
   borderRadius: "50px",
@@ -19,7 +19,7 @@ const CustomDivider = styled(Divider)({
 });
 
 const CustomDivider2 = styled(Divider)({
-  width: "75%",
+  width: "100%",
   height: "2px",
   margin: "0px auto",
   zIndex: 1,
@@ -35,11 +35,11 @@ const LandingPage: React.FC = () => {
       <NavBar />
       <Hero />
       <DiscordEarlyAccess />
-      <CustomDivider />
+      {/* <CustomDivider /> */}
       <GameFeatures />
       <InstallWallet />
       <ContributorSection />
-      <CustomDivider2 />
+      {/* <CustomDivider2 /> */}
       <BottomSection />
     </>
   );

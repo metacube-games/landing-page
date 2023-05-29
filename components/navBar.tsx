@@ -110,13 +110,14 @@ export const NavBar = () => {
             <Typography
               variant="h5"
               component="div"
+              fontFamily={"Nova square"}
               sx={{
-                fontWeight: "bold",
+                // fontWeight: "bold",
                 marginLeft: "-45px",
                 color: "#dddddd",
                 textShadow: isTop
                   ? ""
-                  : `0 0 4px #1faa00, 0 0 10px #1faa00, 0 0 10px #1faa00, 0 0 20px #1faa00`,
+                  : `0 0 2px #1faa00, 0 0 5px #1faa00, 0 0 5px #1faa00, 0 0 10px #1faa00`,
                 cursor: "pointer",
                 transition: "all 0.3s ease-in-out",
               }}

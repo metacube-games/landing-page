@@ -5,7 +5,6 @@ import { Box, Typography, Grid } from "@mui/material";
 import { ModelStarknet } from "./Starknet_cube_24_color_clean";
 import Image from "next/image";
 
-
 // TODO: make models and use this snippet
 // const FeaturesDescription = (props: {
 //   model: JSX.Element;
@@ -57,7 +56,15 @@ const FeaturesDescription = (props: {
       alignItems: "center",
     }}
   >
-    <Image src={props.image} alt="feature image" width={100} height={100} />
+    <Image
+      src={props.image}
+      alt="feature image"
+      width={90}
+      height={90}
+      style={{
+        marginBottom: 15,
+      }}
+    />
     {/* <Scene3d asset={props.model} /> */}
     <Typography
       gutterBottom
@@ -124,7 +131,7 @@ export const GameFeatures = () => {
       <Grid container>
         <Grid container spacing={4} alignItems="top">
           {features.map((feature, index) => (
-            <Grid key={index} item xs={12} md={6} lg={3}>
+            <Grid key={index} item xs={12} sm={6} md={3}>
               <FeaturesDescription
                 title={feature.title}
                 // model={feature.model}
