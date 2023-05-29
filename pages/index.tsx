@@ -5,7 +5,6 @@ import LandingPage from "@/components/LandingPage";
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
-
 const theme = createTheme({
   typography: {
     fontFamily: inter.style.fontFamily,
