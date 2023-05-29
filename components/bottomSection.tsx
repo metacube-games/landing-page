@@ -15,9 +15,10 @@ const BottomSection = () => {
         backgroundColor: "#010101",
         color: "#1faa00",
         padding: "2rem 1rem",
+        paddingBottom: "100px",
         textAlign: "center",
         top: "0px",
-        marginBottom: "100px",
+        // marginBottom: "100px",
       }}
     >
       <Grid container spacing={3} justifyContent="center">

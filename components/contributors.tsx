@@ -17,10 +17,10 @@ const Contributor = ({
     <Box
       component={"div"}
       sx={{
-        textAlign: "center",
-        alignItems: "center",
-        flexDirection: "column",
         display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       <Avatar
@@ -32,10 +32,10 @@ const Contributor = ({
         src={imageUrl}
         alt={name}
       />
-      <Typography variant="h6" gutterBottom>
+      <Typography variant="h6" gutterBottom noWrap marginTop={1}>
         {name}
       </Typography>
-      <Typography variant="body1" sx={{ color: "#1faa00" }} gutterBottom>
+      <Typography variant="body1" gutterBottom>
         {description}
       </Typography>
     </Box>
@@ -47,22 +47,22 @@ export const ContributorSection = () => {
     {
       name: "Kamyar Taher",
       imageUrl: "ppKam.jpg",
-      description: "CEO, Frontend Developer",
+      description: "CEO",
     },
     {
       name: "Bastien Faivre",
-      imageUrl: "t12.png",
-      description: "CTO, Backend Developer",
+      imageUrl: "ppBast.jpeg",
+      description: "CTO",
     },
     {
       name: "Nils Delage",
-      imageUrl: "t12.png",
-      description: "Buisness Developer",
+      imageUrl: "ppNils.jpg",
+      description: "Graphics",
     },
     {
       name: "Damien Elledge",
-      imageUrl: "t12.png",
-      description: "PR, Marketing Communications",
+      imageUrl: "ppDam.jpeg",
+      description: "Communication",
     },
   ];
 
@@ -71,7 +71,7 @@ export const ContributorSection = () => {
       component={"div"}
       id="contributorSection"
       sx={{
-        flexGrow: 1,
+        // flexGrow: 1,
         padding: 2,
         maxWidth: "1200px",
         margin: "0 auto",
@@ -83,12 +83,20 @@ export const ContributorSection = () => {
       <Typography variant="h4" gutterBottom>
         Contributors
       </Typography>
-      <Grid container spacing={4} alignItems="top" sx={{ marginTop: 2 }}>
-        {contributors.map((contributor, index) => (
-          <Grid key={index} item xs={12} sm={6} md={3}>
-            <Contributor {...contributor} />
-          </Grid>
-        ))}
+      <Grid container>
+        <Grid
+          container
+          spacing={10}
+          // columnSpacing={12}
+          alignItems="top"
+          sx={{ marginTop: -4 }}
+        >
+          {contributors.map((contributor, index) => (
+            <Grid key={index} item xs={12} sm={6} md={3}>
+              <Contributor {...contributor} />
+            </Grid>
+          ))}
+        </Grid>
       </Grid>
     </Box>
   );
