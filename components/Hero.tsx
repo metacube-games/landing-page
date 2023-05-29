@@ -1,5 +1,5 @@
-import React from 'react';
-import { styled, keyframes } from '@mui/system';
+import React from "react";
+import { styled, keyframes } from "@mui/system";
 
 const fadeIn = keyframes`
   0% {
@@ -28,36 +28,37 @@ const slideLeft = keyframes`
   }
 `;
 
-const HeroContainer = styled('div')({
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    margin: '64px 0 0 0', // set the top margin to 64px or the value that suits your needs
+const HeroContainer = styled("div")({
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  margin: "64px 0 0 0", // set the top margin to 64px or the value that suits your needs
 });
 
-const Image = styled('img')({
-    maxWidth: '100%',
-    animation: `${fadeIn} 2s`,
-    objectFit: 'cover', // this will ensure that the images are cropped
-    objectPosition: 'top',  // this will align the image to the top of the box
-    width: '450px',     // change this to the desired width
-    height: '500px',    // change this to the desired height
+const Image = styled("img")({
+  maxWidth: "100%",
+  animation: `${fadeIn} 2s`,
+  objectFit: "cover", // this will ensure that the images are cropped
+  objectPosition: "top", // this will align the image to the top of the box
+  // width: '450px',     // change this to the desired width
+  width: "min(50%,450px)", // change this to the desired width
+  height: "500px", // change this to the desired height
 });
 
 const Image1 = styled(Image)({
-    animation: `${fadeIn} 2s, ${slideRight} 2s`,
+  animation: `${fadeIn} 2s, ${slideRight} 2s`,
 });
 
 const Image2 = styled(Image)({
-    animation: `${fadeIn} 2s, ${slideLeft} 2s`,
+  animation: `${fadeIn} 2s, ${slideLeft} 2s`,
+  objectPosition: "top left",
 });
 
-
 const Hero: React.FC = () => (
-    <HeroContainer>
-        <Image1 src="/pepe.png" alt="Image 1" />
-        <Image2 src="/fiscos.png" alt="Image 2" />
-    </HeroContainer>
+  <HeroContainer>
+    <Image1 src="/pepe.png" alt="Image 1" />
+    <Image2 src="/fiscos.png" alt="Image 2" />
+  </HeroContainer>
 );
 
 export default Hero;
