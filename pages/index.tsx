@@ -6,8 +6,10 @@ import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
 const theme = createTheme({
+  // keep same color for dark and light mode
   typography: {
     fontFamily: inter.style.fontFamily,
+    // color
   },
 });
 export const COLOR_MAIN = "#00FF8B";
@@ -25,9 +27,9 @@ export const COLOR_TEXT_DARK = "#FFFFFF";
 export const COLOR_ERROR = "#FF0000";
 
 // const theme = createTheme({
-//   typography: {
-//     fontFamily: '"Nova Square", sans-serif',
-//   },
+//   // typography: {
+//   //   fontFamily: '"Nova Square", sans-serif',
+//   // },
 // });
 
 const Container = styled(Box)(({ theme }) => ({
