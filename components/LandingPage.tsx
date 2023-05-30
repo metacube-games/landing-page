@@ -14,7 +14,7 @@ const CustomDivider = styled(Divider)({
   height: "2px",
   margin: "20px auto",
   borderRadius: "50px",
-  maxWidth: "1200px",
+  // maxWidth: "1200px",
   background: "linear-gradient(90deg, #1faa00 0%, #1faa00 50%, #1faa00 100%)",
 });
 
@@ -35,7 +35,7 @@ const LandingPage: React.FC = () => {
       <NavBar />
       <Hero />
       <DiscordEarlyAccess />
-      {/* <CustomDivider /> */}
+      <CustomDivider />
       <GameFeatures />
       <InstallWallet />
       <ContributorSection />

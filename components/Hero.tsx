@@ -33,6 +33,8 @@ const HeroContainer = styled("div")({
   justifyContent: "center",
   alignItems: "center",
   margin: "64px 0 0 0", // set the top margin to 64px or the value that suits your needs
+  // don't allow to gow beyond the page width limit
+  overflow: "hidden", // add this line
 });
 
 const Image = styled("img")({
@@ -40,13 +42,13 @@ const Image = styled("img")({
   animation: `${fadeIn} 2s`,
   objectFit: "cover", // this will ensure that the images are cropped
   objectPosition: "top", // this will align the image to the top of the box
-  // width: '450px',     // change this to the desired width
-  width: "min(50%,450px)", // change this to the desired width
+  width: "500px", // change this to the desired width
   height: "500px", // change this to the desired height
 });
 
 const Image1 = styled(Image)({
   animation: `${fadeIn} 2s, ${slideRight} 2s`,
+  // when out of the screen, it shouldn't extend the page width
 });
 
 const Image2 = styled(Image)({

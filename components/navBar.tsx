@@ -163,7 +163,7 @@ export const NavBar = () => {
               style={{ textDecoration: "none" }}
               offset={-63}
             >
-              <StyledPlayButton size="large">Early Access</StyledPlayButton>
+              <StyledPlayButton size="large">Play</StyledPlayButton>
             </ScrollLink>
           </Box>
         </Toolbar>

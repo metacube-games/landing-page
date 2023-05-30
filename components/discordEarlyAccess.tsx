@@ -6,6 +6,7 @@ import Scene3d from "./scene3d";
 import { ModelDiscord } from "./Discord_cube_24";
 import { styled } from "@mui/system";
 import Image from "next/image";
+import Link from "next/link";
 
 const InfoSection = styled(Box)(({ theme }) => ({
   padding: theme.spacing(4),
@@ -57,13 +58,17 @@ export const DiscordEarlyAccess = () => {
             </span>
           </Typography>
         </Box>
+
         {/* <Scene3d asset={<ModelDiscord />} /> */}
-        <Image
-          src={"/discord.png"}
-          alt="feature image"
-          width={90}
-          height={90}
-        />
+        <Link href="https://discord.gg/8qWDdNEwzz">
+          <Image
+            src={"/discord.png"}
+            alt="feature image"
+            width={90}
+            height={90}
+            // add link
+          />
+        </Link>
       </InfoSection>
     </Box>
   );
