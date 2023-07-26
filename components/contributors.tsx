@@ -47,12 +47,12 @@ export const ContributorSection = () => {
     {
       name: "Kamyar Taher",
       imageUrl: "ppKam.jpg",
-      description: "CEO",
+      description: "CEO, Software Engineer (frontend)",
     },
     {
       name: "Bastien Faivre",
       imageUrl: "ppBast.jpeg",
-      description: "CTO",
+      description: "Software Engineer (backend)",
     },
     {
       name: "Nils Delage",
