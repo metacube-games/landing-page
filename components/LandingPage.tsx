@@ -1,5 +1,5 @@
 import React from "react";
-import { styled } from "@mui/system";
+import { styled, Box } from "@mui/system";
 import { Divider } from "@mui/material";
 import { ContributorSection } from "./contributors";
 import BottomSection from "./bottomSection";
@@ -8,6 +8,18 @@ import { DiscordEarlyAccess } from "./discordEarlyAccess";
 import { NavBar } from "./navBar";
 import { InstallWallet } from "./InstallWallet";
 import Hero from "./Hero";
+
+const Container = styled(Box)(({ theme }) => ({
+  width: "100%",
+  display: "flex",
+  flexDirection: "column",
+  minHeight: "100vh",
+  justifyContent: "space-between",
+  background: `
+    linear-gradient(135deg, #121212 0%, #121212 100%),
+    linear-gradient(45deg, #121212 0%, #121212 100%)
+  `,
+}));
 
 const CustomDivider = styled(Divider)({
   width: "100%",
@@ -31,7 +43,7 @@ const CustomDivider2 = styled(Divider)({
 
 const LandingPage: React.FC = () => {
   return (
-    <>
+    <Container>
       <NavBar />
       <Hero />
       <DiscordEarlyAccess />
@@ -41,7 +53,7 @@ const LandingPage: React.FC = () => {
       <ContributorSection />
       {/* <CustomDivider2 /> */}
       <BottomSection />
-    </>
+    </Container>
   );
 };
 
