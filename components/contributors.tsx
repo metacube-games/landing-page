@@ -51,7 +51,7 @@ export const ContributorSection = () => {
     },
     {
       name: "Bastien Faivre",
-      imageUrl: "ppBast.jpeg",
+      imageUrl: "ppBast.png",
       description: "Software Engineer (backend)",
     },
     {
