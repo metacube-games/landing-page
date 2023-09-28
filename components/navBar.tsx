@@ -42,8 +42,7 @@ export const NavBar = () => {
   const [isTop, setIsTop] = React.useState(true);
   React.useEffect(() => {
     const onScroll = () => {
-      const scrollTop =
-        window.pageYOffset || document.documentElement.scrollTop;
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
       setIsTop(scrollTop === 0);
     };
     window.addEventListener("scroll", onScroll);
