@@ -57,7 +57,7 @@ export const ContributorSection = () => {
     {
       name: "Nils Delage",
       imageUrl: "ppNils.jpg",
-      description: "Buisness, Smart Contracts, Graphics",
+      description: "Business, Smart Contracts, Graphics",
     },
     {
       name: "Damien Elledge",
