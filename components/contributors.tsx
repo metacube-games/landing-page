@@ -3,6 +3,7 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
+import Image from "next/image";
 
 const Contributor = ({
   name,
@@ -23,12 +24,15 @@ const Contributor = ({
         alignItems: "center",
       }}
     >
-      <Avatar
-        sx={{
-          width: { xs: 100, sm: 120 },
-          height: { xs: 100, sm: 120 },
+      <Image
+        style={{
+          // width: { xs: 100, sm: 120 },
+          // height: { xs: 100, sm: 120 },
           marginBottom: 1,
+          borderRadius: "50%",
         }}
+        width={120}
+        height={120}
         src={imageUrl}
         alt={name}
       />
@@ -46,22 +50,22 @@ export const ContributorSection = () => {
   const contributors = [
     {
       name: "Kamyar Taher",
-      imageUrl: "ppKam.jpg",
+      imageUrl: "/ppKam.jpg",
       description: "CEO, Software Engineer (frontend)",
     },
     {
       name: "Bastien Faivre",
-      imageUrl: "ppBast.png",
+      imageUrl: "/ppBast.png",
       description: "Software Engineer (backend)",
     },
     {
       name: "Nils Delage",
-      imageUrl: "ppNils.jpg",
+      imageUrl: "/ppNils.jpg",
       description: "Business, Smart Contracts, Graphics",
     },
     {
       name: "Damien Elledge",
-      imageUrl: "ppDam.jpeg",
+      imageUrl: "/ppDam.jpeg",
       description: "Communication",
     },
   ];
