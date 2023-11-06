@@ -60,7 +60,7 @@ export const DiscordEarlyAccess = () => {
         </Box>
 
         {/* <Scene3d asset={<ModelDiscord />} /> */}
-        <Link href="https://discord.gg/8qWDdNEwzz">
+        <Link href="https://discord.gg/hXxr7VCp78">
           <Image
             src={"/discord.png"}
             alt="feature image"
