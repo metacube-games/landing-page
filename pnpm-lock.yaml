@@ -50,6 +50,9 @@ dependencies:
   react-dom:
     specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
+  react-lite-youtube-embed:
+    specifier: ^2.3.52
+    version: 2.3.52(react-dom@18.2.0)(react@18.2.0)
   react-scroll:
     specifier: ^1.9.0
     version: 1.9.0(react-dom@18.2.0)(react@18.2.0)
@@ -3140,6 +3143,16 @@ packages:
 
   /react-is@18.2.0:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
+    dev: false
+
+  /react-lite-youtube-embed@2.3.52(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-G010PvCavA4EqL8mZ/Sv9XXiHnjMfONW+lmNeCRnSEPluPdptv2lZ0cNlngrj7K9j7luc8pbpyrmNpKbD9VMmw==}
+    peerDependencies:
+      react: '>=16.0.8'
+      react-dom: '>=16.0.8'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /react-merge-refs@1.1.0:

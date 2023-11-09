@@ -8,6 +8,8 @@ import { DiscordEarlyAccess } from "./discordEarlyAccess";
 import { NavBar } from "./navBar";
 import { InstallWallet } from "./InstallWallet";
 import Hero from "./Hero";
+import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
+import { Trailer } from "./Trailer";
 
 const Container = styled(Box)(({ theme }) => ({
   width: "100%",
@@ -16,9 +18,8 @@ const Container = styled(Box)(({ theme }) => ({
   minHeight: "100vh",
   justifyContent: "space-between",
   background: `
-    linear-gradient(135deg, #121212 0%, #121212 100%),
-    linear-gradient(45deg, #121212 0%, #121212 100%)
-  `,
+    linear-gradient(100deg, #121212 0%, #121312 100%)
+   `,
 }));
 
 const CustomDivider = styled(Divider)({
@@ -46,6 +47,7 @@ const LandingPage: React.FC = () => {
     <Container>
       <NavBar />
       <Hero />
+      {/* <Trailer /> */}
       <DiscordEarlyAccess />
       <CustomDivider />
       <GameFeatures />

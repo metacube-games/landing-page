@@ -1,9 +1,6 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import Scene3d from "./scene3d";
-// import { CubeDiscord, Model } from "./Cube";
-import { ModelDiscord } from "./Discord_cube_24";
 import { styled } from "@mui/system";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,12 +14,12 @@ export const DiscordEarlyAccess = () => {
       id="earlyAccessSection" // needed for scroll
       component={"div"}
       sx={{
+        top: "0px",
         marginBottom: "-30px",
-        marginTop: "30px",
         maxWidth: "1200px",
         margin: "0 auto",
         width: "100%",
-        // backgroundColor: "#010101",
+        marginTop: "-20px",
       }}
     >
       {/* center text */}
@@ -32,25 +29,26 @@ export const DiscordEarlyAccess = () => {
           alignItems: "center",
           display: "flex",
           flexDirection: "column",
-          // marginTop: "-10px",
           maxWidth: "1200px",
         }}
       >
         <Box
           component={"div"}
           marginBottom={2}
-          sx={{ display: "flex", justifyContent: "center" }}
+          display="flex"
+          justifyContent="center"
         >
-          <Typography variant="h6">
-            Join our discord server for
+          <Typography
+            variant="h6"
+            sx={{
+              textAlign: "center",
+            }}
+          >
+            Join our Twitter and Discord server for
             {` `}
             <span
               style={{
                 fontWeight: 800,
-                // marginLeft: "8px",
-                // background: "linear-gradient(135deg, #00FF8B 30%, #00FFE3 90%)",
-                // WebkitBackgroundClip: "text",
-                // WebkitTextFillColor: "transparent",
                 color: "#1faa00",
               }}
             >
@@ -58,17 +56,31 @@ export const DiscordEarlyAccess = () => {
             </span>
           </Typography>
         </Box>
-
-        {/* <Scene3d asset={<ModelDiscord />} /> */}
-        <Link href="https://discord.gg/hXxr7VCp78">
-          <Image
-            src={"/discord.png"}
-            alt="feature image"
-            width={90}
-            height={90}
-            // add link
-          />
-        </Link>
+        <Box
+          component={"div"}
+          display="flex"
+          justifyContent={"space-evenly"}
+          width="80%"
+          height={100}
+          alignItems="center"
+        >
+          <Link href="https://twitter.com/MetacubeGames">
+            <Image
+              src={"/X_logo_2023.png"}
+              alt="feature image"
+              width={90}
+              height={90}
+            />
+          </Link>
+          <Link href="https://discord.gg/hXxr7VCp78">
+            <Image
+              src={"/discord.png"}
+              alt="feature image"
+              width={90}
+              height={90}
+            />
+          </Link>
+        </Box>
       </InfoSection>
     </Box>
   );
