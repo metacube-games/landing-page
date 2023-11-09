@@ -43,7 +43,7 @@ const Image = styled("img")({
   objectFit: "cover", // this will ensure that the images are cropped
   objectPosition: "top", // this will align the image to the top of the box
   width: "380px", // change this to the desired width
-  height: "510px", // change this to the desired height
+  height: "510px", // change this to the desired height r
   // reduce image size on mobile
   "@media (max-width: 600px)": {
     width: "300px",
