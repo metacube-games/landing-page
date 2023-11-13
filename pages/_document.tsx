@@ -8,6 +8,7 @@ export default function Document() {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Nova+Square&display=swap"
         />
+        <link rel="shortcut icon" href="./metacubeLogo2.svg" />
       </Head>
       <body>
         <Main />
