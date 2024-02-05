@@ -47,8 +47,8 @@ export const AnimatedTooltip = ({
       setIsMobile(window.innerWidth < 768); // For example, consider <768px as mobile
     };
     handleResize(); // Initial check
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
@@ -76,12 +76,17 @@ export const AnimatedTooltip = ({
                 }}
                 exit={{ opacity: 0, y: 0, scale: 0.6 }}
                 style={{
-                  //!!! this could cause problems if we have more than 5 items                  
+                  //!!! this could cause problems if we have more than 5 items
                   translateX: isMobile ? -25 * item.id : translateX,
                   rotate: rotate,
                   whiteSpace: "nowrap",
                 }}
-                className={`absolute top-20 sm:left-0 md:-left-1/2 md:translate-x-1/2 flex text-xs flex-col items-center justify-center rounded-md bg-black z-50 shadow-xl px-4 py-2 ${hoveredIndex === item.id ? 'left-1/2 transform -translate-x-1/2' : ''}`}              >
+                className={`absolute top-20 sm:left-0 md:-left-1/2 md:translate-x-1/2 flex text-xs flex-col items-center justify-center rounded-md bg-black z-50 shadow-xl px-4 py-2 ${
+                  hoveredIndex === item.id
+                    ? "left-1/2 transform -translate-x-1/2"
+                    : ""
+                }`}
+              >
                 <a href={item.link} target="_blank" rel="noopener noreferrer">
                   <div className="font-bold text-white relative z-30 text-base">
                     {item.name}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { cn } from "@/utils/cn";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
@@ -16,7 +16,7 @@ export const HoverEffect = ({
 }) => {
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-  const renderItem = (item : any, idx : any) => (
+  const renderItem = (item: any, idx: any) => (
     <div
       onMouseEnter={() => setHoveredIndex(idx)}
       onMouseLeave={() => setHoveredIndex(null)}
@@ -47,14 +47,24 @@ export const HoverEffect = ({
   );
 
   return (
-    <div className={cn("grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10", className)}>
+    <div
+      className={cn(
+        "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10",
+        className
+      )}
+    >
       {items.map((item, idx) =>
         item.link ? (
-          <Link href={item.link} key={item.link} target="_blank" rel="noopener noreferrer">
+          <Link
+            href={item.link}
+            key={idx}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {renderItem(item, idx)}
           </Link>
         ) : (
-          renderItem(item, idx)
+          <React.Fragment key={idx}>{renderItem(item, idx)}</React.Fragment>
         )
       )}
     </div>

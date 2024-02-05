@@ -32,10 +32,10 @@ export const TracingBeam = ({
     }
   }, []);
   useEffect(() => {
-    return scrollYProgressVelocity.onChange((latestVelocity) => {
+    return scrollYProgressVelocity.on("change", (latestVelocity) => {
       setVelocity(latestVelocity);
     });
-  }, []);
+  }, [scrollYProgressVelocity]);
 
   const y1 = useSpring(
     useTransform(scrollYProgress, [0, 0.8], [50, svgHeight - velo * 500]),
@@ -65,7 +65,7 @@ export const TracingBeam = ({
           animate={{
             boxShadow:
               scrollYProgress.get() > 0
-                ? "none"
+                ? "rgba(0, 0, 0, 0) 0px"
                 : "rgba(0, 0, 0, 0.24) 0px 3px 8px",
           }}
           className="ml-[27px] h-4 w-4 rounded-full border border-netural-200 shadow-sm flex items-center justify-center"
@@ -77,9 +77,8 @@ export const TracingBeam = ({
             }}
             animate={{
               backgroundColor:
-                scrollYProgress.get() > 0 ? "white" : "#00FF94",
-              borderColor:
-                scrollYProgress.get() > 0 ? "white" : "#00FF94",
+                scrollYProgress.get() > 0 ? "#00FF94" : "#00FF94",
+              borderColor: scrollYProgress.get() > 0 ? "#00FF94" : "#00FF94",
             }}
             className="h-2 w-2 rounded-full border border-neutral-300 bg-white"
           />

@@ -25,8 +25,8 @@ export const FloatingNav = ({
   const [visible, setVisible] = useState(true);
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
-    let direction = current - scrollYProgress.getPrevious();
-
+    const scrollYP = scrollYProgress?.getPrevious() || scrollYProgress?.get();
+    let direction = current - scrollYP;
 
     if (direction < 0) {
       setVisible(true);
@@ -67,7 +67,10 @@ export const FloatingNav = ({
             <span className="hidden sm:block text-sm">{navItem.name}</span>
           </Link>
         ))}
-        <button disabled={true} className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full disabled:bg-gray-300 disabled:text-gray-500">
+        <button
+          disabled={true}
+          className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full disabled:bg-gray-300 disabled:text-gray-500"
+        >
           <span>Play</span>
           <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent h-px" />
         </button>
