@@ -16,7 +16,7 @@ const people = [
     designation: "Game Systems Engineer",
     image:
       "/ppBast.webp",
-    link:"https://ch.linkedin.com/in/bastienfaivre"
+    link: "https://ch.linkedin.com/in/bastienfaivre"
   },
   {
     id: 3,
@@ -42,18 +42,18 @@ const people = [
       "/ppHartom.webp",
     link: "https://twitter.com/hartomicfundz"
   },
-  
+
 ];
 
 export default function Team() {
   return (
     <div>
-    <div className="flex flex-row items-center justify-center w-full">
-      <h1 className="text-3xl font-medium tracking-widest uppercase text-black">Our Team</h1>
-    </div>
-    <div className="flex flex-row items-center justify-center mb-10 w-full">
-      <AnimatedTooltip items={people} />
-    </div>
+      <div className="flex flex-row items-center justify-center w-full">
+        <h1 className="text-3xl font-medium tracking-widest uppercase text-center text-black dark:text-white">Our Team</h1>
+      </div>
+      <div className="flex flex-row items-center justify-center mb-10 w-full">
+        <AnimatedTooltip items={people} />
+      </div>
     </div>
   );
 }

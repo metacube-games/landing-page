@@ -12,7 +12,7 @@ export function Trailer() {
 
     return (
         <div className="flex flex-col justify-center items-center relative mb-24 text-black">
-            <h1 className="text-3xl font-medium tracking-widest uppercase text-black">Watch the Trailer</h1>
+            <h1 className="text-3xl font-medium tracking-widest uppercase text-center text-black dark:text-white mb-4">Watch the Trailer</h1>
             <blockquote className="twitter-tweet" data-media-max-width="560">
                 <p lang="en" dir="ltr">🎮<a href="https://t.co/BQE1YWmNHr">pic.twitter.com/BQE1YWmNHr</a>
                 </p>&mdash; Metacube (@MetacubeGames)
