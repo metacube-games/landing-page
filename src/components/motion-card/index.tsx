@@ -2,11 +2,10 @@
 
 import Image from "next/image";
 import React from "react";
-import { CardBody, CardContainer, CardItem } from "../ui/3d-card";
+import { CardBody, CardContainer, CardItem } from "./3d-card";
 import Link from "next/link";
-import { Button } from "../ui/moving-border";
 
-export function ThreeDCard() {
+export function MotionCard() {
   return (
     <div className="flex flex-col items-center justify-center">
       <h1 className="text-3xl font-medium tracking-widest uppercase text-center text-black dark:text-white">Earn Rewards</h1>

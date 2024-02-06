@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { AnimatedTooltip } from "../ui/animated-tooltip";
+import { ProfileList } from "./profileList";
 const people = [
   {
     id: 1,
@@ -52,7 +52,7 @@ export default function Team() {
         <h1 className="text-3xl font-medium tracking-widest uppercase text-center text-black dark:text-white">Our Team</h1>
       </div>
       <div className="flex flex-row items-center justify-center mb-10 w-full">
-        <AnimatedTooltip items={people} />
+        <ProfileList items={people} />
       </div>
     </div>
   );

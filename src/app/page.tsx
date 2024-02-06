@@ -5,7 +5,7 @@ import Features from "@/components/features";
 import { TracingBeam } from "@/components/ui/tracing-beam";
 import { TypewriterEffectSmoothDemo } from "@/components/typed";
 import { Navbar } from "@/components/navbar";
-import { ThreeDCard } from "@/components/3d-card";
+import { MotionCard } from "@/components/motion-card";
 import Footer from "@/components/footer";
 import { Trailer } from "@/components/trailer";
 export default function Home() {
@@ -25,7 +25,7 @@ export default function Home() {
         <TracingBeam>
           <Trailer />
           <Features />
-          <ThreeDCard />
+          <MotionCard />
           <Team />
         </TracingBeam>
       </div>

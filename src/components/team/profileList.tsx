@@ -8,7 +8,7 @@ import {
   useSpring,
 } from "framer-motion";
 
-export const AnimatedTooltip = ({
+export const ProfileList = ({
   items,
 }: {
   items: {
