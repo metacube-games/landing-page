@@ -1,11 +1,8 @@
 "use client";
 import React from "react";
 import { FloatingNav } from "../ui/navbar";
-//q: whats the icon for documents ?
-//a: IconInfoCircle
-//q: whats the icon for documents apart from IconInfoCircle ?
 
-import {IconFileText} from "@tabler/icons-react";
+import { IconFileText } from "@tabler/icons-react";
 export function Navbar() {
   const navItems = [
     {

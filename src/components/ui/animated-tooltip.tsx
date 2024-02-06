@@ -24,12 +24,10 @@ export const AnimatedTooltip = ({
 
   const springConfig = { stiffness: 100, damping: 5 };
   const x = useMotionValue(0); // going to set this value on mouse move
-  // rotate the tooltip
   const rotate = useSpring(
     useTransform(x, [-100, 100], [-45, 45]),
     springConfig
   );
-  // translate the tooltip
   const translateX = useSpring(
     //TODO: adapt this dynamically for phones
     useTransform(x, [-100, 100], [-50, 50]),
@@ -46,7 +44,7 @@ export const AnimatedTooltip = ({
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768); // For example, consider <768px as mobile
     };
-    handleResize(); // Initial check
+    handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);

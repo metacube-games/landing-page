@@ -10,13 +10,13 @@ export const HoverEffect = ({
   items: {
     title: string;
     description: string;
-    link?: string; // Make the link property optional
+    link?: string;
   }[];
   className?: string;
 }) => {
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-  const renderItem = (item : any, idx : any) => (
+  const renderItem = (item: any, idx: any) => (
     <div
       onMouseEnter={() => setHoveredIndex(idx)}
       onMouseLeave={() => setHoveredIndex(null)}
