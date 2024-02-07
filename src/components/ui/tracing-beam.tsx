@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { startTransition, useEffect, useRef, useState } from "react";
 import {
   motion,
   useTransform,
@@ -19,38 +19,46 @@ export const TracingBeam = ({
   const { scrollYProgress } = useScroll({});
 
   // track velocity of scroll to increase or decrease distance between svg gradient y coordinates.
-  const scrollYProgressVelocity = useVelocity(scrollYProgress);
-  const [velo, setVelocity] = React.useState(0);
-
+  // const scrollYProgressVelocity = useVelocity(scrollYProgress);
+  const [veloy, setVelocityy] = React.useState<boolean>(false);
+  // const velo = useRef(0);
   const contentRef = useRef<HTMLDivElement>(null);
 
   const [svgHeight, setSvgHeight] = useState(0);
-
   useEffect(() => {
     if (contentRef.current) {
       setSvgHeight(contentRef.current.offsetHeight);
     }
   }, []);
   useEffect(() => {
-    return scrollYProgressVelocity.onChange((latestVelocity) => {
-      setVelocity(latestVelocity);
+    scrollYProgress.on("change", (latestVelocity: number) => {
+      startTransition(() => {
+        setVelocityy(latestVelocity > 0.089);
+      });
     });
-  }, []);
+    return () => {
+      scrollYProgress.destroy();
+    };
+  }, [scrollYProgress]);
 
   const y1 = useSpring(
-    useTransform(scrollYProgress, [0, 0.8], [50, svgHeight - velo * 500]),
+    useTransform(scrollYProgress, [0.08, 0.8], [20, svgHeight - 1]),
     {
       stiffness: 500,
       damping: 90,
+      mass: 0.4,
     }
   );
   const y2 = useSpring(
-    useTransform(scrollYProgress, [0, 1], [50, svgHeight - velo * 2000]),
+    useTransform(scrollYProgress, [0.11, 1], [50, svgHeight - 4]),
     {
       stiffness: 500,
       damping: 90,
+      mass: 0.4,
     }
   );
+
+  const supState = veloy;
 
   return (
     <motion.div
@@ -58,15 +66,11 @@ export const TracingBeam = ({
     >
       <div className="absolute -left-20 top-3">
         <motion.div
-          transition={{
-            duration: 0.2,
-            delay: 0.5,
-          }}
+          transition={{ duration: 0.1, delay: 0.1 }}
           animate={{
-            boxShadow:
-              scrollYProgress.get() > 0
-                ? "none"
-                : "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+            boxShadow: supState
+              ? "rgba(0, 0, 0, 0) 0px"
+              : "rgba(0, 0, 0, 0.24) 0px 3px 8px",
           }}
           className="ml-[27px] h-4 w-4 rounded-full border border-netural-200 shadow-sm flex items-center justify-center"
         >
@@ -76,10 +80,8 @@ export const TracingBeam = ({
               delay: 0.5,
             }}
             animate={{
-              backgroundColor:
-                scrollYProgress.get() > 0 ? "white" : "#00FF94",
-              borderColor:
-                scrollYProgress.get() > 0 ? "white" : "#00FF94",
+              backgroundColor: supState ? "#ffffff" : "#00FF94",
+              borderColor: supState ? "#ffffff" : "#00FF94",
             }}
             className="h-2 w-2 rounded-full border border-neutral-300 bg-white"
           />
@@ -96,9 +98,7 @@ export const TracingBeam = ({
             fill="none"
             stroke="#9091A0"
             strokeOpacity="0.16"
-            transition={{
-              duration: 10,
-            }}
+            transition={{ duration: 10 }}
           ></motion.path>
           <motion.path
             d={`M 1 0V -36 l 18 24 V ${svgHeight * 0.8} l -18 24V ${svgHeight}`}
@@ -106,9 +106,7 @@ export const TracingBeam = ({
             stroke="url(#gradient)"
             strokeWidth="1.25"
             className="motion-reduce:hidden"
-            transition={{
-              duration: 10,
-            }}
+            transition={{ duration: 10 }}
           ></motion.path>
           <defs>
             <motion.linearGradient

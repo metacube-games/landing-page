@@ -7,8 +7,10 @@ export function Navbar() {
   const navItems = [
     {
       name: "About",
-      link: "https://metacube-1.gitbook.io/metacube/",
-      icon: <IconFileText className="h-4 w-4 text-neutral-500 dark:text-white" />,
+      link: "https://metacube-1.gitbook.io/metacube-games",
+      icon: (
+        <IconFileText className="h-4 w-4 text-neutral-500 dark:text-white" />
+      ),
     },
   ];
   return (
