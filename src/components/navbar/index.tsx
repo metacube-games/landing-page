@@ -1,8 +1,7 @@
-"use client";
 import React from "react";
 import { FloatingNav } from "./floating-navbar";
-
 import { IconFileText } from "@tabler/icons-react";
+
 export function Navbar() {
   const navItems = [
     {

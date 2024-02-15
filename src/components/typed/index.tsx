@@ -1,4 +1,3 @@
-"use client";
 import { SocialIcon } from "react-social-icons/component";
 import "react-social-icons/x";
 import "react-social-icons/discord";

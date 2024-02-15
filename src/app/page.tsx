@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import Team from "@/components/team";
 import Features from "@/components/features";
@@ -11,7 +10,6 @@ import { Trailer } from "@/components/trailer";
 export default function Home() {
   return (
     <main className="flex flex-col items-center justify-between">
-
       {/* Navbar */}
       <Navbar />
       <div className="relative w-full h-screen flex">
