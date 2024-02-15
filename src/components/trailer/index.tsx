@@ -11,7 +11,7 @@ export function Trailer() {
 
   return (
     <div className="flex flex-col justify-center items-center relative mb-24 text-black">
-      <h1 className="text-3xl font-medium tracking-widest uppercase text-center text-black dark:text-white mb-4">
+      <h1 className="text-3xl font-medium tracking-widest uppercase text-center text-white mb-4">
         Watch the Trailer
       </h1>
       <blockquote className="twitter-tweet" data-media-max-width="560">

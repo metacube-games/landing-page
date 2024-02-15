@@ -8,7 +8,7 @@ export function TypewriterEffectSmoothDemo() {
   const words = [
     {
       text: "Metacube",
-      className: "text-white-500 dark:text-white-500",
+      className: "text-white-500",
     },
   ];
   return (
@@ -16,7 +16,7 @@ export function TypewriterEffectSmoothDemo() {
       <h1 className="md:text-6xl font-medium tracking-widest uppercase text-white m-4">
         Metacube
       </h1>
-      <p className="text-neutral-600 dark:text-neutral-200 text-xs sm:text-base">
+      <p className="text-neutral-200 text-xs sm:text-base">
         Join the Community
       </p>
       <div className="flex flex-row space-y-0  space-x-24 p-0">
