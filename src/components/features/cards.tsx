@@ -57,13 +57,20 @@ export const HoverEffect = ({
     >
       {items.map((item, idx) =>
         item.link ? (
-          <Link href={item.link} key={idx}>
-            <a aria-label={`Learn more about ${item.title}`} className="focus:outline-none">
-              {renderItem(item, idx)}
-            </a>
-          </Link>
+          (<Link
+            href={item.link}
+            key={idx}
+            target="_blank"
+            aria-label={`Learn more about ${item.title}`}
+            className="focus:outline-none"
+          >
+            {renderItem(item, idx)}
+          </Link>)
         ) : (
-          renderItem(item, idx)
+          <React.Fragment key={idx}
+          >
+            {renderItem(item, idx)}
+          </React.Fragment>
         )
       )}
     </section>

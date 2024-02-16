@@ -8,6 +8,7 @@ import {
   useMotionValue,
   useSpring,
 } from "framer-motion";
+import Link from "next/link";
 
 export const ProfileList = ({
   items,
@@ -81,12 +82,16 @@ export const ProfileList = ({
                   whiteSpace: "nowrap",
                 }}
                 className={`absolute top-20 sm:left-0 md:-left-1/2 md:translate-x-1/2 flex text-xs flex-col items-center justify-center rounded-md bg-black z-50 shadow-xl px-4 py-2 ${hoveredIndex === item.id ? 'left-1/2 transform -translate-x-1/2' : ''}`}              >
-                <a href={item.link} target="_blank" rel="noopener noreferrer">
-                  <div className="font-bold text-white relative z-30 text-base">
-                    {item.name}
-                  </div>
-                  <div className="text-white text-xs">{item.designation}</div>
-                </a>
+                <Link href={item.link}>
+                  <a target="_blank" rel="noopener noreferrer" aria-label={`Learn more about ${item.name}, ${item.designation}`}>
+                    <motion.div className="text-white font-bold text-base">
+                      {item.name}
+                    </motion.div>
+                    <motion.div className="text-white text-sm">
+                      {item.designation}
+                    </motion.div>
+                  </a>
+                </Link>
               </motion.div>
             )}
           </AnimatePresence>

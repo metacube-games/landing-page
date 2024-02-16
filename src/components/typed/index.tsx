@@ -1,15 +1,8 @@
 import { SocialIcon } from "react-social-icons/component";
-import "react-social-icons/x";
-import "react-social-icons/discord";
 
 //TODO: rename component
-export function TypewriterEffectSmoothDemo() {
-  const words = [
-    {
-      text: "Metacube",
-      className: "text-white-500",
-    },
-  ];
+export function CommunityJoinSection() {
+
   return (
     <div className="flex flex-col items-center justify-center h-[40rem]  ">
       <h1 className="md:text-6xl font-medium tracking-widest uppercase text-white m-4">

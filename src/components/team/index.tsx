@@ -46,13 +46,15 @@ const people = [
 
 export default function Team() {
   return (
-    <div>
+    <section aria-labelledby="team-heading">
       <div className="flex flex-row items-center justify-center w-full">
-        <h1 className="text-3xl font-medium tracking-widest uppercase text-center text-white">Our Team</h1>
+        <h1 id="team-heading" className="text-3xl font-medium tracking-widest uppercase text-center text-white">
+          Our Team
+        </h1>
       </div>
       <div className="flex flex-row items-center justify-center mb-10 w-full">
         <ProfileList items={people} />
       </div>
-    </div>
+    </section>
   );
 }

@@ -90,6 +90,6 @@ export function MotionCard() {
           </div>
         </CardBody>
       </CardContainer>
-    </section>
+    </section >
   );
 }
