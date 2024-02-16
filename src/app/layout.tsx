@@ -10,10 +10,22 @@ export const metadata: Metadata = {
   description:
     "Metacube is a Massive Multiplayer Free2Play Event game on Starknet. Compete with thousands of players, own the assets you collect, and conquer the Metacube.",
   openGraph: {
-    images: "/metadata-image.jpeg",
+    images: [
+      {
+        url: "https://metacube.games/metadata-image.jpeg",
+        width: 800,
+        height: 600,
+        alt: "Metacube Free2Play Event on Starknet",
+      },
+    ],
   },
   twitter: {
-    images: "/metadata-image.jpeg",
+    images: [
+      {
+        url: "https://metacube.games/metadata-image.jpeg",
+        alt: "Metacube Free2Play Event on Starknet",
+      },
+    ],
   },
 };
 
@@ -24,8 +36,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <link rel="preconnect" href="https://platform.twitter.com" />
-      <link rel="dns-prefetch" href="https://platform.twitter.com" />
+      <head>
+        <link rel="preconnect" href="https://platform.twitter.com" />
+        <link rel="dns-prefetch" href="https://platform.twitter.com" />
+        <link rel="canonical" href="https://metacube.games" />
+        <meta name="keywords" content="Metacube, Free2Play, Starknet, Multiplayer Game, Blockchain Game" />
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   );

@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export function MotionCard() {
   return (
-    <div className="flex flex-col items-center justify-center">
+    <section className="flex flex-col items-center justify-center">
       <h1 className="text-3xl font-medium tracking-widest uppercase text-center text-white">
         Earn Rewards
       </h1>
@@ -76,6 +76,7 @@ export function MotionCard() {
                 className="items-center flex flex-col"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Download Argent X Wallet"
               >
                 <Image
                   alt="Braavos"
@@ -89,6 +90,6 @@ export function MotionCard() {
           </div>
         </CardBody>
       </CardContainer>
-    </div>
+    </section>
   );
 }

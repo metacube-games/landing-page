@@ -47,8 +47,9 @@ export const HoverEffect = ({
     </div>
   );
 
+
   return (
-    <div
+    <section
       className={cn(
         "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10",
         className
@@ -56,19 +57,16 @@ export const HoverEffect = ({
     >
       {items.map((item, idx) =>
         item.link ? (
-          <Link
-            href={item.link}
-            key={idx}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {renderItem(item, idx)}
+          <Link href={item.link} key={idx}>
+            <a aria-label={`Learn more about ${item.title}`} className="focus:outline-none">
+              {renderItem(item, idx)}
+            </a>
           </Link>
         ) : (
-          <React.Fragment key={idx}>{renderItem(item, idx)}</React.Fragment>
+          renderItem(item, idx)
         )
       )}
-    </div>
+    </section>
   );
 };
 

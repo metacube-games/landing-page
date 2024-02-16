@@ -22,8 +22,3 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
-
-.twitter-tweet {
-  margin-top: 0;
-  margin-bottom: 0;
-}

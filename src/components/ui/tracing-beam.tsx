@@ -61,6 +61,7 @@ export const TracingBeam = ({
 
   return (
     <motion.div
+      aria-hidden="true"
       className={cn("relative w-full max-w-4xl mx-auto h-full", className)}
     >
       <div className="absolute -left-20 top-3">

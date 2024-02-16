@@ -1,4 +1,4 @@
-export const Trailer = () => {
+const Trailer = () => {
   return (
     <div className="flex flex-col justify-center items-center relative mb-24 text-black">
       <h1 className="text-3xl font-medium tracking-widest uppercase text-center text-black dark:text-white mb-4">
@@ -17,3 +17,4 @@ export const Trailer = () => {
   );
 };
 
+export default Trailer;
