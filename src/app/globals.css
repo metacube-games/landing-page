@@ -22,3 +22,7 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.spinner-container {
+  z-index: -1;
+}

@@ -5,7 +5,7 @@ import { TracingBeam } from "@/components/ui/tracing-beam";
 import { Navbar } from "@/components/navbar";
 import { MotionCard } from "@/components/motion-card";
 import Footer from "@/components/footer";
-const CubeAnimation = lazy(() => import("@/components/cubeAnimation"));
+import { CubeAnimation } from "@/components/cubeAnimation";
 const Trailer = lazy(() => import("@/components/trailer"));
 
 export default function Home() {
