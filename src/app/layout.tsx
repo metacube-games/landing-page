@@ -41,6 +41,8 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://platform.twitter.com" />
         <link rel="canonical" href="https://metacube.games" />
         <meta name="keywords" content="Metacube, Free2Play, Starknet, Multiplayer Game, Blockchain Game" />
+        {/* import html */}
+        <link rel="import" href="/googlec094d69005c828f0.html" />
       </head>
       <body className={inter.className}>{children}</body>
     </html>
