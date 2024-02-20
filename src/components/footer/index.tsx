@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
                 </div>
                 <div className="flex space-x-8">
                     <div>
-                        <h5 className="font-bold text-lg mb-2">Contact Us</h5>
+                        <p className="font-bold text-lg mb-2">Contact Us</p>
                         <ul>
                             <li className='my-2'><span className='hover:opacity-75'><SocialIcon url='https://x.com/metacubeGames' bgColor='transparent' style={{ height: 24, width: 24 }} target="_blank" rel="noopener noreferrer" /><Link href="https://x.com/metacubeGames" target="_blank" rel="noopener noreferrer">Twitter</Link></span></li>
                             <li className='my-2'><span className='hover:opacity-75'><SocialIcon url='https://discord.gg/FGV6HkMbNj' bgColor='transparent' style={{ height: 24, width: 24 }} target="_blank" rel="noopener noreferrer" /><Link href="https://discord.gg/FGV6HkMbNj" target="_blank" rel="noopener noreferrer">Discord</Link></span></li>
@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
                         </ul>
                     </div>
                     <div>
-                        <h5 className="font-bold text-lg mb-2">Info</h5>
+                        <p className="font-bold text-lg mb-2">Info</p>
                         <ul>
                             <li className='my-2'><Link href="https://metacube-1.gitbook.io/metacube-games" className="hover:text-gray-300" target="_blank" rel="noopener noreferrer">Documentation</Link></li>
                             <li className='my-2'><Link href="/careers" className="hover:text-gray-300" target="_blank" rel="noopener noreferrer">Careers</Link></li>

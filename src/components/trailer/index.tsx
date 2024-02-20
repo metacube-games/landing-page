@@ -3,13 +3,20 @@ import React, { useEffect } from "react";
 
 const Trailer = () => {
   useEffect(() => {
-    // Dynamically load the Twitter script for embedding tweets
-    const script = document.createElement("script");
-    script.src = "https://platform.twitter.com/widgets.js";
-    script.async = true;
-    document.body.appendChild(script);
+    // Check if the Twitter script is already loaded
+    let isScriptLoaded = document.querySelector('script[src="https://platform.twitter.com/widgets.js"]');
+    if (!isScriptLoaded) {
+      const script = document.createElement("script");
+      script.src = "https://platform.twitter.com/widgets.js";
+      script.async = true;
+      document.body.appendChild(script);
+    }
+    // Cleanup function to remove script if component unmounts
     return () => {
-      document.body.removeChild(script);
+      let script = document.querySelector('script[src="https://platform.twitter.com/widgets.js"]');
+      if (script) {
+        document.body.removeChild(script);
+      }
     };
   }, []);
 

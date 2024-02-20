@@ -1,4 +1,4 @@
-import React, { lazy } from "react";
+import React from "react";
 import Team from "@/components/team";
 import Features from "@/components/features";
 import { TracingBeam } from "@/components/ui/tracing-beam";
@@ -6,7 +6,8 @@ import { Navbar } from "@/components/navbar";
 import { MotionCard } from "@/components/motion-card";
 import Footer from "@/components/footer";
 import { CubeAnimation } from "@/components/cubeAnimation";
-const Trailer = lazy(() => import("@/components/trailer"));
+import dynamic from "next/dynamic";
+const Trailer = dynamic(() => import("@/components/trailer"));
 
 export default function Home() {
   return (

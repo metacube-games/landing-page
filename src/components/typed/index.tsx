@@ -1,6 +1,5 @@
 import { SocialIcon } from "react-social-icons/component";
 
-//TODO: rename component
 export function CommunityJoinSection() {
 
   return (

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     siteName: "Metacube Games",
     images: [
       {
-        url: "https://metacube.games/metadata-image.jpeg",
+        url: "https://metacube.games/metadata-image.webp",
         width: 800,
         height: 600,
         alt: "Metacube Free2Play Event on Starknet",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     site: "@MetacubeGames",
     images: [
       {
-        url: "https://metacube.games/metadata-image.jpeg",
+        url: "https://metacube.games/metadata-image.webp",
         alt: "Metacube Free2Play Event on Starknet",
       },
     ],

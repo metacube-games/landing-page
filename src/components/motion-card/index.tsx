@@ -28,7 +28,7 @@ export function MotionCard() {
           </CardItem>
           <CardItem translateZ="40" className="w-full mt-4">
             <Image
-              src="/card.png"
+              src="/card.webp"
               priority
               height="1000"
               width="1000"
@@ -59,7 +59,7 @@ export function MotionCard() {
                 <Image
                   style={{ width: "auto" }}
                   alt="argent X"
-                  src="/argentX.png"
+                  src="/argentX.webp"
                   width={50}
                   height={50}
                 />
@@ -80,7 +80,7 @@ export function MotionCard() {
               >
                 <Image
                   alt="Braavos"
-                  src="/Braavos.png"
+                  src="/Braavos.webp"
                   width={50}
                   height={50}
                 />
