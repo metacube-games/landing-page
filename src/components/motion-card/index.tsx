@@ -3,7 +3,7 @@ import React from "react";
 import { CardBody, CardContainer, CardItem } from "./3d-card";
 import Link from "next/link";
 
-export function MotionCard() {
+function MotionCard() {
   return (
     <section className="flex flex-col items-center justify-center">
       <h1 className="text-3xl font-medium tracking-widest uppercase text-center text-white">
@@ -93,3 +93,5 @@ export function MotionCard() {
     </section >
   );
 }
+
+export default MotionCard;

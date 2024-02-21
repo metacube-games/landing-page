@@ -1,6 +1,6 @@
 import React from "react";
-import { FloatingNav } from "./floating-navbar";
 import Image from "next/image";
+import FloatingNav from "./floating-navbar";
 
 export function Navbar() {
   const navItems = [
