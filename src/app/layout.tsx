@@ -43,8 +43,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="preconnect" href="https://platform.twitter.com" />
-        <link rel="dns-prefetch" href="https://platform.twitter.com" />
         <link rel="canonical" href="https://metacube.games" />
         <meta name="keywords" content="Metacube, Metacube Games, Game, Metacube Game, NFT, NFT Game, Crypto Game, Free2Play, Starknet, Multiplayer, Blockchain Game" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
