@@ -9,7 +9,7 @@ const Trailer = () => {
           Watch the Trailer
         </h1>
         <div className="flex justify-center items-center w-full" >
-          <YouTubeEmbed videoid="WT58alm2_a0" width={560} params="controls=0" playlabel="Metacube trailer" />
+          <YouTubeEmbed videoid="WT58alm2_a0" width={570} params="controls=0" playlabel="Metacube trailer" />
         </div>
       </div>
     </>
