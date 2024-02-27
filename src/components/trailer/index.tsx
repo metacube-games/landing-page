@@ -11,13 +11,13 @@ const Trailer = () => {
         <div className="spinner-container absolute flex justify-center items-center w-full h-full">
           <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900"></div>
         </div>
-        {/* <div className="flex justify-center items-center w-full" style={{ height: "325px" }}> */}
-        {/* Ensure the tweet embed is accessible and responsive */}
-        {/* <blockquote className="twitter-tweet" data-media-max-width="560" >
+        <div className="flex justify-center items-center w-full" >
+          {/* Ensure the tweet embed is accessible and responsive */}
+          {/* <blockquote className="twitter-tweet" data-media-max-width="560" >
             <a href="https://twitter.com/MetacubeGames/status/1714343398247682273?ref_src=twsrc%5Etfw" ></a>
           </blockquote> */}
-        <YouTubeEmbed videoid="WT58alm2_a0" width={560} params="controls=0" />
-        {/* </div> */}
+          <YouTubeEmbed videoid="WT58alm2_a0" width={560} params="controls=0" />
+        </div>
       </div>
     </>
   );
