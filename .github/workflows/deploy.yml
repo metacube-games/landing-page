@@ -20,4 +20,3 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: /home/github/deploy.sh
-    
