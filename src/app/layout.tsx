@@ -22,19 +22,8 @@ export const metadata: Metadata = {
       },
     ],
   },
-  twitter: {
-    card: "summary_large_image",
-    site: "@MetacubeGames",
-    creator: '@MetacubeGames',
-    title: "Metacube | Free2Play on Starknet",
-    description: "Metacube is a Massive Multiplayer Free2Play Event game on Starknet. Compete with thousands of players, own the assets you collect, and conquer the Metacube.",
-    images: {
-      url: "https://metacube.games/metadata-image.png",
-      alt: "Metacube Free2Play Event on Starknet",
-    },
-  },
-
 };
+
 export default function RootLayout({
   children,
 }: {
@@ -50,6 +39,14 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/favicon.ico" />
         <link rel="import" href="/googlec094d69005c828f0.html" />
         <link rel="icon" href="/favicon.ico" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@MetacubeGames" />
+        <meta name="twitter:creator" content="@MetacubeGames" />
+        <meta name="twitter:title" content="Metacube | Free2Play on Starknet" />
+        <meta name="twitter:description" content="Metacube is a Massive Multiplayer Free2Play Event game on Starknet. Compete with thousands of players, own the assets you collect, and conquer the Metacube." />
+        <meta name="twitter:image" content="https://metacube.games/metadata-image.png" />
+        <meta name="twitter:image:alt" content="Metacube Free2Play Event on Starknet" />
 
       </head>
       {/* <Script src="https://platform.twitter.com/widgets.js" /> */}
