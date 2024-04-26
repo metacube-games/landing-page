@@ -25,12 +25,12 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     site: "@MetacubeGames",
-    images: [
-      {
-        url: "https://metacube.games/metadata-image.webp",
-        alt: "Metacube Free2Play Event on Starknet",
-      },
-    ],
+    title: "Metacube | Free2Play on Starknet",
+    description: "Metacube is a Massive Multiplayer Free2Play Event game on Starknet. Compete with thousands of players, own the assets you collect, and conquer the Metacube.",
+    images: {
+      url: "https://metacube.games/metadata-image.webp",
+      alt: "Metacube Free2Play Event on Starknet",
+    },
   },
 
 };
