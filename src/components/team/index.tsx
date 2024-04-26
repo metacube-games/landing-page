@@ -48,7 +48,7 @@ export default function Team() {
   return (
     <section aria-labelledby="team-heading">
       <div className="flex flex-row items-center justify-center w-full">
-        <h1 id="team-heading" className="text-3xl font-medium tracking-widest uppercase text-center text-white">
+        <h1 id="team-heading" className="text-4xl font-medium tracking-widest uppercase text-center text-white">
           Our Team
         </h1>
       </div>

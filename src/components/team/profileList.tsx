@@ -90,7 +90,7 @@ export const ProfileList = ({
                 <motion.div className="text-white font-bold text-base">
                   {item.name}
                 </motion.div>
-                <motion.div className="text-white text-sm">
+                <motion.div className="text-white text-md">
                   {item.designation}
                 </motion.div>
 

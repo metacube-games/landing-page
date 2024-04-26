@@ -11,8 +11,8 @@ const Footer: React.FC = () => {
     return (
         <footer className="bg-black text-white p-4 w-full">
             <div className="container mx-auto flex md:flex-row flex-col-reverse justify-between items-center">
-                <div className="text-sm mt-4 md:mt-0">
-                    © Metacube, 2023. All rights reserved.
+                <div className="text-md mt-4 md:mt-0">
+                    © Metacube, 2024. All rights reserved.
                 </div>
                 <div className="flex space-x-8">
                     <div>

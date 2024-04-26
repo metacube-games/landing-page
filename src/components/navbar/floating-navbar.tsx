@@ -59,7 +59,7 @@ const FloatingNav = ({
           >
             <>
               <span className="block sm:hidden">{navItem.icon}</span>
-              <span className="hidden sm:block text-sm">{navItem.name}</span>
+              <span className="hidden sm:block text-md">{navItem.name}</span>
             </>
           </Link>
         ))}
@@ -71,7 +71,7 @@ const FloatingNav = ({
           target="_blank"
           rel="noopener noreferrer"
         >
-          <button className="border text-sm font-medium relative border-neutral-200  text-white px-4 py-2 rounded-full bg-black hover:bg-neutral-900">
+          <button className="border text-md font-medium relative border-neutral-200  text-white px-4 py-2 rounded-full bg-black hover:bg-neutral-900">
             <span>Play</span>
           </button>
         </Link>

@@ -3,11 +3,11 @@ import { SocialIcon } from "react-social-icons/component";
 export function CommunityJoinSection() {
 
   return (
-    <div className="flex flex-col items-center justify-center h-[40rem]  ">
-      <h1 className="md:text-6xl font-medium tracking-widest uppercase text-white m-4">
+    <div className="flex flex-col items-center justify-center h-[40rem]">
+      <h1 className="text-5xl md:text-7xl font-medium tracking-widest uppercase text-white m-4">
         Metacube
       </h1>
-      <p className="text-neutral-200 text-xs sm:text-base">
+      <p className="text-neutral-200 text-base md:text-xl">
         Join the Community
       </p>
       <div className="flex flex-row space-y-0  space-x-24 p-0">

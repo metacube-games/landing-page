@@ -18,7 +18,7 @@ export default function Home() {
       <div className="container mx-auto py-24">
         <div
           aria-hidden="true"
-          className={"relative w-full max-w-4xl mx-auto h-full"}
+          className={"relative w-full max-w-5xl mx-auto h-full"}
         >
           <div className="absolute -left-20 top-3">
             <TracingBeam />
