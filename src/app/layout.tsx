@@ -25,10 +25,11 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     site: "@MetacubeGames",
+    creator: '@MetacubeGames',
     title: "Metacube | Free2Play on Starknet",
     description: "Metacube is a Massive Multiplayer Free2Play Event game on Starknet. Compete with thousands of players, own the assets you collect, and conquer the Metacube.",
     images: {
-      url: "https://metacube.games/metadata-image.webp",
+      url: "https://metacube.games/metadata-image.png",
       alt: "Metacube Free2Play Event on Starknet",
     },
   },
@@ -49,6 +50,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/favicon.ico" />
         <link rel="import" href="/googlec094d69005c828f0.html" />
         <link rel="icon" href="/favicon.ico" />
+
       </head>
       {/* <Script src="https://platform.twitter.com/widgets.js" /> */}
       <body className={inter.className}>{children}</body>
