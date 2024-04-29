@@ -49,7 +49,6 @@ export default function RootLayout({
         <meta name="twitter:image:alt" content="Metacube Free2Play Event on Starknet" />
 
       </head>
-      {/* <Script src="https://platform.twitter.com/widgets.js" /> */}
       <body className={inter.className}>{children}</body>
     </html>
   );
