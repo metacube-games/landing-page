@@ -26,7 +26,7 @@ export const projects = [
   {
     title: "Starknet ID Integration",
     description: "Players can use and be identified by their Starknet ID in the game",
-    link: "https://app.starknet.id/?sponsor=0x29aaeff147fcdd9fedecb94a6cf20c55022d7f8df66df4e9a8da4f0c7483261"
+    link: "https://app.starknet.id/?sponsor=0x2ba4ea61d80d1a60adf03150b7634af5fee6f4b3167d915ab8cce2be3ac2023"
   },
 ];
 
