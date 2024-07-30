@@ -165,12 +165,12 @@ const TermsOfService = () => {
               </h2>
               <p className="text-gray-300 leading-relaxed">
                 These Terms shall be governed and construed in accordance with
-                the laws of [Your Jurisdiction], without regard to its conflict
-                of law provisions. Any disputes arising out of or relating to
-                these Terms or the Service will be resolved through binding
-                arbitration in accordance with the rules of [Arbitration
-                Organization]. The arbitration shall be conducted in [City,
-                Country].
+                the laws of Switzerland, without regard to its conflict of law
+                provisions. Any disputes arising out of or relating to these
+                Terms or the Service will be resolved through binding
+                arbitration in accordance with the rules of Swiss Chambers'
+                Arbitration Institution (SCAI). The arbitration shall be
+                conducted in Lausanne, Switzerland.
               </p>
             </section>
 
