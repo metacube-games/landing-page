@@ -109,7 +109,7 @@ const PrivacyPolicy = () => {
                 We retain your personal information for as long as your account
                 is active or as needed to provide you services. If you wish to
                 cancel your account or request that we no longer use your
-                information, please contact us at support@metacube.com. We will
+                information, please contact us at contact@metacube.com. We will
                 retain and use your information as necessary to comply with our
                 legal obligations, resolve disputes, and enforce our agreements.
               </p>
