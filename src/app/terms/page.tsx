@@ -209,10 +209,10 @@ const TermsOfService = () => {
                 If you have any questions about these Terms, please contact us
                 at{" "}
                 <a
-                  href="mailto:support@metacube.com"
+                  href="mailto:contact@metacube.com"
                   className="text-green-400 hover:underline"
                 >
-                  support@metacube.com
+                  contact@metacube.com
                 </a>
                 .
               </p>
