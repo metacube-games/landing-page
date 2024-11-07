@@ -18,11 +18,11 @@ const TermsOfService = () => {
                 1. Introduction
               </h2>
               <p className="text-gray-300 leading-relaxed">
-                Welcome to Metacube. These Terms of Service ("Terms") govern
-                your access to and use of Metacube's website, services, and
-                blockchain-based gaming platform (collectively, the "Service").
-                By using our Service, you agree to be bound by these Terms. If
-                you disagree with any part of the Terms, you may not use our
+                Welcome to Metacube. These Terms of Service (Terms) govern your
+                access to and use of Metacube&apos;s website, services, and
+                blockchain-based gaming platform (collectively, the Service). By
+                using our Service, you agree to be bound by these Terms. If you
+                disagree with any part of the Terms, you may not use our
                 Service.
               </p>
             </section>
@@ -168,7 +168,7 @@ const TermsOfService = () => {
                 the laws of Switzerland, without regard to its conflict of law
                 provisions. Any disputes arising out of or relating to these
                 Terms or the Service will be resolved through binding
-                arbitration in accordance with the rules of Swiss Chambers'
+                arbitration in accordance with the rules of Swiss Chambers&apos;
                 Arbitration Institution (SCAI). The arbitration shall be
                 conducted in Lausanne, Switzerland.
               </p>
@@ -182,7 +182,7 @@ const TermsOfService = () => {
                 We reserve the right, at our sole discretion, to modify or
                 replace these Terms at any time. We will provide notice of any
                 significant changes by posting the new Terms on this page and
-                updating the "Last Updated" date. Your continued use of the
+                updating the Last Updated date. Your continued use of the
                 Service after any such changes constitutes your acceptance of
                 the new Terms.
               </p>

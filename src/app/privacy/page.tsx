@@ -18,7 +18,7 @@ const PrivacyPolicy = () => {
                 Welcome to Metacube, a platform revolutionizing the gaming
                 industry with blockchain technology. This privacy policy
                 explains how we collect, use, store, and protect your personal
-                information when you use Metacube's services. By using our
+                information when you use Metacube&apos;s services. By using our
                 services, you agree to the terms outlined in this policy.
               </p>
             </section>
@@ -137,7 +137,7 @@ const PrivacyPolicy = () => {
 
             <section>
               <h2 className="text-2xl font-bold mb-4 text-green-300">
-                8. Children's Privacy
+                8. Children&apos;s Privacy
               </h2>
               <p className="text-gray-300 leading-relaxed">
                 Metacube is not intended for children under 13 years of age. We
@@ -154,7 +154,7 @@ const PrivacyPolicy = () => {
               <p className="text-gray-300 leading-relaxed">
                 We may update this privacy policy from time to time. We will
                 notify you of any significant changes by posting the new privacy
-                policy on this page and updating the "Last Updated" date at the
+                policy on this page and updating the Last Updated date at the
                 top of this page. You are advised to review this privacy policy
                 periodically for any changes.
               </p>

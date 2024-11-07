@@ -33,7 +33,10 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="canonical" href="https://metacube.games" />
-        <meta name="keywords" content="Metacube, Metacube Games, Game, Metacube Game, NFT, NFT Game, Crypto Game, Free2Play, Starknet, Multiplayer, Blockchain Game" />
+        <meta
+          name="keywords"
+          content="Metacube, Metacube Games, Game, Metacube Game, NFT, NFT Game, Crypto Game, Free2Play, Starknet, Multiplayer, Blockchain Game"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
         <link rel="apple-touch-icon" href="/favicon.ico" />
@@ -44,10 +47,18 @@ export default function RootLayout({
         <meta name="twitter:site" content="@MetacubeGames" />
         <meta name="twitter:creator" content="@MetacubeGames" />
         <meta name="twitter:title" content="Metacube | Free2Play on Starknet" />
-        <meta name="twitter:description" content="Metacube is a Massive Multiplayer Free2Play Event game on Starknet. Compete with thousands of players, own the assets you collect, and conquer the Metacube." />
-        <meta name="twitter:image" content="https://metacube.games/metadata-image.png" />
-        <meta name="twitter:image:alt" content="Metacube Free2Play Event on Starknet" />
-
+        <meta
+          name="twitter:description"
+          content="Metacube is a Massive Multiplayer Free2Play Event game on Starknet. Compete with thousands of players, own the assets you collect, and conquer the Metacube."
+        />
+        <meta
+          name="twitter:image"
+          content="https://metacube.games/metadata-image.png"
+        />
+        <meta
+          name="twitter:image:alt"
+          content="Metacube Free2Play Event on Starknet"
+        />
       </head>
       <body className={inter.className}>{children}</body>
     </html>
