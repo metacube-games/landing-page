@@ -71,19 +71,18 @@ const NFTLinkWImage = ({
 const TradeNFTs = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-black text-white ">
-      <div className="text-center p-14">
+      <div className="text-center p-14 ">
         <h1 className="text-4xl tracking-widest uppercase text-center mb-4">
           Trade Your NFTs
         </h1>
-        <p className="text-gray-300 mb-8 p-4">
+        <p className="text-gray-300 mb-8 p-4 max-w-3xl">
           Start trading the exclusive <strong>Metacube: Genesis</strong> and{" "}
-          <strong>Metacube: Passcards</strong> collections! Each NFT unlocks
-          unique advantages, with benefits revealed as events come.
+          <strong>Metacube: Passcards</strong> collections!
+          <br />
+          Each NFT unlocks unique advantages, with benefits revealed as events
+          come.
         </p>
-        <div
-          // align items center
-          className="flex flex-col sm:flex-row justify-center align-middle gap-10 gap-x-28 p-6 items-center "
-        >
+        <div className="flex flex-col sm:flex-row justify-center align-middle gap-10 gap-x-28 p-6 items-center ">
           <NFTLinkWImage
             title="Genesis"
             href="https://element.market/collections/metacube-genesis"
