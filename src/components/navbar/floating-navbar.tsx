@@ -16,7 +16,7 @@ const FloatingNav = ({
   navItems: {
     name: string;
     link: string;
-    icon?: JSX.Element;
+    icon?: React.ReactNode;
   }[];
   className?: string;
 }) => {
@@ -42,6 +42,7 @@ const FloatingNav = ({
         transition={{
           duration: 0.2,
         }}
+        // @ts-ignore
         className={cn(
           "flex max-w-fit fixed top-2 inset-x-0 mx-auto border border-transparent rounded-full bg-white shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-[5000] pr-2 pl-4 py-2  items-center justify-center space-x-4",
           className

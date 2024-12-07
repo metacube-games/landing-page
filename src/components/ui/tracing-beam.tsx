@@ -1,13 +1,8 @@
 "use client";
 import React, { startTransition, useEffect, useRef, useState } from "react";
-import {
-  motion,
-  useTransform,
-  useScroll,
-  useSpring,
-} from "framer-motion";
+import { motion, useTransform, useScroll, useSpring } from "framer-motion";
 
-const TracingBeam = ({ }: {}) => {
+const TracingBeam = ({}: {}) => {
   const { scrollYProgress } = useScroll({});
 
   // track velocity of scroll to increase or decrease distance between svg gradient y coordinates.
@@ -23,12 +18,11 @@ const TracingBeam = ({ }: {}) => {
       if (doc) {
         setSvgHeight(doc.offsetHeight);
       }
-    }
-    updateSize()
-    window.addEventListener("resize", updateSize)
-    return () => window.removeEventListener("resize", updateSize)
+    };
+    updateSize();
+    window.addEventListener("resize", updateSize);
+    return () => window.removeEventListener("resize", updateSize);
   }, []);
-
 
   useEffect(() => {
     scrollYProgress.on("change", (latestVelocity: number) => {
@@ -60,8 +54,6 @@ const TracingBeam = ({ }: {}) => {
 
   const supState = veloy;
 
-
-
   return (
     <>
       <motion.div
@@ -71,6 +63,7 @@ const TracingBeam = ({ }: {}) => {
             ? "rgba(0, 0, 0, 0) 0px"
             : "rgba(0, 0, 0, 0.24) 0px 3px 8px",
         }}
+        // @ts-ignore
         className="ml-[27px] h-4 w-4 rounded-full border border-netural-200 shadow-sm flex items-center justify-center"
       >
         <motion.div
@@ -82,6 +75,7 @@ const TracingBeam = ({ }: {}) => {
             backgroundColor: supState ? "#ffffff" : "#00FF94",
             borderColor: supState ? "#ffffff" : "#00FF94",
           }}
+          // @ts-ignore
           className="h-2 w-2 rounded-full border border-neutral-300 bg-white"
         />
       </motion.div>
