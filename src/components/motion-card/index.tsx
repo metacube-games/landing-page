@@ -11,10 +11,7 @@ function MotionCard() {
       </h1>
       <CardContainer className="inter-var">
         <CardBody className="relative group/card  hover:shadow-2xl hover:shadow-emerald-500/[0.1] bg-black border-white/[0.2] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
-          <CardItem
-            translateZ="0"
-            className="text-2xl font-bold text-white"
-          >
+          <CardItem translateZ="0" className="text-2xl font-bold text-white">
             Collect your assets
           </CardItem>
           <CardItem
@@ -90,7 +87,7 @@ function MotionCard() {
           </div>
         </CardBody>
       </CardContainer>
-    </section >
+    </section>
   );
 }
 

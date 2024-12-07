@@ -21,15 +21,24 @@ export function Navbar() {
 
   return (
     <nav className="relative left-1/2">
-      <FloatingNav navItems={navItems.map(item => ({
-        ...item,
-        element: (
-          <a href={item.link} key={item.name} className="flex items-center space-x-2" target="_blank" rel="noopener noreferrer" aria-label={`Learn more about ${item.name} at Metacube Games`}>
-            {item.icon}
-            <span>{item.name}</span>
-          </a>
-        )
-      }))} />
+      <FloatingNav
+        navItems={navItems.map((item) => ({
+          ...item,
+          element: (
+            <a
+              href={item.link}
+              key={item.name}
+              className="flex items-center space-x-2"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Learn more about ${item.name} at Metacube Games`}
+            >
+              {item.icon}
+              <span>{item.name}</span>
+            </a>
+          ),
+        }))}
+      />
     </nav>
   );
 }

@@ -9,27 +9,27 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@next/third-parties": "^15.0.3",
+    "@next/third-parties": "^15.0.4",
     "clsx": "^2.1.1",
     "cssnano": "^7.0.6",
-    "framer-motion": "^11.11.11",
+    "framer-motion": "^11.13.1",
     "million": "latest",
-    "next": "15.0.3",
+    "next": "15.0.4",
     "next-videos": "^1.4.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "react-social-icons": "^6.18.0",
-    "tailwind-merge": "^2.5.4"
+    "tailwind-merge": "^2.5.5"
   },
   "devDependencies": {
     "@types/node": "^22",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
     "autoprefixer": "^10.4.20",
     "eslint": "^9",
-    "eslint-config-next": "15.0.3",
+    "eslint-config-next": "15.0.4",
     "postcss": "^8",
-    "tailwindcss": "^3.4.14",
+    "tailwindcss": "^3.4.16",
     "typescript": "^5"
   }
 }
