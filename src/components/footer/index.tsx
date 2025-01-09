@@ -5,6 +5,7 @@ import "react-social-icons/telegram";
 import "react-social-icons/discord";
 import "react-social-icons/github";
 import "react-social-icons/linkedin";
+import "react-social-icons/instagram";
 import Link from "next/link";
 
 const Footer: React.FC = () => {
@@ -57,6 +58,24 @@ const Footer: React.FC = () => {
               <li className="my-2">
                 <span className="hover:opacity-75">
                   <SocialIcon
+                    url="https://www.instagram.com/metacubegames"
+                    bgColor="transparent"
+                    style={{ height: 24, width: 24 }}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  />
+                  <Link
+                    href="https://www.instagram.com/metacubegames"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Instagram
+                  </Link>
+                </span>
+              </li>
+              {/* <li className="my-2">
+                <span className="hover:opacity-75">
+                  <SocialIcon
                     network="telegram"
                     url="https://t.me/metacubeofficial"
                     bgColor="transparent"
@@ -72,7 +91,7 @@ const Footer: React.FC = () => {
                     Telegram
                   </Link>
                 </span>
-              </li>
+              </li> */}
               <li className="my-2">
                 <span className="hover:opacity-75">
                   <SocialIcon
