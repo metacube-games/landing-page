@@ -12,7 +12,7 @@ export const CubeAnimation = () => {
         muted
         loop
         playsInline
-        className="absolute w-full h-full object-cover z-[1]"
+        className="absolute w-full h-full object-cover z-1"
       />
       <div className="absolute z-10 text-4xl tracking-widest uppercase top-48 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         <CommunityJoinSection />

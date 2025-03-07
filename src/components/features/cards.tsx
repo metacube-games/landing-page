@@ -28,7 +28,7 @@ export const HoverEffect = ({
             key={idx}
             target="_blank"
             aria-label={`Learn more about ${item.title}`}
-            className="focus:outline-none"
+            className="focus:outline-hidden"
           >
             <AnimationHover item={item} idx={idx} />
           </Link>)

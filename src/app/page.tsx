@@ -59,7 +59,8 @@ const NFTLinkWImage = ({
         alt={title}
         width={175}
         height={175}
-        className="rounded-md mb-2  border-white border-opacity-20 border-2 "
+        unoptimized
+        className="rounded-md mb-2  border-gray-200 border-opacity-20 border-1 "
       />
       <div className="relative p-1 rounded-md rounded-tl-none rounded-tr-none">
         <span className=" text-zinc-100 text-xl sm:text-xl ">{title}</span>
@@ -90,6 +91,7 @@ const TradeNFTs = () => {
           />
           <NFTLinkWImage
             title="Passcard"
+            // add unoptimized proprety
             href="https://element.market/collections/metacube-passcards"
             image="/passcard.gif"
           />

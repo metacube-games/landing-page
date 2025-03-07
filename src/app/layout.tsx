@@ -6,21 +6,89 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://metacube.games"),
-  title: "Metacube | Free2Play on Starknet",
+  title: "Metacube | Free2Play Multiplayer Event on Starknet",
   description:
-    "Metacube is a Massive Multiplayer Free2Play Event game on Starknet. Compete with thousands of players, own the assets you collect, and conquer the Metacube.",
+    "Join thousands in Metacube, a massive multiplayer free-to-play event game by Clashware Sàrl on Starknet. Collect unique NFTs, compete to conquer the Metacube, and own your in-game assets in this one-time blockchain gaming experience.",
+  keywords: [
+    "Metacube",
+    "Clashware Sàrl",
+    "Metacube Games",
+    "Free2Play",
+    "Starknet",
+    "Blockchain Game",
+    "NFT Game",
+    "Crypto Game",
+    "Multiplayer",
+    "MMO",
+    "Web3 Gaming",
+    "Decentralized Gaming",
+    "Play-to-Earn",
+  ],
+  authors: [{ name: "Clashware Sàrl", url: "https://metacube.games" }],
+  creator: "Clashware Sàrl",
+  publisher: "Metacube Games",
+  robots: "index, follow",
+  alternates: {
+    canonical: "https://metacube.games",
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/site.webmanifest",
   openGraph: {
     type: "website",
     url: "https://metacube.games",
     siteName: "Metacube Games",
+    title: "Metacube | Free2Play Multiplayer Event on Starknet",
+    description:
+      "Metacube, developed by Clashware Sàrl, is a free-to-play, massively multiplayer event on Starknet. Compete with thousands, collect NFTs, and conquer the Metacube in this unique blockchain gaming adventure.",
     images: [
       {
         url: "https://metacube.games/metadata-image.webp",
-        width: 800,
-        height: 600,
-        alt: "Metacube Free2Play Event on Starknet",
+        width: 1200,
+        height: 630,
+        alt: "Metacube - Free2Play Blockchain Event by Clashware Sàrl on Starknet",
       },
     ],
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@MetacubeGames",
+    creator: "@MetacubeGames",
+    title: "Metacube | Free2Play Multiplayer Event on Starknet",
+    description:
+      "Join the Metacube event by Clashware Sàrl on Starknet! A free-to-play MMO where thousands compete to destroy the cube, earn NFTs, and own their assets.",
+    images: [
+      {
+        url: "https://metacube.games/metadata-image.png",
+        alt: "Metacube - Free2Play Blockchain Event by Clashware Sàrl on Starknet",
+      },
+    ],
+  },
+  other: {
+    "application/ld+json": JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "VideoGame",
+      name: "Metacube",
+      description:
+        "Metacube, created by Clashware Sàrl, is a free-to-play, massively multiplayer event game on Starknet where players compete to dismantle the Metacube, collecting NFTs and owning in-game assets.",
+      url: "https://metacube.games",
+      publisher: {
+        "@type": "Organization",
+        name: "Metacube Games",
+      },
+      developer: {
+        "@type": "Organization",
+        name: "Clashware Sàrl",
+      },
+      genre: ["MMO", "Blockchain", "Action"],
+      platform: ["Web", "Starknet"],
+      playMode: "MultiPlayer",
+      inLanguage: "en",
+      datePublished: "2025-03-07",
+    }),
   },
 };
 
@@ -32,33 +100,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="canonical" href="https://metacube.games" />
-        <meta
-          name="keywords"
-          content="Metacube, Metacube Games, Game, Metacube Game, NFT, NFT Game, Crypto Game, Free2Play, Starknet, Multiplayer, Blockchain Game"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" content="#000000" />
-        <link rel="apple-touch-icon" href="/favicon.ico" />
-        <link rel="import" href="/googlec094d69005c828f0.html" />
-        <link rel="icon" href="/favicon.ico" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@MetacubeGames" />
-        <meta name="twitter:creator" content="@MetacubeGames" />
-        <meta name="twitter:title" content="Metacube | Free2Play on Starknet" />
-        <meta
-          name="twitter:description"
-          content="Metacube is a Massive Multiplayer Free2Play Event game on Starknet. Compete with thousands of players, own the assets you collect, and conquer the Metacube."
-        />
-        <meta
-          name="twitter:image"
-          content="https://metacube.games/metadata-image.png"
-        />
-        <meta
-          name="twitter:image:alt"
-          content="Metacube Free2Play Event on Starknet"
-        />
+        <meta name="robots" content="index, follow" />
+        <meta name="google-site-verification" content="c094d69005c828f0" />
+        <link rel="canonical" href="https://metacube.games" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="preconnect" href="https://metacube.games" />
+        <link rel="dns-prefetch" href="https://metacube.games" />
       </head>
       <body className={inter.className}>{children}</body>
     </html>
