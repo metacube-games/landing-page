@@ -34,6 +34,34 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <div className="w-full bg-black/40 border-t border-gray-800">
+        <div className="pt-10 mx-10 px-4 text-sm text-gray-400">
+          <p className="mb-3">
+            Metacube is a groundbreaking free-to-play multiplayer event game
+            built on Starknet, revolutionizing blockchain gaming through its
+            innovative approach to player ownership and engagement. Developed by
+            Clashware Sàrl, Metacube combines the thrill of massive multiplayer
+            events with the security and ownership benefits of blockchain
+            technology.
+          </p>
+          <p className="mb-3">
+            Players join thousands of others in an epic quest to conquer and
+            dismantle the mysterious Metacube, collecting unique NFTs and
+            digital assets along the way. Our game features the exclusive
+            Metacube: Genesis and Metacube: Passcards collections, offering
+            players special powers and unique advantages in the game world.
+          </p>
+          <p className="mb-3">
+            Built with cutting-edge web3 technology and powered by
+            Starknet&apos;s robust infrastructure, Metacube delivers a seamless
+            gaming experience where every achievement, every collected item, and
+            every victory is truly owned by the players. Join our thriving
+            community on Discord, Twitter, and other social platforms to stay
+            updated on the latest events and developments in the Metacube
+            universe.
+          </p>
+        </div>
+      </div>
       <Footer />
     </main>
   );

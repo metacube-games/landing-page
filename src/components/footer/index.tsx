@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-black text-white p-4 w-full">
       <div className="container mx-auto flex md:flex-row flex-col-reverse justify-between items-center">
-        <div className="text-md mt-4 md:mt-0">
+        <div className="text-md  md:mt-0">
           © Metacube, 2025. All rights reserved.
         </div>
         <div className="flex space-x-8">
@@ -73,25 +73,6 @@ const Footer: React.FC = () => {
                   </Link>
                 </span>
               </li>
-              {/* <li className="my-2">
-                <span className="hover:opacity-75">
-                  <SocialIcon
-                    network="telegram"
-                    url="https://t.me/metacubeofficial"
-                    bgColor="transparent"
-                    style={{ height: 24, width: 24 }}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  />
-                  <Link
-                    href="https://t.me/metacubeofficial"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Telegram
-                  </Link>
-                </span>
-              </li> */}
               <li className="my-2">
                 <span className="hover:opacity-75">
                   <SocialIcon

@@ -23,11 +23,28 @@ export const metadata: Metadata = {
     "Web3 Gaming",
     "Decentralized Gaming",
     "Play-to-Earn",
+    "GameFi",
+    "Blockchain MMO",
+    "NFT Collection",
+    "Web3 Events",
+    "Starknet Gaming",
+    "Crypto Gaming Events",
+    "Blockchain Assets",
   ],
   authors: [{ name: "Clashware Sàrl", url: "https://metacube.games" }],
   creator: "Clashware Sàrl",
   publisher: "Metacube Games",
-  robots: "index, follow",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   alternates: {
     canonical: "https://metacube.games",
   },
@@ -68,27 +85,57 @@ export const metadata: Metadata = {
     ],
   },
   other: {
-    "application/ld+json": JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "VideoGame",
-      name: "Metacube",
-      description:
-        "Metacube, created by Clashware Sàrl, is a free-to-play, massively multiplayer event game on Starknet where players compete to dismantle the Metacube, collecting NFTs and owning in-game assets.",
-      url: "https://metacube.games",
-      publisher: {
+    "application/ld+json": JSON.stringify([
+      {
+        "@context": "https://schema.org",
+        "@type": "VideoGame",
+        name: "Metacube",
+        description:
+          "Metacube, created by Clashware Sàrl, is a free-to-play, massively multiplayer event game on Starknet where players compete to dismantle the Metacube, collecting NFTs and owning in-game assets.",
+        url: "https://metacube.games",
+        publisher: {
+          "@type": "Organization",
+          name: "Metacube Games",
+          url: "https://metacube.games",
+          sameAs: [
+            "https://twitter.com/MetacubeGames",
+            "https://discord.gg/FGV6HkMbNj",
+            "https://www.instagram.com/metacubegames",
+            "https://github.com/metacube-games",
+            "https://www.linkedin.com/company/metacubegames",
+          ],
+        },
+        developer: {
+          "@type": "Organization",
+          name: "Clashware Sàrl",
+        },
+        genre: ["MMO", "Blockchain", "Action"],
+        platform: ["Web", "Starknet"],
+        playMode: "MultiPlayer",
+        inLanguage: "en",
+        datePublished: "2025-03-07",
+        offers: {
+          "@type": "Offer",
+          price: "0",
+          priceCurrency: "USD",
+          availability: "http://schema.org/InStock",
+        },
+      },
+      {
+        "@context": "https://schema.org",
         "@type": "Organization",
         name: "Metacube Games",
+        url: "https://metacube.games",
+        logo: "https://metacube.games/metadata-image.webp",
+        sameAs: [
+          "https://twitter.com/MetacubeGames",
+          "https://discord.gg/FGV6HkMbNj",
+          "https://www.instagram.com/metacubegames",
+          "https://github.com/metacube-games",
+          "https://www.linkedin.com/company/metacubegames",
+        ],
       },
-      developer: {
-        "@type": "Organization",
-        name: "Clashware Sàrl",
-      },
-      genre: ["MMO", "Blockchain", "Action"],
-      platform: ["Web", "Starknet"],
-      playMode: "MultiPlayer",
-      inLanguage: "en",
-      datePublished: "2025-03-07",
-    }),
+    ]),
   },
 };
 
