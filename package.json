@@ -9,13 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@next/third-parties": "^15.2.1",
-    "caniuse-lite": "^1.0.30001702",
+    "@next/third-parties": "^15.2.3",
+    "caniuse-lite": "^1.0.30001707",
     "clsx": "^2.1.1",
     "cssnano": "^7.0.6",
-    "framer-motion": "^12.4.10",
+    "framer-motion": "^12.5.0",
     "million": "latest",
-    "next": "15.2.1",
+    "next": "15.2.3",
     "next-videos": "^1.4.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -23,15 +23,15 @@
     "tailwind-merge": "^3.0.2"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.0.12",
-    "@tailwindcss/upgrade": "^4.0.12",
+    "@tailwindcss/postcss": "^4.0.15",
+    "@tailwindcss/upgrade": "^4.0.15",
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "15.2.1",
+    "eslint-config-next": "15.2.3",
     "postcss": "^8",
-    "tailwindcss": "^4.0.12",
+    "tailwindcss": "^4.0.15",
     "typescript": "^5"
   }
 }
