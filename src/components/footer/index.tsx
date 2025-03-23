@@ -6,6 +6,7 @@ import "react-social-icons/discord";
 import "react-social-icons/github";
 import "react-social-icons/linkedin";
 import "react-social-icons/instagram";
+import "react-social-icons/tiktok";
 import Link from "next/link";
 
 const Footer: React.FC = () => {
@@ -34,6 +35,24 @@ const Footer: React.FC = () => {
                     rel="noopener noreferrer"
                   >
                     Twitter
+                  </Link>
+                </span>
+              </li>
+              <li className="my-2">
+                <span className="hover:opacity-75">
+                  <SocialIcon
+                    url="https://www.tiktok.com/@metacube_games"
+                    bgColor="transparent"
+                    style={{ height: 24, width: 24 }}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  />
+                  <Link
+                    href="https://www.tiktok.com/@metacube_games"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    TikTok
                   </Link>
                 </span>
               </li>
