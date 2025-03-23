@@ -7,6 +7,7 @@ import Footer from "@/components/footer";
 import Trailer from "@/components/trailer";
 import Team from "@/components/team";
 import MotionCard from "@/components/motion-card";
+import GlowingAuras from "@/components/GlowingAuras";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -14,23 +15,26 @@ const TracingBeam = dynamic(() => import("@/components/ui/tracing-beam"));
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-between">
-      <Navbar />
-      <CubeAnimation />
-      <div className="container mx-auto">
-        <div
-          aria-hidden="true"
-          className={"relative w-full max-w-5xl mx-auto h-full"}
-        >
-          <div className="absolute -left-20 top-3">
-            <TracingBeam />
-          </div>
-          <div id="heightNeed">
-            <TradeNFTs />
-            <Trailer />
-            <Features />
-            <MotionCard />
-            <Team />
+    <main className="flex flex-col items-center justify-between overflow-hidden">
+      <div className="relative w-full">
+        <GlowingAuras />
+        <Navbar />
+        <CubeAnimation />
+        <div className="container mx-auto relative">
+          <div
+            aria-hidden="true"
+            className={"relative w-full max-w-5xl mx-auto h-full"}
+          >
+            <div className="absolute -left-20 top-3">
+              <TracingBeam />
+            </div>
+            <div id="heightNeed">
+              <TradeNFTs />
+              <Trailer />
+              <Features />
+              <MotionCard />
+              <Team />
+            </div>
           </div>
         </div>
       </div>
