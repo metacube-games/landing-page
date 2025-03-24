@@ -6,7 +6,7 @@ const GlowingAura = ({ className }: { className: string }) => {
       className={`absolute rounded-full animate-pulse ${className}`}
       style={{
         background:
-          "radial-gradient(circle, rgba(20, 200, 120, 0.2) 0%, rgba(56, 200, 100, 0.15) 30%, rgba(70, 120, 70, 0.2) 60%, transparent 80%)",
+          "radial-gradient(circle, rgba(20, 200, 120, 0.2) 0%, rgba(56, 200, 100, 0.15) 30%, rgba(70, 120, 70, 0.05) 60%, transparent 80%)",
         filter: "blur(20px)",
         zIndex: 40,
       }}
