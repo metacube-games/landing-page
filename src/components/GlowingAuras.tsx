@@ -6,7 +6,7 @@ const GlowingAura = ({ className }: { className: string }) => {
       className={`absolute rounded-full animate-pulse ${className}`}
       style={{
         background:
-          "radial-gradient(circle, rgba(20, 184, 166, 0.2) 0%, rgba(56, 189, 180, 0.15) 30%, rgba(74, 120, 120, 0.05) 60%, transparent 80%)",
+          "radial-gradient(circle, rgba(20, 200, 120, 0.2) 0%, rgba(56, 200, 100, 0.15) 30%, rgba(70, 120, 70, 0.2) 60%, transparent 80%)",
         filter: "blur(20px)",
         zIndex: 40,
       }}
@@ -18,7 +18,6 @@ export const GlowingAuras = () => {
   return (
     <>
       {/* Large top aura */}
-      <GlowingAura className="w-[400px] h-[300px] -top-30 -right-40 animate-pulse" />
       {/* Medium center-left aura */}
       {/* Trailer video aura */}
       <GlowingAura className="w-[1000px] h-[500px] top-[30%] left-1/2 -translate-x-1/2 opacity-40" />
