@@ -203,16 +203,35 @@ const TermsOfService = () => {
 
             <section>
               <h2 className="text-2xl font-bold mb-4 text-green-300">
-                11. Contact Us
+                11. Company Details
+              </h2>
+              <p className="text-gray-300 leading-relaxed">
+                Metacube is operated by:
+              </p>
+              <ul className="list-disc list-inside text-gray-300 mt-2 space-y-1">
+                <li>Business Name: Clashware Sàrl</li>
+                <li>
+                  Address: Avenue de Jurigoz 15, 1006 Lausanne, Switzerland
+                </li>
+                <li>Legal Form: Limited Liability Company (Sàrl)</li>
+                <li>Registered Office: Lausanne</li>
+                <li>Status: Active</li>
+                <li>Company ID: CHE-178.795.076</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-bold mb-4 text-green-300">
+                12. Contact Us
               </h2>
               <p className="text-gray-300 leading-relaxed">
                 If you have any questions about these Terms, please contact us
                 at{" "}
                 <a
-                  href="mailto:contact@metacube.com"
+                  href="mailto:contact@metacube.games"
                   className="text-green-400 hover:underline"
                 >
-                  contact@metacube.com
+                  contact@metacube.games
                 </a>
                 .
               </p>
