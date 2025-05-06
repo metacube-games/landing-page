@@ -42,16 +42,24 @@ const CommunityCarousel = () => {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const [userInteracted, setUserInteracted] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
 
   // Auto-scroll carousel
   useEffect(() => {
+    if (userInteracted) return; // Don't auto-scroll if user has interacted
+
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % youtubeVideos.length);
     }, 8000); // Change video every 8 seconds
 
     return () => clearInterval(interval);
-  }, []);
+  }, [userInteracted]); // Add userInteracted to dependencies
+
+  // Handle video play event
+  const handleVideoPlay = () => {
+    setUserInteracted(true);
+  };
 
   // Handle form changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -119,15 +127,18 @@ const CommunityCarousel = () => {
 
   // Navigate carousel manually
   const goToSlide = (index: number) => {
+    setUserInteracted(true);
     setCurrentIndex(index);
   };
 
   // Next and previous slide handlers
   const nextSlide = () => {
+    setUserInteracted(true);
     setCurrentIndex((prevIndex) => (prevIndex + 1) % youtubeVideos.length);
   };
 
   const prevSlide = () => {
+    setUserInteracted(true);
     setCurrentIndex((prevIndex) => (prevIndex - 1 + youtubeVideos.length) % youtubeVideos.length);
   };
 
@@ -165,7 +176,7 @@ const CommunityCarousel = () => {
           {youtubeVideos.map((video, index) => (
             <div key={video.id} className="w-full flex-shrink-0 flex justify-center px-4">
               <div className="w-full flex flex-col items-center pl-6 md:pl-10">
-                <div className="aspect-video w-full max-w-3xl mx-auto">
+                <div className="aspect-video w-full max-w-3xl mx-auto" onClick={() => setUserInteracted(true)}>
                   <YouTubeEmbed 
                     videoid={video.id} 
                     params="rel=0"
