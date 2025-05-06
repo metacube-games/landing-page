@@ -1,0 +1,17 @@
+{
+  "name": "Metacube",
+  "short_name": "Metacube",
+  "description": "Metacube - A free-to-play, massively multiplayer event game on Starknet",
+  "icons": [
+    {
+      "src": "/metadata-image.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#10b981",
+  "background_color": "#000000",
+  "display": "standalone",
+  "start_url": "/",
+  "orientation": "portrait"
+} 

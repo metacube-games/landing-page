@@ -28,6 +28,12 @@ const FloatingNav = ({
     const direction = current - (scrollYProgress.getPrevious() ?? 0);
     setVisible(direction < 0);
   });
+
+  // Helper function to check if a link is external
+  const isExternalLink = (url: string) => {
+    return url.startsWith('http') || url.startsWith('https');
+  };
+
   return (
     <AnimatePresence mode="wait">
       <motion.div
@@ -49,22 +55,39 @@ const FloatingNav = ({
         )}
       >
         {navItems.map((navItem: any, idx: number) => (
-          <Link
-            key={`link=${idx}`}
-            href={navItem.link}
-            className={cn(
-              "relative items-center flex space-x-1 text-neutral-600 hover:text-neutral-500"
-            )}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <>
-              <span className="flex items-center gap-1">
-                {navItem.icon}
-                {navItem.name}
-              </span>
-            </>
-          </Link>
+          isExternalLink(navItem.link) ? (
+            <Link
+              key={`link=${idx}`}
+              href={navItem.link}
+              className={cn(
+                "relative items-center flex space-x-1 text-neutral-600 hover:text-neutral-500"
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <>
+                <span className="flex items-center gap-1">
+                  {navItem.icon}
+                  {navItem.name}
+                </span>
+              </>
+            </Link>
+          ) : (
+            <Link
+              key={`link=${idx}`}
+              href={navItem.link}
+              className={cn(
+                "relative items-center flex space-x-1 text-neutral-600 hover:text-neutral-500"
+              )}
+            >
+              <>
+                <span className="flex items-center gap-1">
+                  {navItem.icon}
+                  {navItem.name}
+                </span>
+              </>
+            </Link>
+          )
         ))}
         <Link
           href={"https://play.metacube.games"}

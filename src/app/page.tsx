@@ -8,6 +8,7 @@ import Trailer from "@/components/trailer";
 import Team from "@/components/team";
 import MotionCard from "@/components/motion-card";
 import GlowingAuras from "@/components/GlowingAuras";
+import CommunityCarousel from "@/components/community-carousel";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -31,6 +32,7 @@ export default function Home() {
             <div id="heightNeed">
               <TradeNFTs />
               <Trailer />
+              <CommunityCarousel />
               <Features />
               <MotionCard />
               <Team />

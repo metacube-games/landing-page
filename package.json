@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@next/third-parties": "^15.2.4",
-    "caniuse-lite": "^1.0.30001709",
+    "caniuse-lite": "^1.0.30001717",
     "clsx": "^2.1.1",
     "cssnano": "^7.0.6",
     "framer-motion": "^12.6.3",

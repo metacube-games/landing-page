@@ -135,6 +135,14 @@ const Footer: React.FC = () => {
             <ul>
               <li className="my-2">
                 <Link
+                  href="/blog"
+                  className="hover:text-gray-300"
+                >
+                  Blog
+                </Link>
+              </li>
+              <li className="my-2">
+                <Link
                   href="https://play.metacube.games/linkWallet"
                   className="hover:text-gray-300"
                   target="_blank"
