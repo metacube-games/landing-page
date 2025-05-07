@@ -7,6 +7,7 @@
 		<priority>
 			1.00
 		</priority>
+		<lastmod>2025-05-07</lastmod>
 	</url>
 	<url>
 		<loc>
@@ -15,6 +16,7 @@
 		<priority>
 			0.80
 		</priority>
+		<lastmod>2025-05-07</lastmod>
 	</url>
 	<url>
 		<loc>
@@ -23,6 +25,7 @@
 		<priority>
 			0.50
 		</priority>
+		<lastmod>2025-05-07</lastmod>
 	</url>
 	<url>
 		<loc>
@@ -31,6 +34,7 @@
 		<priority>
 			0.50
 		</priority>
+		<lastmod>2025-05-07</lastmod>
 	</url>
 	<url>
 		<loc>
@@ -39,7 +43,9 @@
 		<priority>
 			0.80
 		</priority>
+		<lastmod>2025-05-07</lastmod>
 	</url>
+
 	<url>
 		<loc>
 			https://metacube.games/blog
@@ -47,6 +53,25 @@
 		<priority>
 			0.80
 		</priority>
+		<lastmod>2025-05-07</lastmod>
+	</url>
+	<url>
+		<loc>
+			https://metacube.games/blog/category/
+		</loc>
+		<priority>
+			0.80
+		</priority>
+		<lastmod>2025-05-07</lastmod>
+	</url>
+	<url>
+		<loc>
+			https://metacube.games/community-streams
+		</loc>
+		<priority>
+			0.80
+		</priority>
+		<lastmod>2025-05-07</lastmod>
 	</url>
 	<url>
 		<loc>
@@ -55,5 +80,6 @@
 		<priority>
 			0.80
 		</priority>
+		<lastmod>2025-05-07</lastmod>
 	</url>
 </urlset>
