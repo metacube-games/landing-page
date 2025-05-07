@@ -29,7 +29,7 @@ const youtubeVideos = [
   {
     id: "WlqXb7-GZzI",
     title: "Community Game Session",
-    description: "Check out this exciting gameplay from Thecno | T5 in Spanish."
+    description: "Discover our incredible community content showcasing the best of Metacube. Watch how players around the world experience and create in our universe."
   }
 ];
 
