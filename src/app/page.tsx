@@ -30,8 +30,8 @@ export default function Home() {
               <TracingBeam />
             </div>
             <div id="heightNeed">
-              <TradeNFTs />
               <Trailer />
+              <TradeNFTs />
               <CommunityCarousel />
               <Features />
               <MotionCard />
@@ -43,28 +43,16 @@ export default function Home() {
       <div className="w-full bg-black/40 border-t border-gray-800">
         <div className="pt-10 mx-10 px-4 text-sm text-gray-400">
           <p className="mb-3">
-            Metacube is a groundbreaking free-to-play multiplayer event game
-            built on Starknet, revolutionizing blockchain gaming through its
-            innovative approach to player ownership and engagement. Developed by
-            Clashware Sàrl, Metacube combines the thrill of massive multiplayer
-            events with the security and ownership benefits of blockchain
-            technology.
+            Metacube is a free-to-play multiplayer event game on Starknet that revolutionizes blockchain gaming through player ownership. 
+            Developed by Clashware Sàrl, it combines massive multiplayer gameplay with blockchain technology benefits.
           </p>
           <p className="mb-3">
-            Players join thousands of others in an epic quest to conquer and
-            dismantle the mysterious Metacube, collecting unique NFTs and
-            digital assets along the way. Our game features the exclusive
-            Metacube: Genesis and Metacube: Passcards collections, offering
-            players special powers and unique advantages in the game world.
+            Players join thousands in dismantling the mysterious Metacube, collecting unique NFTs along the way. 
+            The game features exclusive Metacube: Genesis and Passcards collections that offer special powers and advantages.
           </p>
           <p className="mb-3">
-            Built with cutting-edge web3 technology and powered by
-            Starknet&apos;s robust infrastructure, Metacube delivers a seamless
-            gaming experience where every achievement, every collected item, and
-            every victory is truly owned by the players. Join our thriving
-            community on Discord, Twitter, and other social platforms to stay
-            updated on the latest events and developments in the Metacube
-            universe.
+            Built with web3 technology on Starknet, Metacube ensures players truly own all achievements, items, and victories. 
+            Join our community on Discord and Twitter to stay updated on events and developments.
           </p>
         </div>
       </div>
@@ -86,18 +74,31 @@ const NFTLinkWImage = ({
     <Link
       href={href}
       target="_blank"
-      className="group w-max relative inline-block rounded-lg text-black  transition transform hover:scale-105 hover:shadow-green-glow"
+      className="group h-full z-100 relative inline-block transition duration-300 hover:scale-105"
     >
-      <Image
-        src={image}
-        alt={title}
-        width={175}
-        height={175}
-        unoptimized
-        className="rounded-md mb-2  border-gray-200 border-opacity-20 border-1 "
-      />
-      <div className="relative p-1 rounded-md rounded-tl-none rounded-tr-none">
-        <span className=" text-zinc-100 text-xl sm:text-xl ">{title}</span>
+      <div className="w-[200px] bg-black/40 backdrop-blur-sm border border-gray-800 rounded-xl overflow-hidden group-hover:border-green-600/50 group-hover:shadow-lg group-hover:shadow-green-500/20 transition-all duration-300">
+        <div className="relative" style={{ paddingBottom: "150%" /* 2:3 aspect ratio */ }}>
+          <Image
+            src={image}
+            alt={title}
+            fill
+            sizes="220px"
+            unoptimized
+            className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+          />
+          {/* Title overlay */}
+          <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-3 transition-opacity duration-300">
+            <span className="text-zinc-100 text-xl font-medium block text-center">{title}</span>
+          </div>
+          
+          {/* Hover effect gradient */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          
+          {/* Hover text */}
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <span className="text-green-400 text-sm font-medium px-4 py-2 bg-black/70 rounded-md">View on Marketplace</span>
+          </div>
+        </div>
       </div>
     </Link>
   );
@@ -105,29 +106,29 @@ const NFTLinkWImage = ({
 
 const TradeNFTs = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-black text-white ">
-      <div className="text-center p-14 ">
-        <h1 className="text-4xl tracking-widest uppercase text-center mb-4">
+    <div className="min-h-screen flex items-center justify-center bg-black text-white">
+      <div className="text-center p-4 sm:p-14 max-w-6xl mx-auto">
+        <h1 className="text-4xl font-medium tracking-widest uppercase text-center mb-4">
           Trade Your NFTs
         </h1>
-        <p className="text-gray-300 mb-8 p-4 max-w-3xl">
-          Start trading the exclusive <strong>Metacube: Genesis</strong> and{" "}
-          <strong>Metacube: Passcards</strong> collections!
-          <br />
-          Each NFT unlocks unique advantages, with benefits revealed as events
-          come.
+        <p className="text-gray-300 mb-8 p-4 max-w-3xl mx-auto">
+          Trade your Metacube NFTs on our premier Starknet trading platform! Discover unique in-game items from the <strong>Metacube: Genesis</strong>, <strong>Metacube: Passcards</strong>, and <strong>Metacube Allstars</strong> collections. Our marketplace is the central hub for buying, selling, and trading these digital assets, offering a seamless experience on Starknet.
         </p>
-        <div className="flex flex-col sm:flex-row justify-center align-middle gap-10 gap-x-28 p-6 items-center ">
+        <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-8 sm:gap-12">
           <NFTLinkWImage
             title="Genesis"
-            href="https://element.market/collections/metacube-genesis"
+            href="https://market.metacube.games/market"
             image="/g.gif"
           />
           <NFTLinkWImage
             title="Passcard"
-            // add unoptimized proprety
-            href="https://element.market/collections/metacube-passcards"
+            href="https://market.metacube.games/market"
             image="/passcard.gif"
+          />
+          <NFTLinkWImage
+            title="Allstars"
+            href="https://market.metacube.games/market"
+            image="https://felts.xyz/v1/i/9900"
           />
         </div>
       </div>

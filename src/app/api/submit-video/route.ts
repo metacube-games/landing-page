@@ -1,10 +1,29 @@
 import { NextResponse } from 'next/server';
 
-// Validates a YouTube URL
-function validateYouTubeUrl(url: string) {
-    const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
-    const match = url.match(regExp);
-    return match && match[7].length === 11;
+// Validates a video URL based on platform
+function validateVideoUrl(url: string, platform: string = 'youtube') {
+    if (platform === 'youtube') {
+        // YouTube URL validation
+        const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+        const match = url.match(regExp);
+        return match && match[7].length === 11;
+    } else if (platform === 'twitch') {
+        // Basic Twitch URL validation
+        const regExp = /(?:www\.)?twitch\.tv\/(?:videos\/(\d+)|(\w+))/;
+        return regExp.test(url);
+    } else if (platform === 'kick') {
+        // Basic Kick URL validation
+        const regExp = /(?:www\.)?kick\.com\/(\w+)/;
+        return regExp.test(url);
+    } else {
+        // Generic URL validation for other platforms
+        try {
+            new URL(url);
+            return true;
+        } catch (err) {
+            return false;
+        }
+    }
 }
 
 // Function to send message to Telegram
@@ -56,21 +75,23 @@ export async function GET() {
 export async function POST(request: Request) {
     try {
         const body = await request.json();
-        const { email, videoLink, videoId, comment } = body;
+        const { email, videoLink, videoId, platform = 'youtube', comment } = body;
 
         // --- Input Validation ---
         if (!videoLink) {
             return NextResponse.json(
-                { success: false, message: 'YouTube video link is required' },
+                { success: false, message: 'Video link is required' },
                 { status: 400 }
             );
         }
-        if (!validateYouTubeUrl(videoLink)) {
+
+        if (!validateVideoUrl(videoLink, platform)) {
             return NextResponse.json(
-                { success: false, message: 'Invalid YouTube URL' },
+                { success: false, message: `Invalid ${platform} URL` },
                 { status: 400 }
             );
         }
+
         // Email is optional, but if provided, validate it
         if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
             return NextResponse.json(
@@ -84,6 +105,7 @@ export async function POST(request: Request) {
             email: email || 'Not provided', // Handle empty email for Telegram
             videoLink,
             videoId,
+            platform,
             comment: comment || 'No description provided',
             submittedAt: new Date().toISOString()
         };
@@ -96,6 +118,7 @@ export async function POST(request: Request) {
         const telegramMessage = `
 <b>🎬 New Video Submission 🎬</b>
 
+<b>Platform:</b> ${platform.toUpperCase()}
 <b>Email:</b> ${submissionData.email}
 <b>Video Link:</b> <a href="${videoLink}">${videoLink}</a>
 <b>Video ID:</b> ${videoId}

@@ -22,17 +22,9 @@ export default async function CategoryPage({ params }: PageProps) {
     <main className="flex min-h-screen flex-col">
       <Navbar />
       
-      <div className="container mx-auto px-4 pt-24 pb-16">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 pt-24 pb-16">
         <div className="flex justify-between items-center mb-12">
-          <Link 
-            href="/" 
-            className="inline-flex items-center text-gray-300 hover:text-white transition-colors"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            Back to Home
-          </Link>
+          <div className="w-28"></div> {/* Spacer div for centering */}
           <h1 className="text-4xl font-bold text-center">{categoryName} Posts</h1>
           <div className="w-28"></div> {/* Spacer div for centering */}
         </div>
@@ -55,10 +47,10 @@ export default async function CategoryPage({ params }: PageProps) {
         </div>
         
         {/* Blog Posts */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 min-h-[800px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 h-full">
           {blogPosts.length > 0 ? (
-            blogPosts.map((post) => (
-              <BlogPostCard key={post.id} post={post} />
+            blogPosts.map((post, index) => (
+              <BlogPostCard key={post.id} post={post} index={index} />
             ))
           ) : (
             <div className="col-span-3 text-center py-20">

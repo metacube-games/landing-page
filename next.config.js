@@ -1,8 +1,12 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
-
-module.exports = nextConfig
+const nextConfig = {
+  images: {
+    domains: ['img.youtube.com'],
+  }
+}
 
 const withVideos = require('next-videos')
 
-module.exports = withVideos()
+module.exports = withVideos({
+  ...nextConfig
+})

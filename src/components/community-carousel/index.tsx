@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { YouTubeEmbed } from '@next/third-parties/google';
+import Link from "next/link";
 
 // YouTube video data
 const youtubeVideos = [
@@ -12,18 +13,23 @@ const youtubeVideos = [
   },
   {
     id: "gr1oi_UdIB0",
-    title: "Player's Creative Build",
+    title: "Community Game Session",
     description: "Discover our incredible community content showcasing the best of Metacube. Watch how players around the world experience and create in our universe."
   },
   {
     id: "Q5Rc41krauc",
-    title: "Tournament Highlights",
+    title: "Community Game Session",
     description: "Discover our incredible community content showcasing the best of Metacube. Watch how players around the world experience and create in our universe."
   },
   {
     id: "wMaT0wMe9Ug",
-    title: "Community Showcase",
+    title: "Community Game Session",
     description: "Discover our incredible community content showcasing the best of Metacube. Watch how players around the world experience and create in our universe."
+  },
+  {
+    id: "WlqXb7-GZzI",
+    title: "Community Game Session",
+    description: "Check out this exciting gameplay from Thecno | T5 in Spanish."
   }
 ];
 
@@ -228,14 +234,14 @@ const CommunityCarousel = () => {
         </div>
       </div>
       
-      {/* Submit Video Button */}
+      {/* Discover More Button (replacing Submit Video Button) */}
       <div className="flex justify-center mt-8">
-        <button
-          onClick={openModal}
+        <Link
+          href="/community-streams"
           className="py-3 px-8 bg-gradient-to-r from-green-700 to-emerald-600 text-white font-medium rounded-md hover:from-green-800 hover:to-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all duration-200 uppercase tracking-wider"
         >
-          Submit Your Video
-        </button>
+          Discover More Streams
+        </Link>
       </div>
       
       {/* Modal Overlay */}
