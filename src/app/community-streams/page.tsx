@@ -6,6 +6,31 @@ import Footer from "@/components/footer";
 import VideoSubmissionForm from "@/components/community-streams/VideoSubmissionForm";
 import FeaturedLiveStreams from "@/components/community-streams/FeaturedLiveStreams";
 import CommunityVideoGrid from "@/components/community-streams/CommunityVideoGrid";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Metacube Community Streams | Live Gameplay and Videos",
+  description: "Watch live streams, gameplay videos, and creative content from the Metacube community. Share your Metacube experiences and connect with fellow players.",
+  alternates: {
+    canonical: "https://metacube.games/community-streams",
+  },
+  openGraph: {
+    title: "Metacube Community Streams | Live Gameplay and Videos",
+    description: "Watch live streams, gameplay videos, and creative content from the Metacube community. Share your Metacube experiences and connect with fellow players.",
+    url: "https://metacube.games/community-streams",
+    siteName: "Metacube Games",
+    images: [
+      {
+        url: "https://metacube.games/metadata-image.webp", // Replace with a more specific image if available
+        width: 1200,
+        height: 630,
+        alt: "Metacube Community Streams",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+};
 
 export default function CommunityStreamsPage() {
   return (

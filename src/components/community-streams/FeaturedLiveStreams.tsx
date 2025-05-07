@@ -67,7 +67,7 @@ export default function FeaturedLiveStreams() {
           There are no active streams at the moment. Be the first to share your gameplay or content with the community!
           Use the submission form below to add your video or stream and get featured here.
         </p>
-        <a href="#submit" className="inline-block px-6 py-3 bg-green-600 hover:bg-green-700 rounded-md transition-colors text-white font-medium">
+        <a href="#submit" className="inline-block px-6 py-3 bg-green-700 hover:bg-green-800 rounded-md transition-colors text-white font-medium">
           Submit Your Content
         </a>
       </div>
@@ -126,7 +126,7 @@ export default function FeaturedLiveStreams() {
               href={`https://${selectedStream.platform}.com/${selectedStream.streamId}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-6 py-3 bg-green-600 hover:bg-green-700 rounded-md transition-colors text-white font-medium"
+              className="inline-block px-6 py-3 bg-green-700 hover:bg-green-800 rounded-md transition-colors text-white font-medium"
             >
               Watch on {selectedStream.platform}
             </a>

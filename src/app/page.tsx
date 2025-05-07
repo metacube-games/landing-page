@@ -23,7 +23,6 @@ export default function Home() {
         <CubeAnimation />
         <div className="container mx-auto relative">
           <div
-            aria-hidden="true"
             className={"relative w-full max-w-5xl mx-auto h-full"}
           >
             <div className="absolute -left-20 top-3">

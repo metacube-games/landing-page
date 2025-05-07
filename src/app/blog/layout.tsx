@@ -19,6 +19,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
   },
+  alternates: {
+    canonical: "https://metacube.games/blog",
+  },
 };
 
 export default function BlogLayout({
