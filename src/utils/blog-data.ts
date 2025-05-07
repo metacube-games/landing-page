@@ -230,6 +230,112 @@ export const categories: Category[] = [
 ];
 
 export const blogPosts: Record<string, BlogPost> = {
+    "fidelity-week-event": {
+        id: "fidelity-week-event",
+        title: "Fidelity Week: Rewarding Our Most Dedicated Players",
+        date: "2025-04-25",
+        author: "The Metacube Team",
+        category: "Events",
+        imageUrl: "/blog/fidelityWeek.png",
+        excerpt: "Learn about Fidelity Week, a special event where our most dedicated players shared 1,000 STRK tokens based on their leaderboard performance.",
+        content: [
+            { type: "heading", content: "Celebrating Player Dedication" },
+            { type: "paragraph", content: "Fidelity Week was a special event designed to thank our most faithful players for their continued support and dedication to Metacube. During this week-long celebration, top performers on the leaderboard shared a prize pool of 1,000 STRK tokens as a token of our appreciation." },
+
+            { type: "heading", content: "How It Worked" },
+            { type: "paragraph", content: "Unlike our other special events that transform gameplay, Fidelity Week focused purely on rewarding exceptional performance within the standard game mechanics. Players competed to achieve the highest possible scores during the specified week, with leaderboard rankings determining their share of the prize pool." },
+
+            { type: "heading", content: "Leaderboard Scoring" },
+            { type: "paragraph", content: "As with our other events, leaderboard positions were calculated based on three key factors:\n• The number of cubes broken during the event\n• The total number of coins collected\n• Penalties for deaths during the event" },
+
+            { type: "heading", content: "Prize Distribution" },
+            { type: "paragraph", content: "The 1,000 STRK token prize pool was distributed proportionally among the top performers on the leaderboard, with higher-ranked players receiving larger shares of the rewards. This created an exciting competition where every point mattered in the race for the top positions." },
+
+            { type: "paragraph", content: "Fidelity Week demonstrated our commitment to recognizing and rewarding the most dedicated members of our community. Keep an eye out for future Fidelity Week events and other special opportunities to earn rewards in the Metacube universe!" }
+        ],
+        relatedPosts: ["special-events-in-metacube", "crypto-rave-pulse-event", "monkecube-event"],
+    },
+
+    "special-events-in-metacube": {
+        id: "special-events-in-metacube",
+        title: "Special Events in Metacube: Limited-Time Adventures",
+        date: "2025-06-01",
+        author: "The Metacube Team",
+        category: "Events",
+        imageUrl: "/blog/com_son.png",
+        excerpt: "Discover the exciting world of Metacube's special events that transform gameplay and offer unique rewards for a limited time, including STRK tokens.",
+        content: [
+            { type: "heading", content: "Introducing Metacube Special Events" },
+            { type: "paragraph", content: "At Metacube, we regularly host special time-limited events that transform the Metacube universe in unexpected ways. These events provide unique challenges, exclusive rewards including STRK tokens, and memorable experiences that you won't find during regular gameplay." },
+
+            { type: "heading", content: "Event Highlights" },
+            { type: "paragraph", content: "Our community has already experienced some unforgettable events:" },
+            { type: "paragraph", content: "• **Crypto Rave Pulse**: An innovative event where Pelton Flusk used giant speakers emitting rave music to nullify Metacube's electric defenses.\n• **Monkecube**: A total transformation where Metacube became Monkecube, featuring monkey-themed base skins and a complete rebrand (even monkecube.com redirected to metacube.games)." },
+
+            { type: "heading", content: "Event Rewards" },
+            { type: "paragraph", content: "So far, our events have rewarded players with **STRK Tokens** based on their leaderboard position. Future events may include other rewards such as NFTs and special skins." },
+
+            { type: "heading", content: "STRK Leaderboard System" },
+            { type: "paragraph", content: "During events, players compete on a leaderboard to earn STRK tokens. Your position is determined by three key factors:\n• The number of cubes broken during the event\n• The total number of coins collected\n• Penalties for deaths during the event" },
+
+            { type: "paragraph", content: "Check out our detailed coverage of past events like **Monkecube** and **Crypto Rave Pulse** to get a taste of what's possible in the ever-changing Metacube universe. And remember—in a game with a finite lifespan, every special event is truly a once-in-a-lifetime experience!" }
+        ],
+        relatedPosts: ["monkecube-event", "crypto-rave-pulse-event"],
+    },
+
+    "monkecube-event": {
+        id: "monkecube-event",
+        title: "Monkecube: When Primates Took Over the Metacube",
+        date: "2025-05-15",
+        author: "The Metacube Team",
+        category: "Events",
+        imageUrl: "/blog/monke.jpg",
+        excerpt: "Revisit the Monkecube event, when the entire Metacube was renamed and transformed with monkey-themed base skins.",
+        content: [
+            { type: "heading", content: "The Monkecube Transformation" },
+            { type: "paragraph", content: "During this special event, Metacube underwent a complete transformation and was renamed to **Monkecube**. This wasn't just a small cosmetic change—it was a full rebrand of the game experience." },
+
+            { type: "heading", content: "Key Features" },
+            { type: "paragraph", content: "The Monkecube event included:" },
+            { type: "paragraph", content: "• **Complete Rename**: The game was officially renamed to \"Monkecube\" for the duration of the event\n• **Domain Redirect**: monkecube.com redirected to metacube.games\n• **Monkey Base Skins**: All player base skins were transformed into monkey avatars" },
+
+            { type: "heading", content: "Event Rewards" },
+            { type: "paragraph", content: "Participants in the Monkecube event competed for **STRK Tokens**, which were awarded based on the event leaderboard. The leaderboard tracked the number of cubes broken, coins collected, and applied penalties for player deaths." },
+
+            { type: "heading", content: "Community Reactions" },
+            { type: "paragraph", content: "The Monkecube event quickly became a fan favorite, with the community embracing the unexpected primal transformation. The lighthearted nature of Monkecube provided a refreshing change of pace from the usual Metacube experience." },
+
+            { type: "paragraph", content: "Did you participate in the Monkecube event? Share your memories in our Discord channel or in the comments below!" }
+        ],
+        relatedPosts: ["special-events-in-metacube", "crypto-rave-pulse-event"],
+    },
+
+    "crypto-rave-pulse-event": {
+        id: "crypto-rave-pulse-event",
+        title: "Crypto Rave Pulse: Breaking the Cube's Defenses with Sound",
+        date: "2025-04-10",
+        author: "The Metacube Team",
+        category: "Events",
+        imageUrl: "/blog/crp.jpg",
+        excerpt: "Experience the Crypto Rave Pulse event, where Pelton Flusk used massive sound systems and rave music to nullify the Metacube's electric defenses.",
+        content: [
+            { type: "heading", content: "Sound vs. Electric Defenses" },
+            { type: "paragraph", content: "The Crypto Rave Pulse was a groundbreaking event in the Metacube universe. During this period, Pelton Flusk deployed giant speakers around the Metacube perimeter, emitting powerful rave music specifically calibrated to nullify the Cube's electric defense systems." },
+
+            { type: "heading", content: "Gameplay Impact" },
+            { type: "paragraph", content: "Normally, the Metacube's defenses cause damage to players who interact with them, though they don't prevent movement. During the Crypto Rave Pulse event, these defenses were neutralized by the music, allowing players to navigate without taking damage from the cube's defense mechanisms." },
+
+            { type: "heading", content: "Event Soundtrack" },
+            { type: "paragraph", content: "The complete Crypto Rave Pulse soundtrack, composed by Pelton Flusk himself, is available on SoundCloud. You can listen to all tracks from this special event at: [Crypto Rave Pulse by Pelton Flusk](https://soundcloud.com/metacubegames/sets/crypto-rave-pulse-by-pelton-flusk)." },
+
+            { type: "heading", content: "Event Rewards" },
+            { type: "paragraph", content: "Players who participated in the Crypto Rave Pulse event competed for **STRK Tokens** based on their leaderboard position. The leaderboard ranking was calculated from the number of cubes broken and coins collected, with penalties applied for deaths during the event." },
+
+            { type: "paragraph", content: "The Crypto Rave Pulse demonstrated how Metacube continually evolves through creative, limited-time events that offer both entertainment and valuable rewards." }
+        ],
+        relatedPosts: ["special-events-in-metacube", "monkecube-event"],
+    },
+
     "metacube-gameplay-guide": {
         id: "metacube-gameplay-guide",
         title: "Discover the Metacube Universe: Complete Gameplay Guide",
@@ -292,7 +398,7 @@ export const blogPosts: Record<string, BlogPost> = {
         date: "2025-05-07",
         author: "The Metacube Team",
         category: "Announcements",
-        imageUrl: "/blog/banner_m.jfif",
+        imageUrl: "/blog/community_b.jpg",
         excerpt: "Discover our new Community Streams section! Watch live gameplay, share your own streams, and connect with fellow Metacubers.",
         content: [
             { type: "heading", content: "Shine a Spotlight on Your Gameplay" },
@@ -332,7 +438,7 @@ export const blogPosts: Record<string, BlogPost> = {
         date: "2025-05-07",
         author: "The Metacube Team",
         category: "Development",
-        imageUrl: "/blog/banner_m.jfif",
+        imageUrl: "/blog/batcher_b.jfif",
         excerpt: "Learn about the transactions batcher used in Metacube to send NFTs earned by players instantly, with a detailed implementation in Go.",
         content: [
             { type: "heading", content: "Abstract" },
@@ -387,7 +493,7 @@ export const blogPosts: Record<string, BlogPost> = {
         date: "2025-05-07",
         author: "The Metacube Team",
         category: "Development",
-        imageUrl: "/blog/banner_m.jfif",
+        imageUrl: "/blog/signatures_b.jfif",
         excerpt: "Learn about the process of signing and verifying signatures on Starknet, with code examples in TypeScript and Go.",
         content: [
             { type: "heading", content: "Abstract" },
