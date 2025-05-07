@@ -190,7 +190,7 @@ const CommunityCarousel = () => {
                   />
                 </div>
                 <div className="mt-4 text-center max-w-3xl mx-auto">
-                  <h3 className="text-xl font-semibold text-white">{video.title}</h3>
+                  <h2 className="text-xl font-semibold text-white">{video.title}</h2>
                   <p className="text-gray-300 mt-2">{video.description}</p>
                 </div>
               </div>
@@ -201,7 +201,7 @@ const CommunityCarousel = () => {
         {/* Navigation Arrows */}
         <button 
           onClick={prevSlide}
-          className="absolute left-2 md:left-4 top-1/3 transform -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-200 backdrop-blur-sm z-10"
+          className="absolute left-2 md:left-4 top-1/3 transform -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-200 backdrop-blur-sm z-10 border border-white/20 cursor-pointer"
           aria-label="Previous video"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -211,7 +211,7 @@ const CommunityCarousel = () => {
         
         <button 
           onClick={nextSlide}
-          className="absolute right-2 md:right-4 top-1/3 transform -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-200 backdrop-blur-sm z-10"
+          className="absolute right-2 md:right-4 top-1/3 transform -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-200 backdrop-blur-sm z-10 border border-white/20 cursor-pointer"
           aria-label="Next video"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -224,12 +224,16 @@ const CommunityCarousel = () => {
           {youtubeVideos.map((_, index) => (
             <button
               key={index}
-              className={`w-3 h-3 mx-1 rounded-full ${
-                index === currentIndex ? "bg-white" : "bg-gray-600"
-              } hover:bg-gray-400 transition-colors duration-200`}
+              className={`w-10 h-10 mx-1 flex items-center justify-center ${
+                index === currentIndex ? "bg-black/30" : "bg-transparent"
+              } hover:bg-black/20 transition-colors duration-200 rounded-full`}
               onClick={() => goToSlide(index)}
               aria-label={`Go to slide ${index + 1}`}
-            />
+            >
+              <span className={`w-3 h-3 rounded-full ${
+                index === currentIndex ? "bg-white" : "bg-gray-600"
+              } hover:bg-gray-400 transition-colors duration-200`}></span>
+            </button>
           ))}
         </div>
       </div>

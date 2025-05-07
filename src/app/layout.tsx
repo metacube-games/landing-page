@@ -153,7 +153,6 @@ export default function RootLayout({
         <meta name="theme-color" content="#000000" />
         <meta name="robots" content="index, follow" />
         <meta name="google-site-verification" content="c094d69005c828f0" />
-        <link rel="canonical" href="https://metacube.games" />
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
