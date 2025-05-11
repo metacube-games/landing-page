@@ -7,11 +7,6 @@ import Link from "next/link";
 // YouTube video data
 const youtubeVideos = [
   {
-    id: "O-nuRD0XJP4",
-    title: "New event Started!",
-    description: "Join the Metacube Aligned Event, Guns and STRKs for you",
-  },
-  {
     id: "UZ_4Wkr3M3Y",
     title: "Community Game Session",
     description:

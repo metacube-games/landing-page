@@ -20,6 +20,13 @@ interface CommunityVideo {
 // Example community videos data (this would come from an API in a real app)
 const communityVideos: CommunityVideo[] = [
   {
+    id: "0",
+    title: "",
+    creator: "ANTHYLU",
+    platform: "youtube",
+    videoId: "NVqM2ZyS0yg",
+  },
+  {
     id: "1",
     title: "",
     creator: "Light12A",
@@ -33,7 +40,6 @@ const communityVideos: CommunityVideo[] = [
     creator: "Gedis",
     platform: "youtube",
     videoId: "UZ_4Wkr3M3Y",
-    // language: "English",
   },
   {
     id: "3",
