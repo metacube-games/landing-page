@@ -12,8 +12,11 @@ export const metadata: Metadata = {
     "Join thousands in Metacube, a massive multiplayer free-to-play event game by Clashware Sàrl on Starknet. Collect unique NFTs, compete to conquer the Metacube, and own your in-game assets in this one-time blockchain gaming experience.",
   keywords: [
     "Metacube",
-    "Clashware Sàrl",
+    "Metacubo",
+    "Metacubes",
     "Metacube Games",
+    "Onchain",
+    "Clashware Sàrl",
     "Free2Play",
     "Starknet",
     "Blockchain Game",
