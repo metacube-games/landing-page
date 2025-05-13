@@ -7,6 +7,7 @@ import "react-social-icons/github";
 import "react-social-icons/linkedin";
 import "react-social-icons/instagram";
 import "react-social-icons/tiktok";
+import "react-social-icons/facebook";
 import Link from "next/link";
 
 const Footer: React.FC = () => {
@@ -128,16 +129,31 @@ const Footer: React.FC = () => {
                   </Link>
                 </span>
               </li>
+              <li className="my-2">
+                <span className="hover:opacity-75">
+                  <SocialIcon
+                    url="https://www.facebook.com/profile.php?id=61556888130635"
+                    bgColor="transparent"
+                    style={{ height: 24, width: 24 }}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  />
+                  <Link
+                    href="https://www.facebook.com/profile.php?id=61556888130635"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Facebook
+                  </Link>
+                </span>
+              </li>
             </ul>
           </div>
           <div>
             <p className="font-bold text-lg mb-2">Info</p>
             <ul>
               <li className="my-2">
-                <Link
-                  href="/blog"
-                  className="hover:text-gray-300"
-                >
+                <Link href="/blog" className="hover:text-gray-300">
                   Blog
                 </Link>
               </li>
