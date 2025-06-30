@@ -209,6 +209,41 @@ const Footer: React.FC = () => {
               </li>
             </ul>
           </div>
+          <div>
+            <p className="font-bold text-lg mb-2">Partners</p>
+            <ul>
+              <li className="my-2">
+                <Link
+                  href="https://lengthen.ai"
+                  className="hover:text-gray-300"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  lengthen.ai
+                </Link>
+              </li>
+              <li className="my-2">
+                <Link
+                  href="https://www.starkarcade.com/"
+                  className="hover:text-gray-300"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Stark Arcade
+                </Link>
+              </li>
+              <li className="my-2">
+                <Link
+                  href="https://www.starknet.io/"
+                  className="hover:text-gray-300"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Starknet
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </footer>
