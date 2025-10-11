@@ -214,12 +214,12 @@ const Footer: React.FC = () => {
             <ul>
               <li className="my-2">
                 <Link
-                  href="https://lengthen.ai"
+                  href="https://bonega.ai"
                   className="hover:text-gray-300"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  lengthen.ai
+                  bonega.ai
                 </Link>
               </li>
               <li className="my-2">
