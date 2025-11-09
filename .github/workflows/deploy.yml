@@ -33,5 +33,13 @@ jobs:
             nvm install 20.9.0
             nvm use 20.9.0
 
+            # Verify Node version
+            echo "Node version: $(node -v)"
+            echo "Npm version: $(npm -v)"
+
             # Run deploy script
             /home/github/deploy.sh
+
+            # Check if the process is running
+            echo "Checking application status..."
+            ps aux | grep -i next || echo "Next.js process not found"
