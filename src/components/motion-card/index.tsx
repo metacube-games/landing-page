@@ -39,7 +39,7 @@ function MotionCard() {
             className="text-md max-w-sm my-4 text-neutral-300"
           >
             To collect and interact with your assets, you will need a Starknet
-            wallet. We recommend Argent X or Braavos.
+            wallet. We recommend Ready Wallet or Braavos.
           </CardItem>
           <div className="flex justify-between items-center">
             <CardItem
@@ -48,19 +48,19 @@ function MotionCard() {
               className="px-4 py-2 text-xs text-white justify-center hover:brightness-110"
             >
               <Link
-                href="https://www.argent.xyz/argent-x/"
+                href="https://www.ready.co/ready-wallet"
                 className="items-center flex flex-col"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <Image
                   style={{ width: "auto" }}
-                  alt="argent X"
-                  src="/argentX.webp"
+                  alt="Ready Wallet"
+                  src="/ready-wallet.webp"
                   width={50}
                   height={50}
                 />
-                <p className="text-center w-full mt-2">Download Argent X</p>
+                <p className="text-center w-full mt-2">Download Ready Wallet</p>
               </Link>
             </CardItem>
             <CardItem
@@ -73,7 +73,7 @@ function MotionCard() {
                 className="items-center flex flex-col"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Download Argent X Wallet"
+                aria-label="Download Braavos Wallet"
               >
                 <Image
                   alt="Braavos"

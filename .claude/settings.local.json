@@ -5,7 +5,8 @@
       "Bash(npx update-browserslist-db@latest)",
       "Bash(npm install:*)",
       "Bash(npm run lint)",
-      "Bash(npm audit)"
+      "Bash(npm audit)",
+      "WebSearch"
     ],
     "deny": [],
     "ask": []
