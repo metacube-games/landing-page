@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build:*)",
+      "Bash(npx update-browserslist-db@latest)",
+      "Bash(npm install:*)",
+      "Bash(npm run lint)",
+      "Bash(npm audit)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

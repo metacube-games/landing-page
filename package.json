@@ -9,31 +9,32 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@next/third-parties": "^15.2.4",
+    "@next/third-parties": "^16.0.1",
     "@types/prismjs": "^1.26.5",
-    "caniuse-lite": "^1.0.30001717",
+    "caniuse-lite": "^1.0.30001754",
     "clsx": "^2.1.1",
-    "cssnano": "^7.0.6",
-    "framer-motion": "^12.6.3",
+    "cssnano": "^7.1.2",
+    "framer-motion": "^12.23.24",
     "million": "latest",
-    "next": "15.2.4",
+    "next": "16.0.1",
     "next-videos": "^1.4.1",
     "prismjs": "^1.30.0",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "react-social-icons": "^6.22.0",
-    "tailwind-merge": "^3.1.0"
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-social-icons": "^6.25.0",
+    "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.1.2",
-    "@tailwindcss/upgrade": "^4.1.2",
-    "@types/node": "^22",
+    "@tailwindcss/postcss": "^4.1.17",
+    "@tailwindcss/upgrade": "^4.1.17",
+    "@types/node": "^24",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "babel-plugin-react-compiler": "^1.0.0",
     "eslint": "^9",
-    "eslint-config-next": "15.2.4",
+    "eslint-config-next": "16.0.1",
     "postcss": "^8",
-    "tailwindcss": "^4.1.2",
+    "tailwindcss": "^4.1.17",
     "typescript": "^5"
   }
 }
