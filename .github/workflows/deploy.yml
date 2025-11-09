@@ -42,4 +42,11 @@ jobs:
 
             # Check if the process is running
             echo "Checking application status..."
-            ps aux | grep -i next || echo "Next.js process not found"
+            pm2 list
+
+            # Show recent logs to diagnose crashes
+            echo "Recent error logs:"
+            pm2 logs landing-page --lines 50 --nostream --err
+
+            echo "Recent output logs:"
+            pm2 logs landing-page --lines 50 --nostream --out
