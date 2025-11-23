@@ -24,9 +24,32 @@ jobs:
           command_timeout: 30m
           debug: true
           script: |
-            set -e  # Exit on error
-
             echo "=== Deployment Started ==="
+
+            # Set variables
+            APP_DIR="/home/github/landing-page"
+
+            # Check disk space before cleanup
+            echo "Disk space before cleanup:"
+            df -h
+
+            # Cleanup to free disk space (no set -e here - cleanup can fail safely)
+            echo "=== Cleaning up disk space ==="
+            pm2 flush 2>/dev/null || true
+            rm -rf "$APP_DIR/.next" 2>/dev/null || true
+            rm -rf "$APP_DIR/node_modules/.cache" 2>/dev/null || true
+            rm -rf ~/.bun/install/cache/* 2>/dev/null || true
+            rm -rf ~/.npm 2>/dev/null || true
+            rm -rf ~/.yarn/cache 2>/dev/null || true
+            rm -rf ~/.cache 2>/dev/null || true
+            rm -f "$APP_DIR/.git/index.lock" 2>/dev/null || true
+
+            echo "Disk space after cleanup:"
+            df -h
+            echo "=== Cleanup Complete ==="
+
+            # Enable strict error handling AFTER cleanup
+            set -e
 
             # Install Bun if not present
             if ! command -v bun &> /dev/null; then
@@ -34,38 +57,49 @@ jobs:
               curl -fsSL https://bun.sh/install | bash
               export BUN_INSTALL="$HOME/.bun"
               export PATH="$BUN_INSTALL/bin:$PATH"
-            else
-              echo "Bun already installed"
             fi
 
             # Load Bun environment
             export BUN_INSTALL="$HOME/.bun"
             export PATH="$BUN_INSTALL/bin:$PATH"
 
-            # Verify Bun installation
             echo "Bun version: $(bun --version)"
 
-            # Run deploy script (build the app)
+            # Run deploy script (git pull + build)
             echo "Running deployment script..."
-            /home/github/deploy.sh
+            if [ -f /home/github/deploy.sh ]; then
+              /home/github/deploy.sh
+            else
+              echo "ERROR: /home/github/deploy.sh not found"
+              echo "Build step required - cannot deploy without building"
+              exit 1
+            fi
 
-            # Stop and delete the old PM2 process
+            # Stop old PM2 process
             echo "Stopping old PM2 process..."
-            pm2 delete landing-page || echo "No existing process to delete"
+            pm2 delete landing-page 2>/dev/null || true
+
+            # Verify ecosystem config exists
+            if [ ! -f "$APP_DIR/ecosystem.config.js" ]; then
+              echo "ERROR: ecosystem.config.js not found in $APP_DIR"
+              exit 1
+            fi
 
             # Start PM2 with ecosystem config
-            echo "Starting app with Bun using PM2..."
-            cd /home/github/landing-page
+            echo "Starting app with PM2..."
+            cd "$APP_DIR"
             pm2 start ecosystem.config.js
             pm2 save
 
-            # Check if the process is running
-            echo "Checking application status..."
-            sleep 5
-            pm2 list
-
-            # Show recent logs to verify it's working
-            echo "=== Recent Application Logs ==="
-            pm2 logs landing-page --lines 30 --nostream || echo "Could not fetch logs"
+            # Verify app is running
+            sleep 3
+            if pm2 describe landing-page > /dev/null 2>&1; then
+              echo "✓ App started successfully"
+              pm2 list
+              pm2 logs landing-page --lines 20 --nostream || true
+            else
+              echo "ERROR: App failed to start"
+              exit 1
+            fi
 
             echo "=== Deployment Completed ==="
