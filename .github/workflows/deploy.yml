@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Deploy
-        uses: appleboy/ssh-action@v1.2.0
+        uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
@@ -54,10 +54,10 @@ jobs:
             echo "Stopping old PM2 process..."
             pm2 delete landing-page || echo "No existing process to delete"
 
-            # Start PM2 with Bun
-            echo "Starting app with Bun..."
+            # Start PM2 with ecosystem config
+            echo "Starting app with Bun using PM2..."
             cd /home/github/landing-page
-            pm2 start bun --name "landing-page" -- start
+            pm2 start ecosystem.config.js
             pm2 save
 
             # Check if the process is running
