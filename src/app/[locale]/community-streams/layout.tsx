@@ -7,7 +7,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'blog.metadata' });
+  const t = await getTranslations({ locale, namespace: 'communityStreams.metadata' });
 
   // Map locales to OpenGraph locale format
   const localeMap: Record<string, string> = {
@@ -18,21 +18,25 @@ export async function generateMetadata({
   };
 
   const baseUrl = 'https://metacube.games';
-  const canonicalUrl = `${baseUrl}/${locale}/blog`;
+  const canonicalUrl = `${baseUrl}/${locale}/community-streams`;
   const ogLocale = localeMap[locale] || 'en_US';
 
   // Generate alternate language links
   const languages: Record<string, string> = {
-    en: `${baseUrl}/en/blog`,
-    de: `${baseUrl}/de/blog`,
-    fr: `${baseUrl}/fr/blog`,
-    es: `${baseUrl}/es/blog`,
-    'x-default': `${baseUrl}/en/blog`,
+    en: `${baseUrl}/en/community-streams`,
+    de: `${baseUrl}/de/community-streams`,
+    fr: `${baseUrl}/fr/community-streams`,
+    es: `${baseUrl}/es/community-streams`,
+    'x-default': `${baseUrl}/en/community-streams`,
   };
 
   return {
     title: t('title'),
     description: t('description'),
+    robots: {
+      index: true,
+      follow: true,
+    },
     openGraph: {
       title: t('title'),
       description: t('description'),
@@ -49,6 +53,19 @@ export async function generateMetadata({
       locale: ogLocale,
       type: "website",
     },
+    twitter: {
+      card: "summary_large_image",
+      site: "@MetacubeGames",
+      creator: "@MetacubeGames",
+      title: t('title'),
+      description: t('description'),
+      images: [
+        {
+          url: "https://metacube.games/metadata-image.webp",
+          alt: t('imageAlt'),
+        },
+      ],
+    },
     alternates: {
       canonical: canonicalUrl,
       languages,
@@ -56,18 +73,14 @@ export async function generateMetadata({
   };
 }
 
-export default function BlogLayout({
+export default function CommunityStreamsLayout({
   children
 }: {
   children: React.ReactNode;
 }) {
   return (
     <section className="bg-gradient-to-b from-black via-emerald-950/20 to-black text-white">
-      {/* Consider adding a subtle green glow or border effect here if desired,
-          similar to the modal, but be mindful of overall page performance and visual clutter.
-          Example: border-t border-green-700/10
-      */}
       {children}
     </section>
   );
-} 
+}
