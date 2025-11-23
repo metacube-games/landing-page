@@ -51,6 +51,17 @@ jobs:
             # Enable strict error handling AFTER cleanup
             set -e
 
+            # Install/setup Node.js 20.9.0 (required by Next.js)
+            echo "Setting up Node.js..."
+            if [ ! -d "$HOME/.nvm" ]; then
+              curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+            fi
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            nvm install 20.9.0
+            nvm use 20.9.0
+            echo "Node version: $(node -v)"
+
             # Install Bun if not present
             if ! command -v bun &> /dev/null; then
               echo "Installing Bun..."
