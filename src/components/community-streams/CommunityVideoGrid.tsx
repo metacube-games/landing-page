@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { YouTubeEmbed } from "@next/third-parties/google";
+import {useTranslations} from 'next-intl';
 
 // Add interface for the video data
 interface CommunityVideo {
@@ -89,7 +90,88 @@ const communityVideos: CommunityVideo[] = [
   // }
 ];
 
+// Lazy video component with Intersection Observer
+const LazyVideoEmbed = ({ video }: { video: CommunityVideo }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const videoRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.disconnect();
+          }
+        });
+      },
+      { rootMargin: '100px' }
+    );
+
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={videoRef} className="aspect-video w-full relative">
+      {isVisible ? (
+        video.platform === "youtube" ? (
+          <YouTubeEmbed
+            videoid={video.videoId}
+            params="rel=0"
+            playlabel={video.title}
+          />
+        ) : (
+          <div className="w-full h-full bg-gray-900 flex items-center justify-center">
+            <div
+              className={`w-20 h-20 rounded-full flex items-center justify-center ${
+                video.platform === "twitch"
+                  ? "bg-purple-600"
+                  : video.platform === "kick"
+                    ? "bg-green-600"
+                    : "bg-gray-700"
+              }`}
+            >
+              {video.platform === "twitch" && (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-12 w-12"
+                  viewBox="0 0 24 24"
+                  fill="white"
+                >
+                  <path
+                    d="M2.149 0l-1.612 4.119v16.836h5.731v3.045h3.224l3.045-3.045h4.657l6.269-6.269v-14.686h-21.314zm19.164 13.612l-3.582 3.582h-5.731l-3.045 3.045v-3.045h-4.836v-15.045h17.194v11.463zm-3.582-7.343v6.262h-2.149v-6.262h2.149zm-5.731 0v6.262h-2.149v-6.262h2.149z"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              )}
+              {video.platform === "kick" && (
+                <svg
+                  className="h-12 w-12"
+                  viewBox="0 0 24 24"
+                  fill="white"
+                >
+                  <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.568 14.652h-4.02L12 12.5l1.548-2.152h4.02L14.1 12.5l3.468 2.152zm-7.035 0H6.357L9.6 10.348H7.5L4.432 14.5V7.348h2.1v3.304L9.8 7.348h2.1l-3.367 4.304 2 3z" />
+                </svg>
+              )}
+            </div>
+          </div>
+        )
+      ) : (
+        <div className="w-full h-full bg-gray-900 flex items-center justify-center">
+          <div className="animate-pulse text-gray-500">Loading...</div>
+        </div>
+      )}
+    </div>
+  );
+};
+
 export default function CommunityVideoGrid() {
+  const t = useTranslations('communityStreams.videoGrid');
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
   const [filter, setFilter] = useState("all");
 
@@ -179,113 +261,39 @@ export default function CommunityVideoGrid() {
             key={video.id}
             className="group bg-black/30 border border-gray-800 rounded-xl overflow-hidden hover:border-gray-700 transition-all hover:translate-y-[-2px]"
           >
-            {/* Video player */}
-            <div className="aspect-video w-full relative">
-              {video.platform === "youtube" ? (
-                <>
-                  <YouTubeEmbed
-                    videoid={video.videoId}
-                    params="rel=0"
-                    playlabel={video.title}
-                  />
+            {/* Lazy-loaded Video player */}
+            <LazyVideoEmbed video={video} />
 
-                  {/* Overlay for title and details */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-3 transform transition-transform duration-300 ease-in-out group-hover:translate-y-full">
-                    <h3 className="text-lg font-semibold mb-1 line-clamp-2 text-white">
-                      {video.title}
-                    </h3>
-                    <div className="flex items-center justify-between">
-                      <p className="text-gray-300 text-base font-medium truncate">
-                        {video.creator}
-                      </p>
-                      {video.language && (
-                        <span className="text-xs bg-gray-800 text-gray-300 px-2 py-0.5 rounded">
-                          {video.language}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                </>
-              ) : (
-                <div className="w-full h-full bg-gray-900 flex items-center justify-center">
-                  <div
-                    className={`w-20 h-20 rounded-full flex items-center justify-center ${
-                      video.platform === "twitch"
-                        ? "bg-purple-600"
-                        : video.platform === "kick"
-                          ? "bg-green-600"
-                          : "bg-gray-700"
-                    }`}
-                  >
-                    {video.platform === "twitch" && (
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-12 w-12"
-                        viewBox="0 0 24 24"
-                        fill="white"
-                      >
-                        <path
-                          d="M2.149 0l-1.612 4.119v16.836h5.731v3.045h3.224l3.045-3.045h4.657l6.269-6.269v-14.686h-21.314zm19.164 13.612l-3.582 3.582h-5.731l-3.045 3.045v-3.045h-4.836v-15.045h17.194v11.463zm-3.582-7.343v6.262h-2.149v-6.262h2.149zm-5.731 0v6.262h-2.149v-6.262h2.149z"
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    )}
-                    {video.platform === "kick" && (
-                      <svg
-                        className="h-12 w-12"
-                        viewBox="0 0 24 24"
-                        fill="white"
-                      >
-                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.568 14.652h-4.02L12 12.5l1.548-2.152h4.02L14.1 12.5l3.468 2.152zm-7.035 0H6.357L9.6 10.348H7.5L4.432 14.5V7.348h2.1v3.304L9.8 7.348h2.1l-3.367 4.304 2 3z" />
-                      </svg>
-                    )}
-                  </div>
-                  <a
-                    href={`https://${video.platform}.com/${video.videoId}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="absolute inset-0 flex items-center justify-center"
-                  >
-                    <span className="sr-only">Watch on {video.platform}</span>
-                    <div className="px-4 py-2 bg-green-600 text-white font-medium rounded-md hover:bg-green-700 transition-colors">
-                      Watch on {video.platform}
-                    </div>
-                  </a>
-
-                  {/* Overlay for title and details */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-3 transform transition-transform duration-300 ease-in-out group-hover:translate-y-full">
-                    <h3 className="text-lg font-semibold mb-1 line-clamp-2 text-white">
-                      {video.title}
-                    </h3>
-                    <div className="flex items-center justify-between">
-                      <p className="text-gray-300 text-base font-medium truncate">
-                        {video.creator}
-                      </p>
-                      {video.language && (
-                        <span className="text-xs bg-gray-800 text-gray-300 px-2 py-0.5 rounded">
-                          {video.language}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Featured badge */}
-              {video.featured && (
-                <div className="absolute top-2 left-2 bg-green-600 text-white text-xs px-2 py-1 rounded-md z-10">
-                  Featured
-                </div>
-              )}
-
-              {/* Platform badge for YouTube videos */}
-              {video.platform === "youtube" && (
-                <div className="absolute top-2 right-2 z-10">
-                  {getPlatformIcon(video.platform)}
-                </div>
-              )}
+            {/* Overlay for title and details */}
+            <div className="bg-black/60 backdrop-blur-sm p-3">
+              <h3 className="text-lg font-semibold mb-1 line-clamp-2 text-white">
+                {video.title || video.creator}
+              </h3>
+              <div className="flex items-center justify-between">
+                <p className="text-gray-300 text-base font-medium truncate">
+                  {video.creator}
+                </p>
+                {video.language && (
+                  <span className="text-xs bg-gray-800 text-gray-300 px-2 py-0.5 rounded">
+                    {video.language}
+                  </span>
+                )}
+              </div>
             </div>
+
+            {/* Featured badge */}
+            {video.featured && (
+              <div className="absolute top-2 left-2 bg-green-600 text-white text-xs px-2 py-1 rounded-md z-10">
+                {t('featured')}
+              </div>
+            )}
+
+            {/* Platform badge for YouTube videos */}
+            {video.platform === "youtube" && (
+              <div className="absolute top-2 right-2 z-10">
+                {getPlatformIcon(video.platform)}
+              </div>
+            )}
           </div>
         ))}
       </div>

@@ -36,6 +36,23 @@
   scrollbar-color: rgba(200, 200, 200, 0.5) rgba(255, 255, 255, 0.1);
 }
 
+/* Smooth scroll behavior for all browsers */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Respect user's motion preferences - CRITICAL for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -44,8 +61,106 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar styles for WebKit browsers */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(200, 200, 200, 0.5);
+  border-radius: 6px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(200, 200, 200, 0.7);
+  background-clip: content-box;
 }
 
 .spinner-container {
   z-index: -1;
+}
+
+/* Accessibility utilities */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.focus\:not-sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: revert;
+  margin: revert;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Enhanced focus indicators for better visibility */
+*:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Improve focus for interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Color contrast improvements for WCAG AA compliance */
+/* Ensure text-gray-300 meets 4.5:1 ratio on dark backgrounds */
+.text-gray-300 {
+  color: #e5e5e5;
+}
+
+/* Ensure text-gray-400 meets 4.5:1 ratio */
+.text-gray-400 {
+  color: #d4d4d4;
+}
+
+/* Ensure text-gray-500 meets 3:1 ratio for large text */
+.text-gray-500 {
+  color: #a3a3a3;
+}
+
+/* Link colors with better contrast */
+.text-neutral-700 {
+  color: #404040;
+}
+
+.text-neutral-200 {
+  color: #e5e5e5;
+}
+
+/* Ensure green text meets contrast requirements */
+.text-green-300 {
+  color: #86efac;
+}
+
+.text-green-400 {
+  color: #4ade80;
 }

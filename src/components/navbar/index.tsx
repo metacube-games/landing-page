@@ -1,5 +1,8 @@
+'use client';
+
 import React from "react";
 import FloatingNav from "./floating-navbar";
+import {useTranslations} from 'next-intl';
 
 // Helper function to check if a link is external
 const isExternalLink = (url: string) => {
@@ -8,9 +11,11 @@ const isExternalLink = (url: string) => {
 
 // Market logo
 export function Navbar() {
+  const t = useTranslations('navbar');
+
   const navItems = [
     {
-      name: "Home",
+      name: t('items.home'),
       link: "/",
       icon: (
         <svg
@@ -30,7 +35,7 @@ export function Navbar() {
       ),
     },
     {
-      name: "Streams",
+      name: t('items.streams'),
       link: "/community-streams",
       icon: (
         <svg
@@ -50,7 +55,7 @@ export function Navbar() {
       ),
     },
     {
-      name: "Blog",
+      name: t('items.blog'),
       link: "/blog",
       icon: (
         <svg
@@ -70,7 +75,7 @@ export function Navbar() {
       ),
     },
     {
-      name: "Market",
+      name: t('items.market'),
       link: "https://market.metacube.games",
       icon: (
         <svg 
@@ -86,7 +91,7 @@ export function Navbar() {
       ),
     },
     {
-      name: "Play",
+      name: t('items.play'),
       link: "https://play.metacube.games",
       icon: (
         <svg 
@@ -117,7 +122,7 @@ export function Navbar() {
               className="flex items-center space-x-2"
               target={isExternalLink(item.link) ? "_blank" : undefined}
               rel={isExternalLink(item.link) ? "noopener noreferrer" : undefined}
-              aria-label={`Learn more about ${item.name} at Metacube Games`}
+              aria-label={t('ariaLabel.learnMore', { name: item.name })}
             >
               {item.icon}
               <span>{item.name}</span>

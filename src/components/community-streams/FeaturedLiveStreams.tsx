@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { YouTubeEmbed } from '@next/third-parties/google';
 import Image from 'next/image';
+import {useTranslations} from 'next-intl';
 
 // Add the interface for the featured stream data
 interface FeaturedStream {
@@ -48,6 +49,7 @@ const featuredStreams: FeaturedStream[] = [
 ];
 
 export default function FeaturedLiveStreams() {
+  const t = useTranslations('communityStreams.featuredStreams');
   const [selectedStream, setSelectedStream] = useState(featuredStreams[0]);
 
   // Mock an empty streams state for demonstration
@@ -62,13 +64,12 @@ export default function FeaturedLiveStreams() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
           </svg>
         </div>
-        <h3 className="text-2xl font-bold mb-3">No Live Streams Right Now</h3>
+        <h3 className="text-2xl font-bold mb-3">{t('noStreams.title')}</h3>
         <p className="text-gray-400 max-w-xl mx-auto mb-6">
-          There are no active streams at the moment. Be the first to share your gameplay or content with the community!
-          Use the submission form below to add your video or stream and get featured here.
+          {t('noStreams.description')}
         </p>
         <a href="#submit" className="inline-block px-6 py-3 bg-green-700 hover:bg-green-800 rounded-md transition-colors text-white font-medium">
-          Submit Your Content
+          {t('noStreams.submitButton')}
         </a>
       </div>
     );
@@ -128,7 +129,7 @@ export default function FeaturedLiveStreams() {
               rel="noopener noreferrer"
               className="inline-block px-6 py-3 bg-green-700 hover:bg-green-800 rounded-md transition-colors text-white font-medium"
             >
-              Watch on {selectedStream.platform}
+              {t('streamDetails.watchOn', { platform: selectedStream.platform })}
             </a>
           </div>
         </div>
@@ -146,17 +147,17 @@ export default function FeaturedLiveStreams() {
             <h3 className="text-xl font-bold">{selectedStream.title}</h3>
             <div className="flex items-center">
               <span className="inline-block w-2 h-2 rounded-full bg-red-500 mr-2 animate-pulse"></span>
-              <span className="text-red-400 text-sm font-medium">LIVE</span>
-              <span className="ml-2 text-gray-400 text-sm">{selectedStream.viewers.toLocaleString()} viewers</span>
+              <span className="text-red-400 text-sm font-medium">{t('streamDetails.live')}</span>
+              <span className="ml-2 text-gray-400 text-sm">{t('streamDetails.viewers', { count: selectedStream.viewers })}</span>
             </div>
           </div>
-          <p className="text-gray-300">Streamed by {selectedStream.streamer}</p>
+          <p className="text-gray-300">{t('streamDetails.streamedBy', { streamer: selectedStream.streamer })}</p>
         </div>
       </div>
 
       {/* Stream selection sidebar */}
       <div className="lg:col-span-1 space-y-4 max-h-[600px] overflow-y-auto pr-2">
-        <h3 className="text-xl font-semibold mb-2">Featured Streams</h3>
+        <h3 className="text-xl font-semibold mb-2">{t('streamDetails.featuredStreams')}</h3>
         
         {featuredStreams.map(stream => (
           <div 

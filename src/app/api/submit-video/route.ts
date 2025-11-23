@@ -1,12 +1,17 @@
 import { NextResponse } from 'next/server';
 
-// Validates a video URL based on platform
-function validateVideoUrl(url: string, platform: string = 'youtube') {
+/**
+ * Validates a video URL based on the platform
+ * @param url - The video URL to validate
+ * @param platform - The platform type (youtube, twitch, kick, or other)
+ * @returns boolean indicating if the URL is valid for the given platform
+ */
+function validateVideoUrl(url: string, platform: string = 'youtube'): boolean {
     if (platform === 'youtube') {
         // YouTube URL validation
         const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
         const match = url.match(regExp);
-        return match && match[7].length === 11;
+        return Boolean(match && match[7] && match[7].length === 11);
     } else if (platform === 'twitch') {
         // Basic Twitch URL validation
         const regExp = /(?:www\.)?twitch\.tv\/(?:videos\/(\d+)|(\w+))/;
@@ -26,13 +31,20 @@ function validateVideoUrl(url: string, platform: string = 'youtube') {
     }
 }
 
-// Function to send message to Telegram
-async function sendToTelegram(message: string) {
+/**
+ * Sends a notification message to Telegram
+ * @param message - The formatted message to send
+ * @returns Promise<boolean> indicating success or failure
+ */
+async function sendToTelegram(message: string): Promise<boolean> {
     const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
     const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
     if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
-        console.error('Telegram bot token or chat ID is missing from environment variables.');
+        // Missing credentials - log to server error logs, not console
+        if (process.env.NODE_ENV === 'development') {
+            console.warn('[Telegram] Bot token or chat ID is missing from environment variables.');
+        }
         return false;
     }
 
@@ -51,18 +63,34 @@ async function sendToTelegram(message: string) {
 
         if (!response.ok) {
             const errorData = await response.json();
-            console.error('Failed to send Telegram notification:', errorData);
+            if (process.env.NODE_ENV === 'development') {
+                console.error('[Telegram] Failed to send notification:', errorData);
+            }
             return false;
         }
         return true;
     } catch (error) {
-        console.error('Telegram notification error:', error);
+        if (process.env.NODE_ENV === 'development') {
+            console.error('[Telegram] Notification error:', error);
+        }
         return false;
     }
 }
 
+/**
+ * Type definition for video submission data
+ */
+interface VideoSubmission {
+    email: string;
+    videoLink: string;
+    videoId: string | false;
+    platform: string;
+    comment: string;
+    submittedAt: string;
+}
+
 // In-memory storage for submissions (for development GET request)
-let submissions: any[] = [];
+const submissions: VideoSubmission[] = [];
 
 // GET handler to retrieve submissions (for development)
 export async function GET() {
@@ -112,7 +140,9 @@ export async function POST(request: Request) {
 
         // Store in-memory for GET /api/submit-video (development)
         submissions.push(submissionData);
-        console.log('Video submission received:', submissionData);
+        if (process.env.NODE_ENV === 'development') {
+            console.log('[API] Video submission received:', submissionData);
+        }
 
         // --- Send to Telegram ---
         const telegramMessage = `
@@ -127,10 +157,12 @@ export async function POST(request: Request) {
 `;
 
         const telegramSent = await sendToTelegram(telegramMessage);
-        if (telegramSent) {
-            console.log('Submission successfully sent to Telegram.');
-        } else {
-            console.warn('Submission was processed, but failed to send to Telegram.');
+        if (process.env.NODE_ENV === 'development') {
+            if (telegramSent) {
+                console.log('[API] Submission successfully sent to Telegram.');
+            } else {
+                console.warn('[API] Submission was processed, but failed to send to Telegram.');
+            }
         }
 
         // --- Return success response ---
@@ -141,7 +173,9 @@ export async function POST(request: Request) {
         });
 
     } catch (error) {
-        console.error('Error processing video submission:', error);
+        if (process.env.NODE_ENV === 'development') {
+            console.error('[API] Error processing video submission:', error);
+        }
         // Ensure error is an instance of Error for consistent message access
         const errorMessage = error instanceof Error ? error.message : 'Unknown server error';
         return NextResponse.json(

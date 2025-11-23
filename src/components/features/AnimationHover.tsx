@@ -1,9 +1,17 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Card, CardTitle, CardDescription } from "./cards";
 
-export function AnimationHover({ item, idx }: { item: any; idx: any }) {
+interface AnimationHoverProps {
+  item: {
+    title: string;
+    description: string;
+  };
+  idx: number;
+}
+
+export const AnimationHover = memo(function AnimationHover({ item, idx }: AnimationHoverProps) {
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
@@ -15,7 +23,6 @@ export function AnimationHover({ item, idx }: { item: any; idx: any }) {
       <AnimatePresence>
         {hoveredIndex === idx && (
           <motion.span
-            // @ts-ignore
             className="absolute inset-0 h-full w-full bg-slate-800/[0.8] block rounded-3xl"
             layoutId="hoverBackground"
             initial={{ opacity: 0 }}
@@ -36,4 +43,4 @@ export function AnimationHover({ item, idx }: { item: any; idx: any }) {
       </Card>
     </div>
   );
-}
+});

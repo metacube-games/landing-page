@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import { useTranslations } from 'next-intl';
 import { getRarityClass } from '@/utils/blog-data';
 
 type StatItem = {
@@ -20,6 +21,7 @@ type RarityPieChartProps = {
 };
 
 export default function RarityPieChart({ title, data }: RarityPieChartProps) {
+  const t = useTranslations('nftStats');
   // Function to create the pie chart segments
   const createPieChartSegments = () => {
     let totalSegments = Object.values(data).flat().length;
@@ -74,7 +76,7 @@ export default function RarityPieChart({ title, data }: RarityPieChartProps) {
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center p-4 bg-black/70 rounded-full w-3/5 h-3/5 flex flex-col items-center justify-center">
               <span className="text-2xl font-bold">10,000</span>
-              <span className="text-xs">Total NFTs</span>
+              <span className="text-xs">{t('totalNfts')}</span>
             </div>
           </div>
         </div>

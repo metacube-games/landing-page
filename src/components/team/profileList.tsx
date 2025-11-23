@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, memo } from "react";
 import {
   motion,
   useTransform,
@@ -10,7 +10,7 @@ import {
 } from "framer-motion";
 import Link from "next/link";
 
-export const ProfileList = ({
+export const ProfileList = memo(function ProfileList({
   items,
 }: {
   items: {
@@ -20,7 +20,7 @@ export const ProfileList = ({
     image: string;
     link: string;
   }[];
-}) => {
+}) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState<boolean>(false);
 
@@ -35,9 +35,10 @@ export const ProfileList = ({
     useTransform(x, [-100, 100], [-50, 50]),
     springConfig
   );
-  const handleMouseMove = (event: any) => {
+  const handleMouseMove = (event: React.MouseEvent<HTMLImageElement>) => {
     if (!isMobile) {
-      const halfWidth = event.target.offsetWidth / 2;
+      const target = event.target as HTMLImageElement;
+      const halfWidth = target.offsetWidth / 2;
       x.set(event.nativeEvent.offsetX - halfWidth);
     }
   };
@@ -79,9 +80,8 @@ export const ProfileList = ({
                   //!!! this could cause problems if we have more than 5 items
                   translateX: isMobile ? -25 * item.id : translateX,
                   rotate: rotate,
-                  whiteSpace: "nowrap",
+                  whiteSpace: "nowrap" as const,
                 }}
-                // @ts-ignore
                 className={`absolute top-20 sm:left-0 md:-left-1/2 md:translate-x-1/2 flex text-xs flex-col items-center justify-center rounded-md bg-black z-50 shadow-xl px-4 py-2 ${
                   hoveredIndex === item.id
                     ? "left-1/2 transform -translate-x-1/2"
@@ -95,13 +95,11 @@ export const ProfileList = ({
                   aria-label={`Learn more about ${item.name}, ${item.designation}`}
                 >
                   <motion.div
-                    // @ts-ignore
                     className="text-white font-bold text-base"
                   >
                     {item.name}
                   </motion.div>
                   <motion.div
-                    // @ts-ignore
                     className="text-white text-md"
                   >
                     {item.designation}
@@ -115,11 +113,12 @@ export const ProfileList = ({
             height={100}
             width={100}
             src={item.image}
-            alt={item.name}
+            alt={`${item.name} - ${item.designation}`}
+            loading="lazy"
             className="object-cover m-0! p-0! object-top rounded-full md:h-20 md:w-20 sm:h-10 sm:w-10 border-2 group-hover:scale-105 group-hover:z-30 border-white relative transition duration-500"
           />
         </div>
       ))}
     </>
   );
-};
+});

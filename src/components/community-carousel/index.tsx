@@ -3,43 +3,23 @@
 import React, { useState, useEffect, useRef } from "react";
 import { YouTubeEmbed } from "@next/third-parties/google";
 import Link from "next/link";
+import {useTranslations} from 'next-intl';
 
-// YouTube video data
+// YouTube video data - titles and descriptions will be translated
 const youtubeVideos = [
-  {
-    id: "UZ_4Wkr3M3Y",
-    title: "Community Game Session",
-    description:
-      "Discover our incredible community content showcasing the best of Metacube. Watch how players around the world experience and create in our universe.",
-  },
-  {
-    id: "gr1oi_UdIB0",
-    title: "Community Game Session",
-    description:
-      "Discover our incredible community content showcasing the best of Metacube. Watch how players around the world experience and create in our universe.",
-  },
-  {
-    id: "Q5Rc41krauc",
-    title: "Community Game Session",
-    description:
-      "Discover our incredible community content showcasing the best of Metacube. Watch how players around the world experience and create in our universe.",
-  },
-  {
-    id: "wMaT0wMe9Ug",
-    title: "Community Game Session",
-    description:
-      "Discover our incredible community content showcasing the best of Metacube. Watch how players around the world experience and create in our universe.",
-  },
-  {
-    id: "WlqXb7-GZzI",
-    title: "Community Game Session",
-    description:
-      "Discover our incredible community content showcasing the best of Metacube. Watch how players around the world experience and create in our universe.",
-  },
+  { id: "UZ_4Wkr3M3Y" },
+  { id: "gr1oi_UdIB0" },
+  { id: "Q5Rc41krauc" },
+  { id: "wMaT0wMe9Ug" },
+  { id: "WlqXb7-GZzI" },
 ];
 
-// Function to extract video ID from YouTube URL
-const extractVideoId = (url: string) => {
+/**
+ * Extracts video ID from a YouTube URL
+ * @param url - The YouTube URL to parse
+ * @returns The video ID if valid, false otherwise
+ */
+const extractVideoId = (url: string): string | false => {
   // Support different YouTube URL formats
   const regExp =
     /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
@@ -48,6 +28,7 @@ const extractVideoId = (url: string) => {
 };
 
 const CommunityCarousel = () => {
+  const t = useTranslations('home.communityShowcase');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [form, setForm] = useState({ email: "", videoLink: "", comment: "" });
   const [submitting, setSubmitting] = useState(false);
@@ -87,19 +68,19 @@ const CommunityCarousel = () => {
     e.preventDefault();
 
     if (!form.videoLink) {
-      setError("YouTube video link is required");
+      setError(t('modal.form.videoLink.required'));
       return;
     }
 
     const videoId = extractVideoId(form.videoLink);
     if (!videoId) {
-      setError("Please enter a valid YouTube video URL");
+      setError(t('modal.form.videoLink.helpText'));
       return;
     }
 
     // Validate email format if provided
     if (form.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
-      setError("Please enter a valid email address or leave it blank");
+      setError(t('modal.form.email.helpText') || "Please enter a valid email address or leave it blank");
       return;
     }
 
@@ -137,7 +118,9 @@ const CommunityCarousel = () => {
           ? err.message
           : "Failed to submit. Please try again."
       );
-      console.error(err);
+      if (process.env.NODE_ENV === 'development') {
+        console.error('[CommunityCarousel] Submission error:', err);
+      }
     } finally {
       setSubmitting(false);
     }
@@ -181,12 +164,10 @@ const CommunityCarousel = () => {
   return (
     <section className="flex flex-col items-center justify-center relative mb-24">
       <h1 className="text-4xl font-medium tracking-widest uppercase text-center mb-4">
-        Community Showcase
+        {t('title')}
       </h1>
       <p className="text-center text-gray-300 mb-8 max-w-3xl mx-auto px-4">
-        Watch incredible content from our community members and be inspired.
-        From epic gameplay moments to creative builds, our players are
-        constantly exploring the Metacube universe.
+        {t('description')}
       </p>
 
       {/* Video Carousel */}
@@ -211,14 +192,14 @@ const CommunityCarousel = () => {
                   <YouTubeEmbed
                     videoid={video.id}
                     params="rel=0"
-                    playlabel={video.title}
+                    playlabel={t('videoDetails.title')}
                   />
                 </div>
                 <div className="mt-4 text-center max-w-3xl mx-auto">
                   <h2 className="text-xl font-semibold text-white">
-                    {video.title}
+                    {t('videoDetails.title')}
                   </h2>
-                  <p className="text-gray-300 mt-2">{video.description}</p>
+                  <p className="text-gray-300 mt-2">{t('videoDetails.description')}</p>
                 </div>
               </div>
             </div>
@@ -229,7 +210,7 @@ const CommunityCarousel = () => {
         <button
           onClick={prevSlide}
           className="absolute left-2 md:left-4 top-1/3 transform -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-200 backdrop-blur-sm z-10 border border-white/20 cursor-pointer"
-          aria-label="Previous video"
+          aria-label={t('navigation.previous')}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -250,7 +231,7 @@ const CommunityCarousel = () => {
         <button
           onClick={nextSlide}
           className="absolute right-2 md:right-4 top-1/3 transform -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-200 backdrop-blur-sm z-10 border border-white/20 cursor-pointer"
-          aria-label="Next video"
+          aria-label={t('navigation.next')}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -277,7 +258,7 @@ const CommunityCarousel = () => {
                 index === currentIndex ? "bg-black/30" : "bg-transparent"
               } hover:bg-black/20 transition-colors duration-200 rounded-full`}
               onClick={() => goToSlide(index)}
-              aria-label={`Go to slide ${index + 1}`}
+              aria-label={t('navigation.goToSlide', { number: index + 1 })}
             >
               <span
                 className={`w-3 h-3 rounded-full ${
@@ -295,7 +276,7 @@ const CommunityCarousel = () => {
           href="/community-streams"
           className="py-3 px-8 bg-gradient-to-r from-green-700 to-emerald-600 text-white font-medium rounded-md hover:from-green-800 hover:to-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all duration-200 uppercase tracking-wider"
         >
-          Discover More Streams
+          {t('discoverMore')}
         </Link>
       </div>
 
@@ -305,12 +286,12 @@ const CommunityCarousel = () => {
           <div className="bg-black/95 backdrop-blur-md p-8 rounded-lg border border-green-700/40 shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="flex justify-between items-center mb-6">
               <h3 className="text-2xl uppercase tracking-wider font-semibold text-green-400">
-                Submit Your Video
+                {t('modal.submitVideo')}
               </h3>
               <button
                 onClick={closeModal}
                 className="text-gray-400 hover:text-green-300 transition-colors duration-200"
-                aria-label="Close modal"
+                aria-label={t('modal.closeModal')}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -331,7 +312,7 @@ const CommunityCarousel = () => {
 
             {submitted ? (
               <div className="text-green-400 text-center p-4 bg-green-900/20 rounded mb-4 border border-green-500/30">
-                Thank you! Your video has been submitted for review.
+                {t('modal.thankYou')}
               </div>
             ) : (
               <form onSubmit={handleSubmit}>
@@ -346,7 +327,7 @@ const CommunityCarousel = () => {
                     htmlFor="videoLink"
                     className="block mb-2 text-green-300"
                   >
-                    YouTube Video Link <span className="text-red-500">*</span>
+                    {t('modal.form.videoLink.label')} <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="url"
@@ -354,19 +335,19 @@ const CommunityCarousel = () => {
                     name="videoLink"
                     value={form.videoLink}
                     onChange={handleChange}
-                    placeholder="https://www.youtube.com/watch?v=..."
+                    placeholder={t('modal.form.videoLink.placeholder')}
                     className="w-full px-4 py-2 bg-gray-900/70 border border-gray-700/80 rounded focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200 text-gray-200 placeholder-gray-500"
                     required
                   />
                   <p className="mt-1 text-sm text-gray-400">
-                    Please provide a valid YouTube video link.
+                    {t('modal.form.videoLink.helpText')}
                   </p>
                 </div>
 
                 <div className="mb-4">
                   <label htmlFor="email" className="block mb-2 text-green-300">
-                    Email Address{" "}
-                    <span className="text-gray-500">(Optional)</span>
+                    {t('modal.form.email.label')}{" "}
+                    <span className="text-gray-500">({t('modal.form.email.optional')})</span>
                   </label>
                   <input
                     type="email"
@@ -374,6 +355,7 @@ const CommunityCarousel = () => {
                     name="email"
                     value={form.email}
                     onChange={handleChange}
+                    placeholder={t('modal.form.email.placeholder')}
                     className="w-full px-4 py-2 bg-gray-900/70 border border-gray-700/80 rounded focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200 text-gray-200 placeholder-gray-500"
                   />
                 </div>
@@ -383,8 +365,8 @@ const CommunityCarousel = () => {
                     htmlFor="comment"
                     className="block mb-2 text-green-300"
                   >
-                    Video Description{" "}
-                    <span className="text-gray-500">(Optional)</span>
+                    {t('modal.form.comment.label')}{" "}
+                    <span className="text-gray-500">({t('modal.form.comment.optional')})</span>
                   </label>
                   <textarea
                     id="comment"
@@ -393,7 +375,7 @@ const CommunityCarousel = () => {
                     onChange={handleChange}
                     rows={3}
                     className="w-full px-4 py-2 bg-gray-900/70 border border-gray-700/80 rounded focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200 text-gray-200 placeholder-gray-500"
-                    placeholder="Help us showcase your video! Tell us what makes your video special, what it's about, or any other details you'd like us to include in the description."
+                    placeholder={t('modal.form.comment.placeholder')}
                   />
                 </div>
 
@@ -404,11 +386,11 @@ const CommunityCarousel = () => {
                     submitting ? "opacity-70 cursor-not-allowed" : ""
                   }`}
                 >
-                  {submitting ? "Submitting..." : "Submit Video"}
+                  {submitting ? t('modal.form.submitting') : t('modal.form.submit')}
                 </button>
 
                 <p className="mt-4 text-sm text-gray-400 text-center">
-                  Videos will be sent to the team for review.
+                  {t('modal.form.reviewNote')}
                 </p>
               </form>
             )}

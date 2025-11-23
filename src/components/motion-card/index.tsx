@@ -1,36 +1,38 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 import { CardBody, CardContainer, CardItem } from "./3d-card";
 import Link from "next/link";
+import {useTranslations} from 'next-intl';
 
 function MotionCard() {
+  const t = useTranslations('home.earnRewards');
+
   return (
     <section className="flex flex-col items-center justify-center">
       <h1 className="text-4xl font-medium tracking-widest uppercase text-center text-white">
-        Earn Rewards
+        {t('title')}
       </h1>
       <CardContainer className="inter-var">
         <CardBody className="relative group/card  hover:shadow-2xl hover:shadow-emerald-500/[0.1] bg-black border-white/[0.2] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
           <CardItem translateZ="0" className="text-2xl font-bold text-white">
-            Collect your assets
+            {t('card.title')}
           </CardItem>
           <CardItem
             as="p"
             translateZ="0"
             className=" text-md max-w-sm mt-2 text-neutral-300"
           >
-            The first Game is a race to collect unique cards hidden in the
-            Metacube. Those will yield special powers and abilities to the
-            players that own them.
+            {t('card.description')}
           </CardItem>
           <CardItem translateZ="40" className="w-full mt-4">
             <Image
               src="/card.webp"
-              priority
+              loading="lazy"
               height="1000"
               width="1000"
               className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl border-solid"
-              alt="thumbnail"
+              alt="Metacube reward card showcasing in-game collectibles"
             />
           </CardItem>
           <CardItem
@@ -38,8 +40,7 @@ function MotionCard() {
             translateZ="0"
             className="text-md max-w-sm my-4 text-neutral-300"
           >
-            To collect and interact with your assets, you will need a Starknet
-            wallet. We recommend Ready Wallet or Braavos.
+            {t('card.walletDescription')}
           </CardItem>
           <div className="flex justify-between items-center">
             <CardItem
@@ -55,12 +56,13 @@ function MotionCard() {
               >
                 <Image
                   style={{ width: "auto" }}
-                  alt="Ready Wallet"
+                  alt="Ready Wallet Logo"
                   src="/ready-wallet.webp"
                   width={50}
                   height={50}
+                  loading="lazy"
                 />
-                <p className="text-center w-full mt-2">Download Ready Wallet</p>
+                <p className="text-center w-full mt-2">{t('card.downloadReady')}</p>
               </Link>
             </CardItem>
             <CardItem
@@ -76,12 +78,13 @@ function MotionCard() {
                 aria-label="Download Braavos Wallet"
               >
                 <Image
-                  alt="Braavos"
+                  alt="Braavos Wallet Logo"
                   src="/Braavos.webp"
                   width={50}
                   height={50}
+                  loading="lazy"
                 />
-                <p className="text-center w-full mt-2">Download Braavos</p>
+                <p className="text-center w-full mt-2">{t('card.downloadBraavos')}</p>
               </Link>
             </CardItem>
           </div>

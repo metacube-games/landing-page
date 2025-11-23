@@ -6,7 +6,8 @@ export const CubeAnimation = () => {
     <div className="relative w-full h-screen flex">
       <video
         aria-hidden="true"
-        preload="auto"
+        preload="metadata"
+        poster="/placeholder-video.jpg"
         src={"/heroVideo.mp4"}
         autoPlay
         muted

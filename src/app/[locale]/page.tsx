@@ -1,22 +1,27 @@
+'use client';
+
 import React from "react";
 import dynamic from "next/dynamic";
-import Features from "@/components/features";
 import { Navbar } from "@/components/navbar";
 import { CubeAnimation } from "@/components/cubeAnimation";
-import Footer from "@/components/footer";
-import Trailer from "@/components/trailer";
-import Team from "@/components/team";
-import MotionCard from "@/components/motion-card";
 import GlowingAuras from "@/components/GlowingAuras";
-import CommunityCarousel from "@/components/community-carousel";
 import Link from "next/link";
 import Image from "next/image";
+import {useTranslations} from 'next-intl';
 
+// Dynamic imports for heavy components with lazy loading
 const TracingBeam = dynamic(() => import("@/components/ui/tracing-beam"));
+const Features = dynamic(() => import("@/components/features"));
+const Footer = dynamic(() => import("@/components/footer"));
+const Trailer = dynamic(() => import("@/components/trailer"));
+const Team = dynamic(() => import("@/components/team"));
+const MotionCard = dynamic(() => import("@/components/motion-card"));
+const CommunityCarousel = dynamic(() => import("@/components/community-carousel"));
 
 export default function Home() {
+  const t = useTranslations('home');
   return (
-    <main className="flex flex-col items-center justify-between overflow-hidden">
+    <main id="main-content" className="flex flex-col items-center justify-between overflow-hidden">
       <div className="relative w-full">
         <GlowingAuras />
         <Navbar />
@@ -42,16 +47,13 @@ export default function Home() {
       <div className="w-full bg-black/40 border-t border-gray-800">
         <div className="pt-10 mx-10 px-4 text-sm text-gray-400">
           <p className="mb-3">
-            Metacube is a free-to-play multiplayer event game on Starknet that revolutionizes blockchain gaming through player ownership. 
-            Developed by Clashware Sàrl, it combines massive multiplayer gameplay with blockchain technology benefits.
+            {t('seoText.paragraph1')}
           </p>
           <p className="mb-3">
-            Players join thousands in dismantling the mysterious Metacube, collecting unique NFTs along the way. 
-            The game features exclusive Metacube: Genesis and Passcards collections that offer special powers and advantages.
+            {t('seoText.paragraph2')}
           </p>
           <p className="mb-3">
-            Built with web3 technology on Starknet, Metacube ensures players truly own all achievements, items, and victories. 
-            Join our community on Discord and Twitter to stay updated on events and developments.
+            {t('seoText.paragraph3')}
           </p>
         </div>
       </div>
@@ -64,10 +66,12 @@ const NFTLinkWImage = ({
   title,
   href,
   image,
+  viewOnMarketplaceText,
 }: {
   title: string;
   href: string;
   image: string;
+  viewOnMarketplaceText: string;
 }) => {
   return (
     <Link
@@ -82,6 +86,7 @@ const NFTLinkWImage = ({
             alt={title}
             fill
             sizes="220px"
+            loading="lazy"
             unoptimized
             className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
           />
@@ -89,13 +94,13 @@ const NFTLinkWImage = ({
           <div className="absolute bottom-0 left-0 right-0 bg-black/60 backdrop-blur-sm p-3 transition-opacity duration-300">
             <span className="text-zinc-100 text-xl font-medium block text-center">{title}</span>
           </div>
-          
+
           {/* Hover effect gradient */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          
+
           {/* Hover text */}
           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span className="text-green-400 text-sm font-medium px-4 py-2 bg-black/70 rounded-md">View on Marketplace</span>
+            <span className="text-green-400 text-sm font-medium px-4 py-2 bg-black/70 rounded-md">{viewOnMarketplaceText}</span>
           </div>
         </div>
       </div>
@@ -104,30 +109,35 @@ const NFTLinkWImage = ({
 };
 
 const TradeNFTs = () => {
+  const t = useTranslations('home.tradeNfts');
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-black text-white">
       <div className="text-center p-4 sm:p-14 max-w-6xl mx-auto">
         <h1 className="text-4xl font-medium tracking-widest uppercase text-center mb-4">
-          Trade Your NFTs
+          {t('title')}
         </h1>
         <p className="text-gray-300 mb-8 p-4 max-w-3xl mx-auto">
-          Trade your Metacube NFTs on our premier Starknet trading platform! Discover unique in-game items from the <strong>Metacube: Genesis</strong>, <strong>Metacube: Passcards</strong>, and <strong>Metacube Allstars</strong> collections. Our marketplace is the central hub for buying, selling, and trading these digital assets, offering a seamless experience on Starknet.
+          {t('description')}
         </p>
         <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-8 sm:gap-12">
           <NFTLinkWImage
-            title="Genesis"
+            title={t('collections.genesis')}
             href="https://market.metacube.games/market"
             image="/g.gif"
+            viewOnMarketplaceText={t('viewOnMarketplace')}
           />
           <NFTLinkWImage
-            title="Passcard"
+            title={t('collections.passcard')}
             href="https://market.metacube.games/market"
             image="/passcard.gif"
+            viewOnMarketplaceText={t('viewOnMarketplace')}
           />
           <NFTLinkWImage
-            title="Allstars"
+            title={t('collections.allstars')}
             href="https://market.metacube.games/market"
             image="https://felts.xyz/v1/i/9900"
+            viewOnMarketplaceText={t('viewOnMarketplace')}
           />
         </div>
       </div>

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   motion,
   AnimatePresence,
@@ -8,6 +8,8 @@ import {
 } from "framer-motion";
 import { cn } from "@/utils/cn";
 import Link from "next/link";
+import {useTranslations} from 'next-intl';
+import { useFocusTrap } from "@/hooks/useFocusTrap";
 
 // Hamburger and Close Icons
 const MenuIcon = () => (
@@ -51,6 +53,9 @@ const FloatingNav = ({
   const { scrollY, scrollYProgress } = useScroll();
   const [visible, setVisible] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const t = useTranslations('navbar');
+  const focusTrapRef = useFocusTrap(isMobileMenuOpen);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   useMotionValueEvent(scrollYProgress, "change", (currentProgress: number) => {
     const currentPixelScroll = scrollY.get();
@@ -69,9 +74,9 @@ const FloatingNav = ({
 
   const isExternalLink = (url: string) => url.startsWith('http');
 
-  const regularNavItems = navItems.filter(item => item.name !== "Market" && item.name !== "Play");
-  const marketItem = navItems.find(item => item.name === "Market");
-  const playItem = navItems.find(item => item.name === "Play");
+  const regularNavItems = navItems.filter(item => !item.link.includes('market.metacube.games') && !item.link.includes('play.metacube.games'));
+  const marketItem = navItems.find(item => item.link.includes('market.metacube.games'));
+  const playItem = navItems.find(item => item.link.includes('play.metacube.games'));
 
   // Toggle mobile menu and prevent body scroll
   useEffect(() => {
@@ -79,10 +84,23 @@ const FloatingNav = ({
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
+      // Return focus to the menu button when closing
+      closeButtonRef.current?.focus();
     }
     return () => {
       document.body.style.overflow = 'unset'; // Cleanup on unmount
     };
+  }, [isMobileMenuOpen]);
+
+  // Handle escape key to close menu
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
   }, [isMobileMenuOpen]);
 
   return (
@@ -97,42 +115,42 @@ const FloatingNav = ({
           className
         )}
       >
-        <div className="flex items-center space-x-3 px-4 py-2">
+        <div className="flex items-center gap-1 px-3 py-2">
           {regularNavItems.map((navItem, idx: number) => (
             <Link
               key={`link-regular-${idx}`}
               href={navItem.link}
-              className={cn("relative items-center flex space-x-1.5 text-neutral-700 hover:text-neutral-900 transition-colors duration-150")}
+              className={cn("relative items-center flex gap-1.5 px-3 py-1.5 rounded-full text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 transition-colors duration-150")}
               target={isExternalLink(navItem.link) ? "_blank" : undefined}
               rel={isExternalLink(navItem.link) ? "noopener noreferrer" : undefined}
             >
               {navItem.icon}
-              <span className="text-sm font-medium">{navItem.name}</span>
+              <span className="text-sm font-medium whitespace-nowrap">{navItem.name}</span>
             </Link>
           ))}
         </div>
         {(marketItem || playItem) && (
-          <div className="flex items-center space-x-3 bg-black px-4 py-2">
+          <div className="flex items-center gap-1 bg-black px-3 py-2">
             {marketItem && (
               <Link
                 key={`link-market`}
                 href={marketItem.link}
-                className={cn("relative items-center flex space-x-1.5 text-neutral-200 hover:text-white transition-colors duration-150")}
+                className={cn("relative items-center flex gap-1.5 px-3 py-1.5 rounded-full text-neutral-200 hover:text-white hover:bg-neutral-800 transition-colors duration-150")}
                 target="_blank" rel="noopener noreferrer"
               >
                 {marketItem.icon}
-                <span className="text-sm font-medium">{marketItem.name}</span>
+                <span className="text-sm font-medium whitespace-nowrap">{marketItem.name}</span>
               </Link>
             )}
             {playItem && (
               <Link
                 key={`link-play`}
                 href={playItem.link}
-                className={cn("relative items-center flex space-x-1.5 text-neutral-200 hover:text-white transition-colors duration-150")}
+                className={cn("relative items-center flex gap-1.5 px-3 py-1.5 rounded-full text-neutral-200 hover:text-white hover:bg-neutral-800 transition-colors duration-150")}
                 target="_blank" rel="noopener noreferrer"
               >
                 {playItem.icon}
-                <span className="text-sm font-medium">{playItem.name}</span>
+                <span className="text-sm font-medium whitespace-nowrap">{playItem.name}</span>
               </Link>
             )}
           </div>
@@ -141,10 +159,13 @@ const FloatingNav = ({
 
       {/* Mobile Hamburger Menu Button - Only on mobile */}
       <div className="md:hidden fixed top-4 right-4 z-[5001]">
-        <button 
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
-          className="p-2 rounded-md text-neutral-700 bg-white/80 backdrop-blur-sm shadow-lg border border-neutral-200/80 hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-500"
-          aria-label="Toggle menu"
+        <button
+          ref={closeButtonRef}
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="p-2 rounded-md text-neutral-700 bg-white/80 backdrop-blur-sm shadow-lg border border-neutral-200/80 hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-500 min-w-[44px] min-h-[44px]"
+          aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isMobileMenuOpen}
+          aria-controls="mobile-menu"
         >
           {isMobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
         </button>
@@ -153,14 +174,17 @@ const FloatingNav = ({
       {/* Mobile Menu Drawer */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, x: "100%" }} // Slide in from the right
+          <motion.nav
+            id="mobile-menu"
+            ref={focusTrapRef as React.RefObject<HTMLElement>}
+            role="navigation"
+            aria-label="Mobile navigation"
+            initial={{ opacity: 0, x: "100%" }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="md:hidden fixed inset-0 bg-neutral-900/95 backdrop-blur-md z-[5000] p-8 pt-20 flex flex-col space-y-1"
             onClick={(e) => {
-              // Close only if clicking on the backdrop itself, not on a link
               if (e.target === e.currentTarget) {
                 setIsMobileMenuOpen(false);
               }
@@ -168,29 +192,31 @@ const FloatingNav = ({
           >
             {navItems.map((item, idx) => {
               const isExternal = isExternalLink(item.link);
-              const showDivider = item.name === "Market"; // Add divider before Market
+              const isMarketOrPlay = item.link.includes('market.metacube.games') || item.link.includes('play.metacube.games');
+              const showDivider = item.link.includes('market.metacube.games'); // Add divider before Market
 
               return (
                 <React.Fragment key={`mobile-fragment-${idx}`}>
                   {showDivider && (
-                    <hr className="border-neutral-700 my-4 mx-2" />
+                    <hr className="border-neutral-700 my-4 mx-2" aria-hidden="true" />
                   )}
                   <Link
                     key={`mobile-link-${idx}`}
                     href={item.link}
                     target={isExternal ? "_blank" : undefined}
                     rel={isExternal ? "noopener noreferrer" : undefined}
-                    onClick={() => setIsMobileMenuOpen(false)} // Close menu on link click
+                    onClick={() => setIsMobileMenuOpen(false)}
                     className="group flex items-center space-x-3 p-3 rounded-md text-2xl font-medium text-neutral-200 hover:bg-neutral-800 transition-colors duration-150"
+                    aria-label={isExternal ? `${item.name} (opens in new window)` : item.name}
                   >
-                    {item.icon && React.isValidElement(item.icon) && React.cloneElement(item.icon as React.ReactElement<any>, { className: "size-7" })}
+                    {item.icon && React.isValidElement(item.icon) && React.cloneElement(item.icon as React.ReactElement<{ className?: string; 'aria-hidden'?: string }>, { className: "size-7", "aria-hidden": "true" })}
                     <span>{item.name}</span>
-                    {(item.name === "Market" || item.name === "Play") && <ExternalLinkIcon />}
+                    {isMarketOrPlay && <ExternalLinkIcon />}
                   </Link>
                 </React.Fragment>
               );
             })}
-          </motion.div>
+          </motion.nav>
         )}
       </AnimatePresence>
     </>
