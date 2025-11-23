@@ -2,7 +2,7 @@ module.exports = {
     apps: [
       {
         name: "landing-page",
-        script: "pnpm",
+        script: "bun",
         args: "start",
         env: {
           NODE_ENV: "production",

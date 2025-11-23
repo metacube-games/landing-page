@@ -9,52 +9,64 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Deploy
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v1.2.0
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
+          port: 22
+          command_timeout: 30m
+          script_stop: true
+          debug: true
           script: |
-            # Install nvm if not present
-            if [ ! -d "$HOME/.nvm" ]; then
-              curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+            set -e  # Exit on error
+
+            echo "=== Deployment Started ==="
+
+            # Install Bun if not present
+            if ! command -v bun &> /dev/null; then
+              echo "Installing Bun..."
+              curl -fsSL https://bun.sh/install | bash
+              export BUN_INSTALL="$HOME/.bun"
+              export PATH="$BUN_INSTALL/bin:$PATH"
+            else
+              echo "Bun already installed"
             fi
 
-            # Load nvm
-            export NVM_DIR="$HOME/.nvm"
-            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            # Load Bun environment
+            export BUN_INSTALL="$HOME/.bun"
+            export PATH="$BUN_INSTALL/bin:$PATH"
 
-            # Install and use Node.js 20.9.0
-            nvm install 20.9.0
-            nvm use 20.9.0
-
-            # Verify Node version
-            echo "Node version: $(node -v)"
-            echo "Npm version: $(npm -v)"
+            # Verify Bun installation
+            echo "Bun version: $(bun --version)"
 
             # Run deploy script (build the app)
+            echo "Running deployment script..."
             /home/github/deploy.sh
 
-            # Stop and delete the old PM2 process to force it to use the new Node version
+            # Stop and delete the old PM2 process
             echo "Stopping old PM2 process..."
             pm2 delete landing-page || echo "No existing process to delete"
 
-            # Start PM2 with the new Node.js version
-            echo "Starting app with Node.js $(node -v)..."
+            # Start PM2 with Bun
+            echo "Starting app with Bun..."
             cd /home/github/landing-page
-            pm2 start npm --name "landing-page" -- start
+            pm2 start bun --name "landing-page" -- start
             pm2 save
 
             # Check if the process is running
             echo "Checking application status..."
-            sleep 3
+            sleep 5
             pm2 list
 
             # Show recent logs to verify it's working
-            echo "Recent logs:"
-            pm2 logs landing-page --lines 20 --nostream
+            echo "=== Recent Application Logs ==="
+            pm2 logs landing-page --lines 30 --nostream || echo "Could not fetch logs"
+
+            echo "=== Deployment Completed ==="
