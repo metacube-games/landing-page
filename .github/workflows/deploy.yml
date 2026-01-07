@@ -113,29 +113,4 @@ jobs:
               exit 1
             fi
 
-            # === SSL Certificate Renewal ===
-            echo "=== Checking SSL Certificate ==="
-
-            # Try to renew certificate with certbot (if installed)
-            if command -v certbot &> /dev/null; then
-              echo "Certbot found, attempting renewal..."
-              sudo certbot renew --non-interactive --quiet || echo "Certbot renewal skipped or failed"
-              sudo systemctl reload nginx 2>/dev/null || sudo nginx -s reload 2>/dev/null || echo "Nginx reload skipped"
-            elif [ -f "$HOME/.acme.sh/acme.sh" ]; then
-              echo "acme.sh found, attempting renewal..."
-              "$HOME/.acme.sh/acme.sh" --renew -d metacube.games -d "*.metacube.games" --force || echo "acme.sh renewal skipped"
-              sudo systemctl reload nginx 2>/dev/null || sudo nginx -s reload 2>/dev/null || echo "Nginx reload skipped"
-            else
-              echo "No certificate manager found, installing acme.sh..."
-              curl https://get.acme.sh | sh -s email=admin@metacube.games || echo "acme.sh install failed"
-              if [ -f "$HOME/.acme.sh/acme.sh" ]; then
-                echo "Issuing new certificate..."
-                "$HOME/.acme.sh/acme.sh" --issue -d metacube.games --webroot /var/www/html --force 2>/dev/null || \
-                "$HOME/.acme.sh/acme.sh" --issue -d metacube.games --standalone --force 2>/dev/null || \
-                echo "Certificate issuance requires manual DNS setup"
-              fi
-            fi
-
-            echo "=== SSL Check Complete ==="
-
             echo "=== Deployment Completed ==="
