@@ -532,5 +532,10 @@
     "title": "Page Not Found",
     "description": "The page you're looking for doesn't exist or has been moved to another location.",
     "quickLinks": "Or explore these pages:"
+  },
+  "unavailableDialog": {
+    "title": "Temporarily Unavailable",
+    "message": "The game is temporarily unavailable as we are preparing the next version.",
+    "close": "Close"
   }
 }

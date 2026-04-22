@@ -532,5 +532,10 @@
     "title": "Page non trouvée",
     "description": "La page que vous recherchez n'existe pas ou a été déplacée vers un autre emplacement.",
     "quickLinks": "Ou explorez ces pages :"
+  },
+  "unavailableDialog": {
+    "title": "Temporairement indisponible",
+    "message": "Le jeu est temporairement indisponible pendant que nous préparons la prochaine version.",
+    "close": "Fermer"
   }
 }

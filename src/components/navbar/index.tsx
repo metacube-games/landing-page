@@ -4,11 +4,6 @@ import React from "react";
 import FloatingNav from "./floating-navbar";
 import {useTranslations} from 'next-intl';
 
-// Helper function to check if a link is external
-const isExternalLink = (url: string) => {
-  return url.startsWith('http') || url.startsWith('https');
-};
-
 // Market logo
 export function Navbar() {
   const t = useTranslations('navbar');
@@ -112,24 +107,7 @@ export function Navbar() {
 
   return (
     <nav className="relative left-1/2">
-      <FloatingNav
-        navItems={navItems.map((item) => ({
-          ...item,
-          element: (
-            <a
-              href={item.link}
-              key={item.name}
-              className="flex items-center space-x-2"
-              target={isExternalLink(item.link) ? "_blank" : undefined}
-              rel={isExternalLink(item.link) ? "noopener noreferrer" : undefined}
-              aria-label={t('ariaLabel.learnMore', { name: item.name })}
-            >
-              {item.icon}
-              <span>{item.name}</span>
-            </a>
-          ),
-        }))}
-      />
+      <FloatingNav navItems={navItems} />
     </nav>
   );
 }

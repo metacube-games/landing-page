@@ -10,6 +10,7 @@ import { cn } from "@/utils/cn";
 import Link from "next/link";
 import {useTranslations} from 'next-intl';
 import { useFocusTrap } from "@/hooks/useFocusTrap";
+import { UnavailableDialog } from '@/components/ui/unavailable-dialog';
 
 // Hamburger and Close Icons
 const MenuIcon = () => (
@@ -53,6 +54,7 @@ const FloatingNav = ({
   const { scrollY, scrollYProgress } = useScroll();
   const [visible, setVisible] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [dialogOpen, setDialogOpen] = useState(false);
   const t = useTranslations('navbar');
   const focusTrapRef = useFocusTrap(isMobileMenuOpen);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
@@ -105,6 +107,7 @@ const FloatingNav = ({
 
   return (
     <>
+      <UnavailableDialog open={dialogOpen} onClose={() => setDialogOpen(false)} />
       {/* Desktop Floating Nav - Hides on mobile */}
       <motion.div
         initial={{ opacity: 1, y: -100 }}
@@ -132,26 +135,24 @@ const FloatingNav = ({
         {(marketItem || playItem) && (
           <div className="flex items-center gap-1 bg-black px-3 py-2">
             {marketItem && (
-              <Link
+              <button
                 key={`link-market`}
-                href={marketItem.link}
+                onClick={() => setDialogOpen(true)}
                 className={cn("relative items-center flex gap-1.5 px-3 py-1.5 rounded-full text-neutral-200 hover:text-white hover:bg-neutral-800 transition-colors duration-150")}
-                target="_blank" rel="noopener noreferrer"
               >
                 {marketItem.icon}
                 <span className="text-sm font-medium whitespace-nowrap">{marketItem.name}</span>
-              </Link>
+              </button>
             )}
             {playItem && (
-              <Link
+              <button
                 key={`link-play`}
-                href={playItem.link}
+                onClick={() => setDialogOpen(true)}
                 className={cn("relative items-center flex gap-1.5 px-3 py-1.5 rounded-full text-neutral-200 hover:text-white hover:bg-neutral-800 transition-colors duration-150")}
-                target="_blank" rel="noopener noreferrer"
               >
                 {playItem.icon}
                 <span className="text-sm font-medium whitespace-nowrap">{playItem.name}</span>
-              </Link>
+              </button>
             )}
           </div>
         )}
@@ -200,19 +201,30 @@ const FloatingNav = ({
                   {showDivider && (
                     <hr className="border-neutral-700 my-4 mx-2" aria-hidden="true" />
                   )}
-                  <Link
-                    key={`mobile-link-${idx}`}
-                    href={item.link}
-                    target={isExternal ? "_blank" : undefined}
-                    rel={isExternal ? "noopener noreferrer" : undefined}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="group flex items-center space-x-3 p-3 rounded-md text-2xl font-medium text-neutral-200 hover:bg-neutral-800 transition-colors duration-150"
-                    aria-label={isExternal ? `${item.name} (opens in new window)` : item.name}
-                  >
-                    {item.icon && React.isValidElement(item.icon) && React.cloneElement(item.icon as React.ReactElement<{ className?: string; 'aria-hidden'?: string }>, { className: "size-7", "aria-hidden": "true" })}
-                    <span>{item.name}</span>
-                    {isMarketOrPlay && <ExternalLinkIcon />}
-                  </Link>
+                  {isMarketOrPlay ? (
+                    <button
+                      key={`mobile-link-${idx}`}
+                      onClick={() => { setIsMobileMenuOpen(false); setDialogOpen(true); }}
+                      className="group flex items-center space-x-3 p-3 rounded-md text-2xl font-medium text-neutral-200 hover:bg-neutral-800 transition-colors duration-150 w-full text-left"
+                      aria-label={item.name}
+                    >
+                      {item.icon && React.isValidElement(item.icon) && React.cloneElement(item.icon as React.ReactElement<{ className?: string; 'aria-hidden'?: string }>, { className: "size-7", "aria-hidden": "true" })}
+                      <span>{item.name}</span>
+                    </button>
+                  ) : (
+                    <Link
+                      key={`mobile-link-${idx}`}
+                      href={item.link}
+                      target={isExternal ? "_blank" : undefined}
+                      rel={isExternal ? "noopener noreferrer" : undefined}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="group flex items-center space-x-3 p-3 rounded-md text-2xl font-medium text-neutral-200 hover:bg-neutral-800 transition-colors duration-150"
+                      aria-label={isExternal ? `${item.name} (opens in new window)` : item.name}
+                    >
+                      {item.icon && React.isValidElement(item.icon) && React.cloneElement(item.icon as React.ReactElement<{ className?: string; 'aria-hidden'?: string }>, { className: "size-7", "aria-hidden": "true" })}
+                      <span>{item.name}</span>
+                    </Link>
+                  )}
                 </React.Fragment>
               );
             })}

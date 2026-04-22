@@ -532,5 +532,10 @@
     "title": "Seite nicht gefunden",
     "description": "Die Seite, die Sie suchen, existiert nicht oder wurde an einen anderen Ort verschoben.",
     "quickLinks": "Oder erkunden Sie diese Seiten:"
+  },
+  "unavailableDialog": {
+    "title": "Vorübergehend nicht verfügbar",
+    "message": "Das Spiel ist vorübergehend nicht verfügbar, da wir die nächste Version vorbereiten.",
+    "close": "Schließen"
   }
 }

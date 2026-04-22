@@ -1,13 +1,13 @@
 'use client';
 
-import React from "react";
+import React, { useState } from "react";
 import dynamic from "next/dynamic";
 import { Navbar } from "@/components/navbar";
 import { CubeAnimation } from "@/components/cubeAnimation";
 import GlowingAuras from "@/components/GlowingAuras";
-import Link from "next/link";
 import Image from "next/image";
 import {useTranslations} from 'next-intl';
+import { UnavailableDialog } from '@/components/ui/unavailable-dialog';
 
 // Dynamic imports for heavy components with lazy loading
 const TracingBeam = dynamic(() => import("@/components/ui/tracing-beam"));
@@ -64,20 +64,19 @@ export default function Home() {
 
 const NFTLinkWImage = ({
   title,
-  href,
+  onClick,
   image,
   viewOnMarketplaceText,
 }: {
   title: string;
-  href: string;
+  onClick: () => void;
   image: string;
   viewOnMarketplaceText: string;
 }) => {
   return (
-    <Link
-      href={href}
-      target="_blank"
-      className="group h-full z-100 relative inline-block transition duration-300 hover:scale-105"
+    <button
+      onClick={onClick}
+      className="group h-full z-100 relative inline-block transition duration-300 hover:scale-105 text-left"
     >
       <div className="w-[200px] bg-black/40 backdrop-blur-sm border border-gray-800 rounded-xl overflow-hidden group-hover:border-green-600/50 group-hover:shadow-lg group-hover:shadow-green-500/20 transition-all duration-300">
         <div className="relative" style={{ paddingBottom: "150%" /* 2:3 aspect ratio */ }}>
@@ -104,14 +103,16 @@ const NFTLinkWImage = ({
           </div>
         </div>
       </div>
-    </Link>
+    </button>
   );
 };
 
 const TradeNFTs = () => {
   const t = useTranslations('home.tradeNfts');
+  const [dialogOpen, setDialogOpen] = useState(false);
 
   return (
+    <>
     <div className="min-h-screen flex items-center justify-center bg-black text-white">
       <div className="text-center p-4 sm:p-14 max-w-6xl mx-auto">
         <h1 className="text-4xl font-medium tracking-widest uppercase text-center mb-4">
@@ -123,24 +124,26 @@ const TradeNFTs = () => {
         <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-8 sm:gap-12">
           <NFTLinkWImage
             title={t('collections.genesis')}
-            href="https://market.metacube.games/market"
+            onClick={() => setDialogOpen(true)}
             image="/g.gif"
             viewOnMarketplaceText={t('viewOnMarketplace')}
           />
           <NFTLinkWImage
             title={t('collections.passcard')}
-            href="https://market.metacube.games/market"
+            onClick={() => setDialogOpen(true)}
             image="/passcard.gif"
             viewOnMarketplaceText={t('viewOnMarketplace')}
           />
           <NFTLinkWImage
             title={t('collections.allstars')}
-            href="https://market.metacube.games/market"
+            onClick={() => setDialogOpen(true)}
             image="https://felts.xyz/v1/i/9900"
             viewOnMarketplaceText={t('viewOnMarketplace')}
           />
         </div>
       </div>
     </div>
+    <UnavailableDialog open={dialogOpen} onClose={() => setDialogOpen(false)} />
+    </>
   );
 };

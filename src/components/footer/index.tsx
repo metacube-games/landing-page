@@ -1,7 +1,7 @@
 'use client';
 
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { SocialIcon } from "react-social-icons/component";
 import "react-social-icons/x";
 import "react-social-icons/telegram";
@@ -14,11 +14,14 @@ import "react-social-icons/facebook";
 import Link from "next/link";
 import {useTranslations} from 'next-intl';
 import LocaleSwitcher from "@/components/LocaleSwitcher";
+import { UnavailableDialog } from '@/components/ui/unavailable-dialog';
 
 const Footer: React.FC = () => {
   const t = useTranslations('footer');
+  const [dialogOpen, setDialogOpen] = useState(false);
 
   return (
+    <>
     <footer className="bg-black text-white p-4 md:p-8 w-full" role="contentinfo">
       <div className="container mx-auto flex md:flex-row flex-col-reverse justify-between items-start gap-8">
         <div className="text-sm md:text-md mt-8 md:mt-0 w-full md:w-auto text-center md:text-left space-y-4">
@@ -114,15 +117,13 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link
-                  href="https://play.metacube.games/linkWallet"
-                  className="hover:text-gray-300 inline-block py-2 min-h-[44px]"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`${t('links.linkWallet')} (opens in new window)`}
+                <button
+                  onClick={() => setDialogOpen(true)}
+                  className="hover:text-gray-300 inline-block py-2 min-h-[44px] text-left"
+                  aria-label={t('links.linkWallet')}
                 >
                   {t('links.linkWallet')}
-                </Link>
+                </button>
               </li>
               <li>
                 <Link
@@ -202,6 +203,8 @@ const Footer: React.FC = () => {
         </div>
       </div>
     </footer>
+    <UnavailableDialog open={dialogOpen} onClose={() => setDialogOpen(false)} />
+    </>
   );
 };
 
