@@ -189,10 +189,10 @@ export default function PrivacyPolicy({
               <p className="text-gray-300 leading-relaxed">
                 {t("sections.contact.content")}{" "}
                 <a
-                  href="mailto:contact@metacube.games"
+                  href="mailto:contact@clashware.com"
                   className="text-green-400 hover:underline"
                 >
-                  contact@metacube.games
+                  contact@clashware.com
                 </a>
                 .
               </p>

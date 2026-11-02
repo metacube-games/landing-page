@@ -117,7 +117,7 @@ export default function Error({
           <p className="text-sm text-neutral-500">
             {tError('supportText')}{" "}
             <a
-              href="mailto:contact@metacube.com"
+              href="mailto:contact@clashware.com"
               className="text-neutral-300 hover:text-white underline transition-colors"
             >
               {tError('contactSupport')}
